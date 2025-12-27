@@ -3,19 +3,19 @@ export const cars = [
     id: "bmw-320i",
     brand: "BMW",
     model: "320i",
-
-    type: "sedan", // sedan | hatch | suv | coupe | wagon
-    doors: 4, // número
-    engine: 2.0, // litros
-    decade: 2010, // 2010 = 2010s
+    type: "sedan",
+    doors: 4,
+    engine: 2.0,
+    decade: 2010,
     valves: 16,
     aspiration: "turbo", // aspirated | turbo | supercharged | electric
     fuel: "flex", // gas | flex | diesel | hybrid | electric
     traction: "rwd", // fwd | rwd | awd
     transmission: "auto", // manual | auto | cvt
-    priceRange: "200k+", // <50k | 50k-100k | 100k-200k | 200k+
+    priceRange: "200k+",
   },
   {
+    id: "honda-civic-si",
     brand: "Honda",
     model: "Civic Si",
     type: "sedan",
@@ -23,13 +23,14 @@ export const cars = [
     engine: 2.0,
     decade: 2010,
     valves: 16,
-    aspiration: "aspirado",
-    fuel: "gasolina",
+    aspiration: "aspirated",
+    fuel: "gas",
     traction: "fwd",
     transmission: "manual",
-    priceRange: "100k-150k",
+    priceRange: "100k-200k",
   },
   {
+    id: "vw-golf-gti",
     brand: "Volkswagen",
     model: "Golf GTI",
     type: "hatch",
@@ -38,7 +39,7 @@ export const cars = [
     decade: 2010,
     valves: 16,
     aspiration: "turbo",
-    fuel: "gasolina",
+    fuel: "gas",
     traction: "fwd",
     transmission: "auto",
     priceRange: "150k-200k",
