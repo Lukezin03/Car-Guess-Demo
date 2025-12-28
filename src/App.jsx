@@ -14,7 +14,7 @@ function compareAttribute(guess, answer, type = "equal") {
     return guess > answer ? "down" : "up";
   }
 
-  if (type === "range") {
+  if (type === "category") {
     return guess === answer ? "correct" : "neutral";
   }
 
@@ -35,7 +35,7 @@ const ATTRIBUTES = [
   { key: "fuel", label: "Combustível", type: "equal" },
   { key: "traction", label: "Tração", type: "equal" },
   { key: "transmission", label: "Câmbio", type: "equal" },
-  { key: "priceRange", label: "Preço", type: "range" },
+  { key: "category", label: "Categoria", type: "category" },
 ];
 
 function getRandomCar() {
@@ -118,8 +118,12 @@ function App() {
 
                   <strong style={styles.value}>
                     {car[attr.key]}
-                    {result === "up" && <span> ↑</span>}
-                    {result === "down" && <span> ↓</span>}
+                    {attr.type === "number" && result === "up" && (
+                      <span> ↑</span>
+                    )}
+                    {attr.type === "number" && result === "down" && (
+                      <span> ↓</span>
+                    )}
                   </strong>
                 </div>
               );
@@ -151,7 +155,15 @@ function App() {
               setSelectedBrand(e.target.value);
               setSelectedModel("");
             }}
-            style={styles.select}
+            style={{
+              width: "100%",
+              padding: "8px",
+              height: "44px",
+              fontSize: "14px",
+              borderRadius: "6px",
+              border: "1px solid #ccc",
+              backgroundColor: "#fff",
+            }}
           >
             <option value="">Marca</option>
             {brands.map((brand) => (
@@ -165,7 +177,15 @@ function App() {
             value={selectedModel}
             onChange={(e) => setSelectedModel(e.target.value)}
             disabled={!selectedBrand}
-            style={styles.select}
+            style={{
+              width: "100%",
+              padding: "8px",
+              height: "44px",
+              fontSize: "14px",
+              borderRadius: "6px",
+              border: "1px solid #ccc",
+              backgroundColor: "#fff",
+            }}
           >
             <option value="">Modelo</option>
             {modelsByBrand.map((car) => (
@@ -257,11 +277,6 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     gap: "6px",
-  },
-  select: {
-    width: "100%",
-    padding: "8px",
-    borderRadius: "6px",
   },
   preview: {
     fontSize: "11px",
