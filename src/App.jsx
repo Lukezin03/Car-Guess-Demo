@@ -25,17 +25,47 @@ function compareAttribute(guess, answer, type = "equal") {
    ATRIBUTOS
 ======================= */
 const ATTRIBUTES = [
-  { key: "brand", label: "Marca", type: "equal" },
-  { key: "type", label: "Tipo", type: "equal" },
-  { key: "doors", label: "Portas", type: "number" },
-  { key: "engine", label: "Motor", type: "number" },
-  { key: "decade", label: "Década", type: "number" },
-  { key: "valves", label: "Válvulas", type: "number" },
-  { key: "aspiration", label: "Aspiração", type: "equal" },
-  { key: "fuel", label: "Combustível", type: "equal" },
-  { key: "traction", label: "Tração", type: "equal" },
-  { key: "transmission", label: "Câmbio", type: "equal" },
-  { key: "category", label: "Categoria", type: "category" },
+  { key: "brand", label: "Marca", type: "equal", getValue: (car) => car.brand },
+  {
+    key: "bodyStyle",
+    label: "Tipo",
+    type: "equal",
+    getValue: (car) => car.bodyStyle,
+  },
+  { key: "doors", label: "Portas", type: "number", getValue: (car) => car.doors },
+  {
+    key: "engineDisplacement",
+    label: "Motor",
+    type: "number",
+    getValue: (car) => car.engine?.displacement,
+  },
+  { key: "year", label: "Ano", type: "number", getValue: (car) => car.year },
+  {
+    key: "engineValves",
+    label: "Válvulas",
+    type: "number",
+    getValue: (car) => car.engine?.valves,
+  },
+  {
+    key: "aspiration",
+    label: "Aspiração",
+    type: "equal",
+    getValue: (car) => car.engine?.aspiration,
+  },
+  { key: "fuel", label: "Combustível", type: "equal", getValue: (car) => car.fuel },
+  { key: "traction", label: "Tração", type: "equal", getValue: (car) => car.traction },
+  {
+    key: "transmission",
+    label: "Câmbio",
+    type: "equal",
+    getValue: (car) => car.transmission,
+  },
+  {
+    key: "category",
+    label: "Categoria",
+    type: "category",
+    getValue: (car) => car.category,
+  },
 ];
 
 function getRandomCar() {
@@ -44,37 +74,54 @@ function getRandomCar() {
 
 function App() {
   const [answerCar, setAnswerCar] = useState(getRandomCar());
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const [selectedModel, setSelectedModel] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCar, setSelectedCar] = useState(null);
   const [guesses, setGuesses] = useState([]);
   const [hasWon, setHasWon] = useState(false);
 
-  const brands = [...new Set(cars.map((car) => car.brand))];
-  const modelsByBrand = cars.filter((car) => car.brand === selectedBrand);
+  const normalizedSearch = normalizeText(searchTerm);
+  const searchTokens = normalizedSearch.split(" ").filter(Boolean);
+  const filteredCars =
+    searchTokens.length === 0
+      ? []
+      : cars.filter((car) =>
+          searchTokens.every((token) =>
+            isTokenMatch(token, buildSearchIndex(car))
+          )
+        );
 
-  const previewCar = cars.find(
-    (c) => c.brand === selectedBrand && c.model === selectedModel
-  );
+  const previewCar = selectedCar;
+  const showResults = searchTokens.length > 0 && !selectedCar;
+
+  function handleSearchChange(nextValue) {
+    const normalizedValue = normalizeText(nextValue);
+    const exactMatch = cars.find(
+      (car) => buildSearchIndex(car) === normalizedValue
+    );
+
+    setSearchTerm(nextValue);
+    setSelectedCar(exactMatch ?? null);
+  }
 
   function handleConfirm() {
     if (!previewCar || hasWon) return;
 
     setGuesses((prev) => [previewCar, ...prev]);
 
-    if (previewCar.model === answerCar.model) {
+    if (previewCar.id === answerCar.id) {
       setHasWon(true);
     }
 
-    setSelectedBrand("");
-    setSelectedModel("");
+    setSearchTerm("");
+    setSelectedCar(null);
   }
 
   function resetGame() {
     setAnswerCar(getRandomCar());
     setGuesses([]);
     setHasWon(false);
-    setSelectedBrand("");
-    setSelectedModel("");
+    setSearchTerm("");
+    setSelectedCar(null);
   }
 
   return (
@@ -96,10 +143,11 @@ function App() {
           <div style={styles.grid}>
             {ATTRIBUTES.map((attr) => {
               const result = compareAttribute(
-                car[attr.key],
-                answerCar[attr.key],
+                attr.getValue(car),
+                attr.getValue(answerCar),
                 attr.type
               );
+              const displayValue = attr.getValue(car);
 
               return (
                 <div
@@ -117,7 +165,7 @@ function App() {
                   <small style={styles.label}>{attr.label}</small>
 
                   <strong style={styles.value}>
-                    {car[attr.key]}
+                    {displayValue}
                     {attr.type === "number" && result === "up" && (
                       <span> ↑</span>
                     )}
@@ -149,58 +197,46 @@ function App() {
       ======================= */}
       {!hasWon && (
         <div style={styles.bottomBar}>
-          <select
-            value={selectedBrand}
-            onChange={(e) => {
-              setSelectedBrand(e.target.value);
-              setSelectedModel("");
-            }}
-            style={{
-              width: "100%",
-              padding: "8px",
-              height: "44px",
-              fontSize: "14px",
-              borderRadius: "6px",
-              border: "1px solid #ccc",
-              backgroundColor: "#fff",
-            }}
-          >
-            <option value="">Marca</option>
-            {brands.map((brand) => (
-              <option key={brand} value={brand}>
-                {brand}
-              </option>
-            ))}
-          </select>
-
-          <select
-            value={selectedModel}
-            onChange={(e) => setSelectedModel(e.target.value)}
-            disabled={!selectedBrand}
-            style={{
-              width: "100%",
-              padding: "8px",
-              height: "44px",
-              fontSize: "14px",
-              borderRadius: "6px",
-              border: "1px solid #ccc",
-              backgroundColor: "#fff",
-            }}
-          >
-            <option value="">Modelo</option>
-            {modelsByBrand.map((car) => (
-              <option key={car.model} value={car.model}>
-                {car.model}
-              </option>
-            ))}
-          </select>
+          <div style={styles.searchWrapper}>
+            <input
+              value={searchTerm}
+              onChange={(event) => handleSearchChange(event.target.value)}
+              placeholder="Busque marca, modelo ou ano (ex: civic 2010)"
+              style={styles.searchInput}
+            />
+            {showResults && (
+              <div style={styles.searchResults}>
+                {filteredCars.length === 0 && (
+                  <span style={styles.emptyResult}>
+                    Nenhum carro encontrado.
+                  </span>
+                )}
+                {filteredCars.slice(0, 8).map((car) => (
+                  <button
+                    key={car.id}
+                    type="button"
+                    style={styles.searchOption}
+                    onClick={() => {
+                      setSelectedCar(car);
+                      setSearchTerm(getCarLabel(car));
+                    }}
+                  >
+                    <strong>{getCarLabel(car)}</strong>{" "}
+                    <span style={styles.optionMeta}>
+                      {car.bodyStyle} · {car.category}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* PREVIEW (SEM COMPARAÇÃO) */}
           {previewCar && (
             <div style={styles.preview}>
               {ATTRIBUTES.map((attr) => (
                 <span key={attr.key}>
-                  <strong>{attr.label}:</strong> {previewCar[attr.key]}
+                  <strong>{attr.label}:</strong> {attr.getValue(previewCar)}
                 </span>
               ))}
             </div>
@@ -220,6 +256,82 @@ function App() {
 }
 
 export default App;
+
+function normalizeText(value) {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\w\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function buildSearchIndex(car) {
+  return normalizeText(
+    [
+      car.brand,
+      car.model,
+      car.trim,
+      car.generationOrChassis,
+      car.bodyStyle,
+      car.year,
+      car.engine?.displacement,
+      car.category,
+    ]
+      .filter(Boolean)
+      .join(" ")
+  );
+}
+
+function getCarLabel(car) {
+  const labelParts = [
+    car.brand,
+    car.model,
+    car.generationOrChassis,
+    car.trim,
+    car.engine?.displacement,
+  ].filter(Boolean);
+  const baseLabel = labelParts.join(" ");
+  return car.year ? `${baseLabel} (${car.year})` : baseLabel;
+}
+
+function isTokenMatch(token, searchIndex) {
+  if (searchIndex.includes(token)) return true;
+  const words = searchIndex.split(" ");
+  return words.some((word) => levenshteinDistance(word, token) <= 1);
+}
+
+function levenshteinDistance(a, b) {
+  if (a === b) return 0;
+  if (!a) return b.length;
+  if (!b) return a.length;
+
+  const matrix = Array.from({ length: a.length + 1 }, () =>
+    Array.from({ length: b.length + 1 }, () => 0)
+  );
+
+  for (let i = 0; i <= a.length; i += 1) {
+    matrix[i][0] = i;
+  }
+
+  for (let j = 0; j <= b.length; j += 1) {
+    matrix[0][j] = j;
+  }
+
+  for (let i = 1; i <= a.length; i += 1) {
+    for (let j = 1; j <= b.length; j += 1) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      matrix[i][j] = Math.min(
+        matrix[i - 1][j] + 1,
+        matrix[i][j - 1] + 1,
+        matrix[i - 1][j - 1] + cost
+      );
+    }
+  }
+
+  return matrix[a.length][b.length];
+}
 
 /* =======================
    ESTILOS
@@ -277,6 +389,56 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     gap: "6px",
+  },
+  searchWrapper: {
+    position: "relative",
+  },
+  searchInput: {
+    width: "100%",
+    padding: "10px 12px",
+    height: "44px",
+    fontSize: "14px",
+    borderRadius: "6px",
+    border: "1px solid #ccc",
+    backgroundColor: "#fff",
+  },
+  searchResults: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: "52px",
+    background: "#fff",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
+    padding: "6px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "4px",
+    zIndex: 2,
+    maxHeight: "240px",
+    overflowY: "auto",
+  },
+  searchOption: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "8px",
+    borderRadius: "6px",
+    border: "1px solid transparent",
+    background: "#f7f7f7",
+    cursor: "pointer",
+    textAlign: "left",
+    fontSize: "13px",
+  },
+  optionMeta: {
+    fontSize: "11px",
+    opacity: 0.7,
+  },
+  emptyResult: {
+    padding: "8px",
+    fontSize: "12px",
+    opacity: 0.7,
   },
   preview: {
     fontSize: "11px",
