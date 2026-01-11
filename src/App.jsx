@@ -32,7 +32,12 @@ const ATTRIBUTES = [
     type: "equal",
     getValue: (car) => car.bodyStyle,
   },
-  { key: "doors", label: "Portas", type: "number", getValue: (car) => car.doors },
+  {
+    key: "doors",
+    label: "Portas",
+    type: "number",
+    getValue: (car) => car.doors,
+  },
   {
     key: "engineDisplacement",
     label: "Motor",
@@ -52,8 +57,18 @@ const ATTRIBUTES = [
     type: "equal",
     getValue: (car) => car.engine?.aspiration,
   },
-  { key: "fuel", label: "Combustível", type: "equal", getValue: (car) => car.fuel },
-  { key: "traction", label: "Tração", type: "equal", getValue: (car) => car.traction },
+  {
+    key: "fuel",
+    label: "Combustível",
+    type: "equal",
+    getValue: (car) => car.fuel,
+  },
+  {
+    key: "traction",
+    label: "Tração",
+    type: "equal",
+    getValue: (car) => car.traction,
+  },
   {
     key: "transmission",
     label: "Câmbio",
