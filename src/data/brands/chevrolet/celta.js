@@ -1,20 +1,20 @@
-export const chevroletPrisma = [
+export const chevroletCelta = [
   /*
   ================================================
-                 PRISMA (G1)
-                (2006–2012)
+                      G1
+                (2000–2006)
   ================================================
   */
   {
-    id: "chevrolet-prisma-g1-2007-maxx-1.4",
+    id: "chevrolet-celta-g1-2004-base-1.0",
     brand: "Chevrolet",
-    model: "Prisma",
-    trim: "Maxx",
+    model: "Celta",
+    trim: "Base",
     generationOrChassis: "G1",
-    bodyStyle: "sedan",
-    year: 2007,
+    bodyStyle: "hatch",
+    year: 2004,
     engine: {
-      displacement: 1.4,
+      displacement: 1.0,
       cylinders: 4,
       valves: 8,
       aspiration: "aspirado",
@@ -24,18 +24,18 @@ export const chevroletPrisma = [
     transmission: "manual",
     category: "popular",
     brandOriginCountry: "USA",
-    doors: 4,
+    doors: 2,
   },
   {
-    id: "chevrolet-prisma-g1-2010-joy-1.4",
+    id: "chevrolet-celta-g1-2006-spirit-1.0",
     brand: "Chevrolet",
-    model: "Prisma",
-    trim: "Joy",
+    model: "Celta",
+    trim: "Spirit",
     generationOrChassis: "G1",
-    bodyStyle: "sedan",
-    year: 2010,
+    bodyStyle: "hatch",
+    year: 2006,
     engine: {
-      displacement: 1.4,
+      displacement: 1.0,
       cylinders: 4,
       valves: 8,
       aspiration: "aspirado",
@@ -50,65 +50,44 @@ export const chevroletPrisma = [
 
   /*
   ================================================
-                 PRISMA (G2)
-                (2013–2019)
+                      G2
+                (2006–2016)
   ================================================
   */
   {
-    id: "chevrolet-prisma-g2-2013-lt-1.4",
+    id: "chevrolet-celta-g2-2010-lt-1.0",
     brand: "Chevrolet",
-    model: "Prisma",
+    model: "Celta",
     trim: "LT",
     generationOrChassis: "G2",
-    bodyStyle: "sedan",
-    year: 2013,
-    engine: {
-      displacement: 1.4,
-      cylinders: 4,
-      valves: 8,
-      aspiration: "aspirado",
-    },
-    fuel: "flex",
-    traction: "fwd",
-    transmission: "manual",
-    category: "popular",
-    brandOriginCountry: "USA",
-    doors: 4,
-  },
-  {
-    id: "chevrolet-prisma-g2-2016-ltz-1.4",
-    brand: "Chevrolet",
-    model: "Prisma",
-    trim: "LTZ",
-    generationOrChassis: "G2",
-    bodyStyle: "sedan",
-    year: 2016,
-    engine: {
-      displacement: 1.4,
-      cylinders: 4,
-      valves: 8,
-      aspiration: "aspirado",
-    },
-    fuel: "flex",
-    traction: "fwd",
-    transmission: "manual",
-    category: "popular",
-    brandOriginCountry: "USA",
-    doors: 4,
-  },
-  {
-    id: "chevrolet-prisma-g2-2019-turbo-1.0",
-    brand: "Chevrolet",
-    model: "Prisma",
-    trim: "Turbo",
-    generationOrChassis: "G2",
-    bodyStyle: "sedan",
-    year: 2019,
+    bodyStyle: "hatch",
+    year: 2010,
     engine: {
       displacement: 1.0,
-      cylinders: 3,
-      valves: 12,
-      aspiration: "turbo",
+      cylinders: 4,
+      valves: 8,
+      aspiration: "aspirado",
+    },
+    fuel: "flex",
+    traction: "fwd",
+    transmission: "manual",
+    category: "popular",
+    brandOriginCountry: "USA",
+    doors: 2,
+  },
+  {
+    id: "chevrolet-celta-g2-2015-advantage-1.0",
+    brand: "Chevrolet",
+    model: "Celta",
+    trim: "Advantage",
+    generationOrChassis: "G2",
+    bodyStyle: "hatch",
+    year: 2015,
+    engine: {
+      displacement: 1.0,
+      cylinders: 4,
+      valves: 8,
+      aspiration: "aspirado",
     },
     fuel: "flex",
     traction: "fwd",

@@ -1,9 +1,14 @@
 export const bmwM3 = [
+  /*
+  ================================================
+                      G80
+  ================================================
+  */
   {
-    id: "bmw-m3-2020",
+    id: "bmw-m3-g80-2020",
     brand: "BMW",
     model: "M3",
-    trim: "Base",
+    trim: "Competition",
     generationOrChassis: "G80",
     bodyStyle: "sedan",
     year: 2020,
@@ -13,9 +18,9 @@ export const bmwM3 = [
       valves: 24,
       aspiration: "turbo",
     },
-    fuel: "flex",
+    fuel: "gasolina",
     traction: "rwd",
-    transmission: "manual",
+    transmission: "auto",
     category: "esportivo",
     brandOriginCountry: "Germany",
     doors: 4,

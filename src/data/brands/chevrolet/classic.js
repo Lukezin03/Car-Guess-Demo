@@ -1,0 +1,50 @@
+export const chevroletClassic = [
+  /*
+  ================================================
+                    CLASSIC
+                (2010–2016)
+  ================================================
+  */
+  {
+    id: "chevrolet-classic-g2-2011-ls-1.0",
+    brand: "Chevrolet",
+    model: "Classic",
+    trim: "LS",
+    generationOrChassis: "G2",
+    bodyStyle: "sedan",
+    year: 2011,
+    engine: {
+      displacement: 1.0,
+      cylinders: 4,
+      valves: 8,
+      aspiration: "aspirado",
+    },
+    fuel: "flex",
+    traction: "fwd",
+    transmission: "manual",
+    category: "popular",
+    brandOriginCountry: "USA",
+    doors: 4,
+  },
+  {
+    id: "chevrolet-classic-g2-2014-ls-1.0",
+    brand: "Chevrolet",
+    model: "Classic",
+    trim: "LS",
+    generationOrChassis: "G2",
+    bodyStyle: "sedan",
+    year: 2014,
+    engine: {
+      displacement: 1.0,
+      cylinders: 4,
+      valves: 8,
+      aspiration: "aspirado",
+    },
+    fuel: "flex",
+    traction: "fwd",
+    transmission: "manual",
+    category: "popular",
+    brandOriginCountry: "USA",
+    doors: 4,
+  },
+];

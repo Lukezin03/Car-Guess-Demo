@@ -1,0 +1,29 @@
+export const renaultCaptur = [
+  /*
+  ================================================
+              CAPTUR (G1)
+               (2017–2023)
+  ================================================
+  */
+  {
+    id: "renault-captur-g1-2020-zen-1.6-16v",
+    brand: "Renault",
+    model: "Captur",
+    trim: "Zen",
+    generationOrChassis: "G1",
+    bodyStyle: "suv",
+    year: 2020,
+    engine: {
+      displacement: 1.6,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "aspirado",
+    },
+    fuel: "flex",
+    traction: "fwd",
+    transmission: "cvt",
+    category: "médio",
+    brandOriginCountry: "France",
+    doors: 4,
+  },
+];

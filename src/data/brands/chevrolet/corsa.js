@@ -1,41 +1,41 @@
-export const chevroletPrisma = [
+export const chevroletCorsa = [
   /*
   ================================================
-                 PRISMA (G1)
-                (2006–2012)
+                  CORSA (G1)
+                (1994–2002)
   ================================================
   */
   {
-    id: "chevrolet-prisma-g1-2007-maxx-1.4",
+    id: "chevrolet-corsa-g1-1994-wind-1.0",
     brand: "Chevrolet",
-    model: "Prisma",
-    trim: "Maxx",
+    model: "Corsa",
+    trim: "Wind",
     generationOrChassis: "G1",
-    bodyStyle: "sedan",
-    year: 2007,
+    bodyStyle: "hatch",
+    year: 1994,
     engine: {
-      displacement: 1.4,
+      displacement: 1.0,
       cylinders: 4,
       valves: 8,
       aspiration: "aspirado",
     },
-    fuel: "flex",
+    fuel: "gasolina",
     traction: "fwd",
     transmission: "manual",
     category: "popular",
     brandOriginCountry: "USA",
-    doors: 4,
+    doors: 2,
   },
   {
-    id: "chevrolet-prisma-g1-2010-joy-1.4",
+    id: "chevrolet-corsa-g1-1998-gls-1.6",
     brand: "Chevrolet",
-    model: "Prisma",
-    trim: "Joy",
+    model: "Corsa",
+    trim: "GLS",
     generationOrChassis: "G1",
     bodyStyle: "sedan",
-    year: 2010,
+    year: 1998,
     engine: {
-      displacement: 1.4,
+      displacement: 1.6,
       cylinders: 4,
       valves: 8,
       aspiration: "aspirado",
@@ -50,65 +50,44 @@ export const chevroletPrisma = [
 
   /*
   ================================================
-                 PRISMA (G2)
-                (2013–2019)
+                  CORSA (G2)
+                (2002–2012)
   ================================================
   */
   {
-    id: "chevrolet-prisma-g2-2013-lt-1.4",
+    id: "chevrolet-corsa-g2-2004-maxx-1.0",
     brand: "Chevrolet",
-    model: "Prisma",
-    trim: "LT",
+    model: "Corsa",
+    trim: "Maxx",
     generationOrChassis: "G2",
-    bodyStyle: "sedan",
-    year: 2013,
-    engine: {
-      displacement: 1.4,
-      cylinders: 4,
-      valves: 8,
-      aspiration: "aspirado",
-    },
-    fuel: "flex",
-    traction: "fwd",
-    transmission: "manual",
-    category: "popular",
-    brandOriginCountry: "USA",
-    doors: 4,
-  },
-  {
-    id: "chevrolet-prisma-g2-2016-ltz-1.4",
-    brand: "Chevrolet",
-    model: "Prisma",
-    trim: "LTZ",
-    generationOrChassis: "G2",
-    bodyStyle: "sedan",
-    year: 2016,
-    engine: {
-      displacement: 1.4,
-      cylinders: 4,
-      valves: 8,
-      aspiration: "aspirado",
-    },
-    fuel: "flex",
-    traction: "fwd",
-    transmission: "manual",
-    category: "popular",
-    brandOriginCountry: "USA",
-    doors: 4,
-  },
-  {
-    id: "chevrolet-prisma-g2-2019-turbo-1.0",
-    brand: "Chevrolet",
-    model: "Prisma",
-    trim: "Turbo",
-    generationOrChassis: "G2",
-    bodyStyle: "sedan",
-    year: 2019,
+    bodyStyle: "hatch",
+    year: 2004,
     engine: {
       displacement: 1.0,
-      cylinders: 3,
-      valves: 12,
-      aspiration: "turbo",
+      cylinders: 4,
+      valves: 8,
+      aspiration: "aspirado",
+    },
+    fuel: "flex",
+    traction: "fwd",
+    transmission: "manual",
+    category: "popular",
+    brandOriginCountry: "USA",
+    doors: 4,
+  },
+  {
+    id: "chevrolet-corsa-g2-2010-sedan-1.4",
+    brand: "Chevrolet",
+    model: "Corsa",
+    trim: "Sedan",
+    generationOrChassis: "G2",
+    bodyStyle: "sedan",
+    year: 2010,
+    engine: {
+      displacement: 1.4,
+      cylinders: 4,
+      valves: 8,
+      aspiration: "aspirado",
     },
     fuel: "flex",
     traction: "fwd",
