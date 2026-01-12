@@ -1,0 +1,23 @@
+export const hondaAccord = [
+  {
+    id: "honda-accord-2015",
+    brand: "Honda",
+    model: "Accord",
+    trim: "",
+    generationOrChassis: "9ª geração",
+    bodyStyle: "sedan",
+    year: 2015,
+    engine: {
+      displacement: 2.4,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "aspirado",
+    },
+    fuel: "flex",
+    traction: "fwd",
+    transmission: "auto",
+    category: "luxo",
+    brandOriginCountry: "Japan",
+    doors: 4,
+  },
+];

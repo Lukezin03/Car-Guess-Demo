@@ -412,7 +412,7 @@ const styles = {
     width: "100%",
     padding: "10px 12px",
     height: "44px",
-    fontSize: "14px",
+    fontSize: "16px", // <- isso impede o zoom no iOS
     borderRadius: "6px",
     border: "1px solid #ccc",
     backgroundColor: "#fff",

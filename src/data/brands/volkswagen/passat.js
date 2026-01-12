@@ -1,0 +1,23 @@
+export const volkswagenPassat = [
+  {
+    id: "vw-passat-2018",
+    brand: "Volkswagen",
+    model: "Passat",
+    trim: "Highline",
+    generationOrChassis: "B8",
+    bodyStyle: "sedan",
+    year: 2018,
+    engine: {
+      displacement: 2.0,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "turbo",
+    },
+    fuel: "flex",
+    traction: "fwd",
+    transmission: "auto",
+    category: "luxo",
+    brandOriginCountry: "Germany",
+    doors: 4,
+  },
+];

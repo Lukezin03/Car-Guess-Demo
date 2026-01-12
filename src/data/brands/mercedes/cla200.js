@@ -1,0 +1,23 @@
+export const mercedesCLA200 = [
+  {
+    id: "mercedes-cla200-2016",
+    brand: "Mercedes",
+    model: "CLA",
+    trim: "200",
+    generationOrChassis: "C117",
+    bodyStyle: "sedan",
+    year: 2016,
+    engine: {
+      displacement: 1.6,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "turbo",
+    },
+    fuel: "gasolina",
+    traction: "fwd",
+    transmission: "auto",
+    category: "luxo",
+    brandOriginCountry: "Germany",
+    doors: 4,
+  },
+];
