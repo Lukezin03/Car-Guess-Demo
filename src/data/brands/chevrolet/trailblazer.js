@@ -1,0 +1,23 @@
+export const chevroletTrailblazer = [
+  {
+    id: "chevrolet-trailblazer-2020",
+    brand: "Chevrolet",
+    model: "Trailblazer",
+    trim: "LTZ",
+    generationOrChassis: "Trailblazer II",
+    bodyStyle: "suv",
+    year: 2020,
+    engine: {
+      displacement: 2.8,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "turbo",
+    },
+    fuel: "diesel",
+    traction: "awd",
+    transmission: "auto",
+    category: "luxo",
+    brandOriginCountry: "USA",
+    doors: 4,
+  },
+];

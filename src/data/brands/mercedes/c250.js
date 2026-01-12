@@ -1,0 +1,23 @@
+export const mercedesC250 = [
+  {
+    id: "mercedes-c250-2014",
+    brand: "Mercedes",
+    model: "C250",
+    trim: "",
+    generationOrChassis: "W204",
+    bodyStyle: "sedan",
+    year: 2014,
+    engine: {
+      displacement: 2.0,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "turbo",
+    },
+    fuel: "gasolina",
+    traction: "rwd",
+    transmission: "auto",
+    category: "luxo",
+    brandOriginCountry: "Germany",
+    doors: 4,
+  },
+];

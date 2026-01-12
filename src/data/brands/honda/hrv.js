@@ -1,0 +1,23 @@
+export const hondaHRV = [
+  {
+    id: "honda-hr-v-2018",
+    brand: "Honda",
+    model: "HR-V",
+    trim: "",
+    generationOrChassis: "1ª geração",
+    bodyStyle: "suv",
+    year: 2018,
+    engine: {
+      displacement: 1.8,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "aspirado",
+    },
+    fuel: "flex",
+    traction: "fwd",
+    transmission: "cvt",
+    category: "popular",
+    brandOriginCountry: "Japan",
+    doors: 4,
+  },
+];

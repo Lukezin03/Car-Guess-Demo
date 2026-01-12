@@ -1,0 +1,23 @@
+export const mercedesGLA200 = [
+  {
+    id: "mercedes-gla200-2017",
+    brand: "Mercedes",
+    model: "GLA",
+    trim: "200",
+    generationOrChassis: "X156",
+    bodyStyle: "suv",
+    year: 2017,
+    engine: {
+      displacement: 1.6,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "turbo",
+    },
+    fuel: "gasolina",
+    traction: "fwd",
+    transmission: "auto",
+    category: "luxo",
+    brandOriginCountry: "Germany",
+    doors: 4,
+  },
+];
