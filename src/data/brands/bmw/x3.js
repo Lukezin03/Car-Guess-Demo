@@ -1,15 +1,20 @@
 export const bmwX3 = [
+  /*
+  ================================================
+                      G01
+  ================================================
+  */
   {
-    id: "bmw-x3-2020",
+    id: "bmw-x3-g01-2020",
     brand: "BMW",
     model: "X3",
-    trim: "Base",
+    trim: "xDrive30i",
     generationOrChassis: "G01",
     bodyStyle: "suv",
     year: 2020,
     engine: {
-      displacement: 2.5,
-      cylinders: 6,
+      displacement: 2.0,
+      cylinders: 4,
       valves: 16,
       aspiration: "turbo",
     },

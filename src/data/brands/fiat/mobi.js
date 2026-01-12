@@ -1,22 +1,22 @@
-export const fiatArgo = [
+export const fiatMobi = [
   /*
   ================================================
                       G1
-                 (2017– )
+                 (2016– )
   ================================================
   */
   {
-    id: "fiat-argo-g1-2020-1.3",
+    id: "fiat-mobi-g1-2019-easy-1.0",
     brand: "Fiat",
-    model: "Argo",
-    trim: "Base",
+    model: "Mobi",
+    trim: "Easy",
     generationOrChassis: "G1",
     bodyStyle: "hatch",
-    year: 2020,
+    year: 2019,
     engine: {
-      displacement: 1.3,
+      displacement: 1.0,
       cylinders: 4,
-      valves: 12,
+      valves: 8,
       aspiration: "aspirado",
     },
     fuel: "flex",

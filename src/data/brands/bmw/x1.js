@@ -1,9 +1,14 @@
 export const bmwX1 = [
+  /*
+  ================================================
+                      E84
+  ================================================
+  */
   {
-    id: "bmw-x1-2015",
+    id: "bmw-x1-e84-2015",
     brand: "BMW",
     model: "X1",
-    trim: "Base",
+    trim: "sDrive20i",
     generationOrChassis: "E84",
     bodyStyle: "suv",
     year: 2015,
@@ -13,18 +18,24 @@ export const bmwX1 = [
       valves: 16,
       aspiration: "turbo",
     },
-    fuel: "flex",
-    traction: "awd",
+    fuel: "gasolina",
+    traction: "rwd",
     transmission: "auto",
-    category: "luxo",
+    category: "premium",
     brandOriginCountry: "Germany",
     doors: 4,
   },
+
+  /*
+  ================================================
+                      F48
+  ================================================
+  */
   {
-    id: "bmw-x1-2020",
+    id: "bmw-x1-f48-2020",
     brand: "BMW",
     model: "X1",
-    trim: "Base",
+    trim: "sDrive20i",
     generationOrChassis: "F48",
     bodyStyle: "suv",
     year: 2020,
@@ -35,9 +46,9 @@ export const bmwX1 = [
       aspiration: "turbo",
     },
     fuel: "flex",
-    traction: "awd",
+    traction: "fwd",
     transmission: "auto",
-    category: "luxo",
+    category: "premium",
     brandOriginCountry: "Germany",
     doors: 4,
   },

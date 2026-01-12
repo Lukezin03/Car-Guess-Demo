@@ -1,106 +1,126 @@
 export const audiA3 = [
+  /*
+  ================================================
+                      8L
+  ================================================
+  */
   {
-    id: "audi-a3-2010",
-    // Identificador ÚNICO do carro no jogo.
-    // Nunca muda. Usado para:
-    // - comparação de vitória
-    // - keys de React
-    // - evitar duplicações no banco
-    // Formato recomendado: marca-modelo-versao-ano
-
+    id: "audi-a3-8l-2001-1.8-20v",
     brand: "Audi",
-    // Marca do carro (fabricante).
-    // Ex: Audi, Volkswagen, BMW, Fiat
-
     model: "A3",
-    // Linha ou nome principal do carro.
-    // Ex: A3, Civic, Corolla, Gol
-    // NÃO inclui versão nem motor.
-
-    trim: "Base",
-    // Versão / acabamento do modelo.
-    // Usado para diferenciar variações do MESMO carro.
-    // Exemplos:
-    // - Civic: "LX", "EX", "Si", "Touring"
-    // - Golf: "GTI", "TSI", "R-Line"
-    // - Jetta: "Comfortline", "Highline", "GLI"
-    // Se não houver versão relevante, pode ficar vazio.
-
-    generationOrChassis: "8P",
-    // Código de geração, chassi ou série do modelo.
-    // Serve para diferenciar carros com o mesmo nome ao longo do tempo.
-    // Exemplos:
-    // - Audi A3: "8L", "8P", "8V"
-    // - BMW Série 3: "E46", "E90", "F30"
-    // - Gol: "G4", "G5", "G6"
-    // Opcional, mas MUITO recomendado quando existir.
-
+    // TRIM = o “Modelo” do Carros na Web (o que você escolhe lá)
+    trim: "1.8 20V",
+    generationOrChassis: "8L",
     bodyStyle: "hatch",
-    // Tipo de carroceria.
-    // Enum fixo no projeto:
-    // "hatch", "sedan", "suv", "wagon", "coupe", "pickup", "van"
-    // Importante para comparação no jogo.
-
-    year: 2010,
-    // Ano real do modelo (ano/modelo simplificado).
-    // Usado para:
-    // - comparação numérica (↑ ↓)
-    // - busca
-    // - diferenciação de gerações
-
+    year: 2001,
     engine: {
       displacement: 1.8,
-      // Cilindrada do motor em litros.
-      // Ex: 1.0, 1.6, 2.0, 3.0
-
       cylinders: 4,
-      // Número de cilindros do motor.
-      // Ex: 3, 4, 6, 8
-
-      valves: 16,
-      // Total de válvulas do motor.
-      // Ex: 8, 12, 16, 24
-      // (sim, existem motores "no meio" tipo 12v)
-
-      aspiration: "turbo",
-      // Tipo de aspiração do motor.
-      // Enum do projeto:
-      // "aspirado", "turbo", "supercharged", "electric"
+      valves: 20,
+      aspiration: "aspirado",
     },
-
     fuel: "gasolina",
-    // Tipo de combustível.
-    // Enum:
-    // "flex", "gasolina", "diesel", "hybrid", "electric"
-
     traction: "fwd",
-    // Tipo de tração.
-    // Enum:
-    // "fwd" (dianteira)
-    // "rwd" (traseira)
-    // "awd" (integral)
-
-    transmission: "auto",
-    // Tipo de câmbio.
-    // Enum:
-    // "manual", "auto", "cvt", "dct"
-    // (DCT é importante pra carros esportivos)
-
-    category: "luxo",
-    // Classificação geral do carro dentro do jogo.
-    // Enum do projeto:
-    // "popular", "medio", "premium", "luxo", "esportivo"
-    // Usado tanto pra gameplay quanto pra filtros futuros.
-
+    transmission: "manual",
+    category: "premium",
     brandOriginCountry: "Germany",
-    // País de origem da MARCA (não do carro).
-    // Ex:
-    // Audi → Germany
-    // Fiat → Italy
-    // Toyota → Japan
+    doors: 2,
+  },
 
+  /*
+  ================================================
+                      8P
+  ================================================
+  */
+  {
+    id: "audi-a3-8p-2010-sportback-1.6-8v",
+    brand: "Audi",
+    model: "A3",
+    trim: "Sportback 1.6 8V",
+    generationOrChassis: "8P",
+    bodyStyle: "hatch",
+    year: 2010,
+    engine: {
+      displacement: 1.6,
+      cylinders: 4,
+      valves: 8,
+      aspiration: "aspirado",
+    },
+    fuel: "gasolina",
+    traction: "fwd",
+    transmission: "manual",
+    category: "premium",
+    brandOriginCountry: "Germany",
     doors: 4,
-    // Número de portas do veículo.
-    // Importante para diferenciação (ex: hatch 2p vs 4p).
+  },
+  {
+    id: "audi-a3-8p-2011-2.0-turbo-dct",
+    brand: "Audi",
+    model: "A3",
+    // Se você quiser, pode trocar por algo ainda mais “Carros na Web friendly” tipo "2.0 TFSI"
+    trim: "2.0 Turbo",
+    generationOrChassis: "8P",
+    bodyStyle: "hatch",
+    year: 2011,
+    engine: {
+      displacement: 2.0,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "turbo",
+    },
+    fuel: "gasolina",
+    traction: "fwd",
+    transmission: "dct",
+    category: "premium", // <- você mesmo decidiu: não é “esportivo” aqui
+    brandOriginCountry: "Germany",
+    doors: 2,
+  },
+
+  /*
+  ================================================
+                      8V
+  ================================================
+  */
+  {
+    id: "audi-a3-8v-2015-1.4-turbo-dct",
+    brand: "Audi",
+    model: "A3",
+    trim: "1.4 Turbo",
+    generationOrChassis: "8V",
+    bodyStyle: "hatch",
+    year: 2015,
+    engine: {
+      displacement: 1.4,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "turbo",
+    },
+    fuel: "gasolina",
+    traction: "fwd",
+    transmission: "dct",
+    category: "premium",
+    brandOriginCountry: "Germany",
+    doors: 4,
+  },
+  {
+    id: "audi-a3-8v-2017-1.4-turbo-dct",
+    brand: "Audi",
+    model: "A3",
+    trim: "1.4 Turbo",
+    generationOrChassis: "8V",
+    bodyStyle: "hatch",
+    year: 2017,
+    engine: {
+      displacement: 1.4,
+      cylinders: 4,
+      valves: 16,
+      aspiration: "turbo",
+    },
+    fuel: "gasolina",
+    traction: "fwd",
+    transmission: "dct",
+    category: "premium",
+    brandOriginCountry: "Germany",
+    doors: 4,
   },
 ];
