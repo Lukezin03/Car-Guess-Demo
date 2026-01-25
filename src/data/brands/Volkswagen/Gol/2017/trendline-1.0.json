@@ -1,0 +1,23 @@
+[
+  {
+    "id": "volkswagen-gol-g7-2017-trendline-1.0",
+    "brand": "Volkswagen",
+    "model": "Gol",
+    "trim": "Trendline",
+    "generationOrChassis": "G7",
+    "bodyStyle": "hatch",
+    "year": 2017,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

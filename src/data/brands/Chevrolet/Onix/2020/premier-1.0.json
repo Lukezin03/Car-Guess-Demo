@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-onix-g2-2020-premier-1.0-turbo",
+    "brand": "Chevrolet",
+    "model": "Onix",
+    "trim": "Premier",
+    "generationOrChassis": "G2",
+    "bodyStyle": "hatch",
+    "year": 2020,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 3,
+      "valves": 12,
+      "aspiration": "turbo"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

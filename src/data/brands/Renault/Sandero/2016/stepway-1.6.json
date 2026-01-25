@@ -1,0 +1,23 @@
+[
+  {
+    "id": "renault-sandero-g2-2016-stepway-1.6-16v",
+    "brand": "Renault",
+    "model": "Sandero",
+    "trim": "Stepway",
+    "generationOrChassis": "G2",
+    "bodyStyle": "hatch",
+    "year": 2016,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "France",
+    "doors": 4
+  }
+]

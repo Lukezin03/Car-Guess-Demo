@@ -1,0 +1,23 @@
+[
+  {
+    "id": "renault-sandero-g2-2019-life-1.0-3c",
+    "brand": "Renault",
+    "model": "Sandero",
+    "trim": "Life",
+    "generationOrChassis": "G2",
+    "bodyStyle": "hatch",
+    "year": 2019,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 3,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "France",
+    "doors": 4
+  }
+]

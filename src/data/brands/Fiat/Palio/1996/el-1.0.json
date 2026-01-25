@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-palio-g1-1996-el-1.0",
+    "brand": "Fiat",
+    "model": "Palio",
+    "trim": "EL",
+    "generationOrChassis": "G1",
+    "bodyStyle": "hatch",
+    "year": 1996,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

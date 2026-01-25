@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-palio-g3-2007-hlx-1.4",
+    "brand": "Fiat",
+    "model": "Palio",
+    "trim": "HLX",
+    "generationOrChassis": "G3",
+    "bodyStyle": "hatch",
+    "year": 2007,
+    "engine": {
+      "displacement": 1.4,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

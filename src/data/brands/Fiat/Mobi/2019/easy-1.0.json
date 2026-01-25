@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-mobi-g1-2019-easy-1.0",
+    "brand": "Fiat",
+    "model": "Mobi",
+    "trim": "Easy",
+    "generationOrChassis": "G1",
+    "bodyStyle": "hatch",
+    "year": 2019,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "honda-civic-si-2010",
+    "brand": "Honda",
+    "model": "Civic",
+    "trim": "Si",
+    "generationOrChassis": "8a geracao",
+    "bodyStyle": "sedan",
+    "year": 2010,
+    "engine": {
+      "displacement": 2,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "medio",
+    "brandOriginCountry": "Japan",
+    "doors": 4
+  }
+]

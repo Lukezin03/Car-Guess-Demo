@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-prisma-g2-2019-turbo-1.0",
+    "brand": "Chevrolet",
+    "model": "Prisma",
+    "trim": "Turbo",
+    "generationOrChassis": "G2",
+    "bodyStyle": "sedan",
+    "year": 2019,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 3,
+      "valves": 12,
+      "aspiration": "turbo"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

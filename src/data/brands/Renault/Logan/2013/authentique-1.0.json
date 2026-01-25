@@ -1,0 +1,23 @@
+[
+  {
+    "id": "renault-logan-g1-2013-authentique-1.0-16v",
+    "brand": "Renault",
+    "model": "Logan",
+    "trim": "Authentique",
+    "generationOrChassis": "G1",
+    "bodyStyle": "sedan",
+    "year": 2013,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "France",
+    "doors": 4
+  }
+]

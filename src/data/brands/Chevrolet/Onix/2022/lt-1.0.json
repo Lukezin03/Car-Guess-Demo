@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-onix-g2-2022-lt-1.0",
+    "brand": "Chevrolet",
+    "model": "Onix",
+    "trim": "LT",
+    "generationOrChassis": "G2",
+    "bodyStyle": "hatch",
+    "year": 2022,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 3,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

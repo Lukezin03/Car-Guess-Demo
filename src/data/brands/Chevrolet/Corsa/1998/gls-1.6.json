@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-corsa-g1-1998-gls-1.6",
+    "brand": "Chevrolet",
+    "model": "Corsa",
+    "trim": "GLS",
+    "generationOrChassis": "G1",
+    "bodyStyle": "sedan",
+    "year": 1998,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

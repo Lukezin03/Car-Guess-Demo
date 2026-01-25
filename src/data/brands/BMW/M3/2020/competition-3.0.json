@@ -1,0 +1,23 @@
+[
+  {
+    "id": "bmw-m3-g80-2020",
+    "brand": "BMW",
+    "model": "M3",
+    "trim": "Competition",
+    "generationOrChassis": "G80",
+    "bodyStyle": "sedan",
+    "year": 2020,
+    "engine": {
+      "displacement": 3.0,
+      "cylinders": 6,
+      "valves": 24,
+      "aspiration": "turbo"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "auto",
+    "category": "esportivo",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

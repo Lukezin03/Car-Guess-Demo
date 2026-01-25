@@ -1,0 +1,23 @@
+[
+  {
+    "id": "renault-logan-g1-2015-expression-1.6-8v",
+    "brand": "Renault",
+    "model": "Logan",
+    "trim": "Expression",
+    "generationOrChassis": "G1",
+    "bodyStyle": "sedan",
+    "year": 2015,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "France",
+    "doors": 4
+  }
+]

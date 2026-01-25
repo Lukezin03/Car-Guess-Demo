@@ -1,0 +1,23 @@
+[
+  {
+    "id": "renault-logan-g2-2018-life-1.0-3c",
+    "brand": "Renault",
+    "model": "Logan",
+    "trim": "Life",
+    "generationOrChassis": "G2",
+    "bodyStyle": "sedan",
+    "year": 2018,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 3,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "France",
+    "doors": 4
+  }
+]
