@@ -1,0 +1,14 @@
+{
+  "Marca": "Bentley",
+  "Tipo": "suv",
+  "Portas": 4,
+  "Motor": "4.0",
+  "Ano": 2020,
+  "Válvulas": 32,
+  "Aspiração": "Turbo",
+  "Combustível": "Gasolina",
+  "Tração": "Integral",
+  "Câmbio": "Automatico",
+  "Categoria": "luxo",
+  "Código do motor": "V8T"
+}

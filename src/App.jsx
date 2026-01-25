@@ -291,7 +291,7 @@ function buildSearchIndex(car) {
       car.generationOrChassis,
       car.bodyStyle,
       car.year,
-      car.engine?.displacement,
+      // Não incluir car.engine?.displacement se já está no trim
       car.category,
     ]
       .filter(Boolean)
@@ -305,7 +305,7 @@ function getCarLabel(car) {
     car.model,
     car.generationOrChassis,
     car.trim,
-    car.engine?.displacement,
+    // Não incluir car.engine?.displacement se já está no trim
   ].filter(Boolean);
   const baseLabel = labelParts.join(" ");
   return car.year ? `${baseLabel} (${car.year})` : baseLabel;

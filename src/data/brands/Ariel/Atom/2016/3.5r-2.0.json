@@ -1,0 +1,14 @@
+{
+  "Marca": "Ariel",
+  "Tipo": "roadster",
+  "Portas": 2,
+  "Motor": "2.0",
+  "Ano": 2016,
+  "Válvulas": 16,
+  "Aspiração": "Aspirado",
+  "Combustível": "Gasolina",
+  "Tração": "Traseira",
+  "Câmbio": "Manual",
+  "Categoria": "esportivo",
+  "Código do motor": "K20"
+}
