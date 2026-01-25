@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ford-ecosport-g2-2013-se-1.6",
+    "brand": "Ford",
+    "model": "EcoSport",
+    "trim": "SE",
+    "generationOrChassis": "G2",
+    "bodyStyle": "suv",
+    "year": 2013,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ford-ka-g2-2020-freestyle-1.5-3c",
+    "brand": "Ford",
+    "model": "Ka",
+    "trim": "Freestyle",
+    "generationOrChassis": "G2",
+    "bodyStyle": "hatch",
+    "year": 2020,
+    "engine": {
+      "displacement": 1.5,
+      "cylinders": 3,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

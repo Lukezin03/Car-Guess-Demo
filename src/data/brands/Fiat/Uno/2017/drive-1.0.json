@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-uno-g3-2017-drive-1.0",
+    "brand": "Fiat",
+    "model": "Uno",
+    "trim": "Drive",
+    "generationOrChassis": "G3",
+    "bodyStyle": "hatch",
+    "year": 2017,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 3,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

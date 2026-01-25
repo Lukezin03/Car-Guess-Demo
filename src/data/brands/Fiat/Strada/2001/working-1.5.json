@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-strada-g1-2001-working-1.5",
+    "brand": "Fiat",
+    "model": "Strada",
+    "trim": "Working",
+    "generationOrChassis": "G1",
+    "bodyStyle": "pickup",
+    "year": 2001,
+    "engine": {
+      "displacement": 1.5,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 2
+  }
+]

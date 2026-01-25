@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-siena-g3-2009-hlx-1.6",
+    "brand": "Fiat",
+    "model": "Siena",
+    "trim": "HLX",
+    "generationOrChassis": "G3",
+    "bodyStyle": "sedan",
+    "year": 2009,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

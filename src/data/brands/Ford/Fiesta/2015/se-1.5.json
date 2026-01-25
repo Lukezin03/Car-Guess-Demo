@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ford-fiesta-g4-2015-se-1.5",
+    "brand": "Ford",
+    "model": "Fiesta",
+    "trim": "SE",
+    "generationOrChassis": "G4",
+    "bodyStyle": "hatch",
+    "year": 2015,
+    "engine": {
+      "displacement": 1.5,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

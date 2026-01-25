@@ -1,0 +1,14 @@
+{
+  "Marca": "Fiat",
+  "Tipo": "hatch",
+  "Portas": 2,
+  "Motor": "1.0",
+  "Ano": 2001,
+  "Válvulas": 8,
+  "Aspiração": "Aspirado",
+  "Combustível": "Gasolina",
+  "Tração": "Dianteira",
+  "Câmbio": "Manual",
+  "Categoria": "popular",
+  "Código do motor": "FIRE"
+}

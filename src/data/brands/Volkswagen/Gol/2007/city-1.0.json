@@ -1,0 +1,23 @@
+[
+  {
+    "id": "volkswagen-gol-g4-2007-city-1.0",
+    "brand": "Volkswagen",
+    "model": "Gol",
+    "trim": "City",
+    "generationOrChassis": "G4",
+    "bodyStyle": "hatch",
+    "year": 2007,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

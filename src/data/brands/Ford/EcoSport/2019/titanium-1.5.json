@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ford-ecosport-g2-2019-titanium-1.5-3c",
+    "brand": "Ford",
+    "model": "EcoSport",
+    "trim": "Titanium",
+    "generationOrChassis": "G2",
+    "bodyStyle": "suv",
+    "year": 2019,
+    "engine": {
+      "displacement": 1.5,
+      "cylinders": 3,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

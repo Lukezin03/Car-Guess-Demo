@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-prisma-g1-2010-joy-1.4",
+    "brand": "Chevrolet",
+    "model": "Prisma",
+    "trim": "Joy",
+    "generationOrChassis": "G1",
+    "bodyStyle": "sedan",
+    "year": 2010,
+    "engine": {
+      "displacement": 1.4,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

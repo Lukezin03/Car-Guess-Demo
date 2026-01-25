@@ -1,0 +1,23 @@
+[
+  {
+    "id": "honda-civic-lx-2015",
+    "brand": "Honda",
+    "model": "Civic",
+    "trim": "LX",
+    "generationOrChassis": "9a geracao",
+    "bodyStyle": "sedan",
+    "year": 2015,
+    "engine": {
+      "displacement": 2,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Japan",
+    "doors": 4
+  }
+]

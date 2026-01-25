@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-palio-g4-2014-sporting-1.6",
+    "brand": "Fiat",
+    "model": "Palio",
+    "trim": "Sporting",
+    "generationOrChassis": "G4",
+    "bodyStyle": "hatch",
+    "year": 2014,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

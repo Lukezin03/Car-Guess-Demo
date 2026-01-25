@@ -1,0 +1,23 @@
+[
+  {
+    "id": "bmw-320i-e46-2004",
+    "brand": "BMW",
+    "model": "320i",
+    "trim": "Base",
+    "generationOrChassis": "E46",
+    "bodyStyle": "sedan",
+    "year": 2004,
+    "engine": {
+      "displacement": 2.2,
+      "cylinders": 6,
+      "valves": 24,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "auto",
+    "category": "premium",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

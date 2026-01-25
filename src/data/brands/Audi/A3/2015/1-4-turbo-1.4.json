@@ -1,0 +1,23 @@
+[
+  {
+    "id": "audi-a3-8v-2015-1.4-turbo-dct",
+    "brand": "Audi",
+    "model": "A3",
+    "trim": "1.4 Turbo",
+    "generationOrChassis": "8V",
+    "bodyStyle": "hatch",
+    "year": 2015,
+    "engine": {
+      "displacement": 1.4,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo"
+    },
+    "fuel": "gasolina",
+    "traction": "fwd",
+    "transmission": "dct",
+    "category": "premium",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

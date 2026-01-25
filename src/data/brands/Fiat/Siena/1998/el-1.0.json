@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-siena-g1-1998-el-1.0",
+    "brand": "Fiat",
+    "model": "Siena",
+    "trim": "EL",
+    "generationOrChassis": "G1",
+    "bodyStyle": "sedan",
+    "year": 1998,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

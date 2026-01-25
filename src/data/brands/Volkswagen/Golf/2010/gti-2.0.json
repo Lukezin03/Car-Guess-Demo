@@ -1,0 +1,23 @@
+[
+  {
+    "id": "vw-golf-gti-2010",
+    "brand": "Volkswagen",
+    "model": "Golf",
+    "trim": "GTI",
+    "generationOrChassis": "Mk6",
+    "bodyStyle": "hatch",
+    "year": 2010,
+    "engine": {
+      "displacement": 2,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo"
+    },
+    "fuel": "gasolina",
+    "traction": "fwd",
+    "transmission": "auto",
+    "category": "esportivo",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

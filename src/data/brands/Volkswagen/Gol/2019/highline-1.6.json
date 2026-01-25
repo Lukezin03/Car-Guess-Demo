@@ -1,0 +1,23 @@
+[
+  {
+    "id": "volkswagen-gol-g7-2019-highline-1.6",
+    "brand": "Volkswagen",
+    "model": "Gol",
+    "trim": "Highline",
+    "generationOrChassis": "G7",
+    "bodyStyle": "hatch",
+    "year": 2019,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]
