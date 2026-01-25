@@ -1,0 +1,14 @@
+{
+  "Marca": "BMW",
+  "Tipo": "sedan",
+  "Portas": 4,
+  "Motor": "2.0",
+  "Ano": 2016,
+  "Válvulas": 16,
+  "Aspiração": "Turbo",
+  "Combustível": "Gasolina",
+  "Tração": "Traseira",
+  "Câmbio": "Automatico",
+  "Categoria": "medio",
+  "Código do motor": "N20B20"
+}
