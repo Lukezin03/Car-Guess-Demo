@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { cars } from "./data/cars";
+import { useTheme } from "./hooks/useTheme";
+import "./App.css";
 
 /* =======================
    COMPARAÇÃO DO JOGO
@@ -88,6 +90,7 @@ function getRandomCar() {
 }
 
 function App() {
+  const { theme, toggleTheme } = useTheme();
   const [answerCar, setAnswerCar] = useState(getRandomCar());
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCar, setSelectedCar] = useState(null);
@@ -140,138 +143,257 @@ function App() {
   }
 
   return (
-    <main style={styles.app}>
-      <header style={styles.header}>
-        <h1>Car Guess</h1>
-        <p>Descubra o carro pelas características</p>
+    <div className="app">
+      {/* HEADER */}
+      <header className="header">
+        <div className="header-content">
+          <div className="header-left">
+            <div className="logo">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="8" fill="var(--accent)" />
+                <path
+                  d="M8 16L14 10L18 14L24 8"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <div className="header-text">
+              <h1 className="title">CarGuess</h1>
+              <p className="subtitle">Adivinhe o carro pelas características</p>
+            </div>
+          </div>
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Alternar tema"
+          >
+            {theme === "light" ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                  fill="currentColor"
+                />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="5" fill="currentColor" />
+                <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
+        </div>
       </header>
 
-      {/* =======================
-          TENTATIVAS
-      ======================= */}
-      {guesses.map((car, index) => (
-        <section key={index} style={styles.card}>
-          <h2>
-            #{guesses.length - index} — {car.brand} {car.model}
-          </h2>
-
-          <div style={styles.grid}>
-            {ATTRIBUTES.map((attr) => {
-              const result = compareAttribute(
-                attr.getValue(car),
-                attr.getValue(answerCar),
-                attr.type
-              );
-              const displayValue = attr.getValue(car);
-
-              return (
-                <div
-                  key={attr.key}
-                  style={{
-                    ...styles.cell,
-                    backgroundColor:
-                      result === "correct"
-                        ? "#4caf50"
-                        : result === "up" || result === "down"
-                        ? "#ff9800"
-                        : "#e0e0e0",
-                  }}
-                >
-                  <small style={styles.label}>{attr.label}</small>
-
-                  <strong style={styles.value}>
-                    {displayValue}
-                    {attr.type === "number" && result === "up" && (
-                      <span> ↑</span>
-                    )}
-                    {attr.type === "number" && result === "down" && (
-                      <span> ↓</span>
-                    )}
-                  </strong>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      ))}
-
-      {/* =======================
-          VITÓRIA
-      ======================= */}
-      {hasWon && (
-        <section style={styles.card}>
-          <h2>🎉 Você acertou!</h2>
-          <button style={styles.button} onClick={resetGame}>
-            Adivinhar outro carro
-          </button>
-        </section>
-      )}
-
-      {/* =======================
-          BARRA INFERIOR
-      ======================= */}
-      {!hasWon && (
-        <div style={styles.bottomBar}>
-          <div style={styles.searchWrapper}>
-            <input
-              value={searchTerm}
-              onChange={(event) => handleSearchChange(event.target.value)}
-              placeholder="Busque marca, modelo ou ano (ex: civic 2010)"
-              style={styles.searchInput}
-            />
-            {showResults && (
-              <div style={styles.searchResults}>
-                {filteredCars.length === 0 && (
-                  <span style={styles.emptyResult}>
-                    Nenhum carro encontrado.
-                  </span>
-                )}
-                {filteredCars.slice(0, 8).map((car) => (
-                  <button
-                    key={car.id}
-                    type="button"
-                    style={styles.searchOption}
-                    onClick={() => {
-                      setSelectedCar(car);
-                      setSearchTerm(getCarLabel(car));
-                    }}
-                  >
-                    <strong>{getCarLabel(car)}</strong>{" "}
-                    <span style={styles.optionMeta}>
-                      {car.bodyStyle} · {car.category}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* PREVIEW (SEM COMPARAÇÃO) */}
-          {previewCar && (
-            <div style={styles.preview}>
-              {ATTRIBUTES.map((attr) => (
-                <span key={attr.key}>
-                  <strong>{attr.label}:</strong> {attr.getValue(previewCar)}
-                </span>
-              ))}
+      {/* MAIN CONTENT */}
+      <main className="main">
+        <div className="container">
+          {/* GUESSES */}
+          {guesses.length === 0 && !hasWon && (
+            <div className="empty-state">
+              <div className="empty-icon">🚗</div>
+              <h3>Comece a jogar!</h3>
+              <p>Busque um carro abaixo e faça sua primeira tentativa</p>
             </div>
           )}
 
-          <button
-            style={styles.button}
-            disabled={!previewCar}
-            onClick={handleConfirm}
-          >
-            Confirmar tentativa
-          </button>
+          {guesses.map((car, index) => (
+            <div key={index} className="guess-card">
+              <div className="guess-header">
+                <span className="guess-number">#{guesses.length - index}</span>
+                <h3 className="guess-title">
+                  {car.brand} {car.model}
+                </h3>
+              </div>
+
+              <div className="attributes-grid">
+                {ATTRIBUTES.map((attr) => {
+                  const result = compareAttribute(
+                    attr.getValue(car),
+                    attr.getValue(answerCar),
+                    attr.type
+                  );
+                  const displayValue = attr.getValue(car);
+
+                  return (
+                    <div
+                      key={attr.key}
+                      className={`attribute-cell ${result}`}
+                    >
+                      <span className="attribute-label">{attr.label}</span>
+                      <span className="attribute-value">
+                        {displayValue}
+                        {attr.type === "number" && result === "up" && " ↑"}
+                        {attr.type === "number" && result === "down" && " ↓"}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+
+          {/* VICTORY */}
+          {hasWon && (
+            <div className="victory-card">
+              <div className="victory-icon">🎉</div>
+              <h2>Parabéns!</h2>
+              <p>
+                Você acertou em{" "}
+                <strong>
+                  {guesses.length} {guesses.length === 1 ? "tentativa" : "tentativas"}
+                </strong>
+              </p>
+              <div className="victory-car">
+                <strong>
+                  {answerCar.brand} {answerCar.model}
+                </strong>
+                <span className="victory-meta">
+                  {getCarLabel(answerCar)}
+                </span>
+              </div>
+              <button className="button-primary" onClick={resetGame}>
+                Jogar novamente
+              </button>
+            </div>
+          )}
+        </div>
+      </main>
+
+      {/* BOTTOM BAR */}
+      {!hasWon && (
+        <div className="bottom-bar">
+          <div className="container">
+            {/* SEARCH */}
+            <div className="search-wrapper">
+              <div className="search-input-wrapper">
+                <svg
+                  className="search-icon"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="8"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="m21 21-4.35-4.35"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <input
+                  className="search-input"
+                  value={searchTerm}
+                  onChange={(e) => handleSearchChange(e.target.value)}
+                  placeholder="Busque por marca, modelo ou ano..."
+                  autoComplete="off"
+                />
+                {searchTerm && (
+                  <button
+                    className="search-clear"
+                    onClick={() => {
+                      setSearchTerm("");
+                      setSelectedCar(null);
+                    }}
+                    aria-label="Limpar busca"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M18 6L6 18M6 6l12 12"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </button>
+                )}
+              </div>
+
+              {/* SEARCH RESULTS */}
+              {showResults && (
+                <div className="search-results">
+                  {filteredCars.length === 0 ? (
+                    <div className="empty-results">
+                      <span>Nenhum carro encontrado</span>
+                    </div>
+                  ) : (
+                    filteredCars.slice(0, 8).map((car) => (
+                      <button
+                        key={car.id}
+                        className="search-result-item"
+                        onClick={() => {
+                          setSelectedCar(car);
+                          setSearchTerm(getCarLabel(car));
+                        }}
+                      >
+                        <div className="result-main">
+                          <strong>{getCarLabel(car)}</strong>
+                        </div>
+                        <div className="result-meta">
+                          {car.bodyStyle} · {car.category}
+                        </div>
+                      </button>
+                    ))
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* PREVIEW */}
+            {previewCar && (
+              <div className="preview-card">
+                <div className="preview-header">
+                  <span className="preview-label">Selecionado:</span>
+                  <strong className="preview-car">
+                    {previewCar.brand} {previewCar.model}
+                  </strong>
+                </div>
+                <div className="preview-attributes">
+                  {ATTRIBUTES.slice(0, 6).map((attr) => (
+                    <span key={attr.key} className="preview-attr">
+                      {attr.label}: <strong>{attr.getValue(previewCar)}</strong>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* CONFIRM BUTTON */}
+            <button
+              className="button-primary"
+              onClick={handleConfirm}
+              disabled={!previewCar}
+            >
+              Confirmar tentativa
+            </button>
+          </div>
         </div>
       )}
-    </main>
+    </div>
   );
 }
 
 export default App;
 
+/* =======================
+   UTILITY FUNCTIONS
+======================= */
 function normalizeText(value) {
   return value
     .toLowerCase()
@@ -291,7 +413,6 @@ function buildSearchIndex(car) {
       car.generationOrChassis,
       car.bodyStyle,
       car.year,
-      // Não incluir car.engine?.displacement se já está no trim
       car.category,
     ]
       .filter(Boolean)
@@ -305,7 +426,6 @@ function getCarLabel(car) {
     car.model,
     car.generationOrChassis,
     car.trim,
-    // Não incluir car.engine?.displacement se já está no trim
   ].filter(Boolean);
   const baseLabel = labelParts.join(" ");
   return car.year ? `${baseLabel} (${car.year})` : baseLabel;
@@ -347,127 +467,3 @@ function levenshteinDistance(a, b) {
 
   return matrix[a.length][b.length];
 }
-
-/* =======================
-   ESTILOS
-======================= */
-const styles = {
-  app: {
-    minHeight: "100vh",
-    padding: "16px",
-    paddingBottom: "220px",
-    fontFamily: "system-ui",
-    background: "#ffffff",
-  },
-  header: {
-    textAlign: "center",
-    marginBottom: "24px",
-  },
-  card: {
-    background: "#f5f5f5",
-    borderRadius: "12px",
-    padding: "16px",
-    maxWidth: "480px",
-    margin: "0 auto 12px",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gap: "6px",
-    marginTop: "12px",
-  },
-  cell: {
-    borderRadius: "6px",
-    padding: "6px",
-    textAlign: "center",
-    fontSize: "12px",
-    color: "#000",
-  },
-  label: {
-    fontSize: "10px",
-    opacity: 0.7,
-  },
-  value: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "4px",
-  },
-  bottomBar: {
-    position: "fixed",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    background: "#fff",
-    borderTop: "1px solid #ddd",
-    padding: "10px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "6px",
-  },
-  searchWrapper: {
-    position: "relative",
-  },
-  searchInput: {
-    width: "100%",
-    padding: "10px 12px",
-    height: "44px",
-    fontSize: "16px", // <- isso impede o zoom no iOS
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-    backgroundColor: "#fff",
-  },
-  searchResults: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    bottom: "52px",
-    background: "#fff",
-    border: "1px solid #ddd",
-    borderRadius: "8px",
-    boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
-    padding: "6px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "4px",
-    zIndex: 2,
-    maxHeight: "240px",
-    overflowY: "auto",
-  },
-  searchOption: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "8px",
-    borderRadius: "6px",
-    border: "1px solid transparent",
-    background: "#f7f7f7",
-    cursor: "pointer",
-    textAlign: "left",
-    fontSize: "13px",
-  },
-  optionMeta: {
-    fontSize: "11px",
-    opacity: 0.7,
-  },
-  emptyResult: {
-    padding: "8px",
-    fontSize: "12px",
-    opacity: 0.7,
-  },
-  preview: {
-    fontSize: "11px",
-    opacity: 0.7,
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "6px",
-  },
-  button: {
-    padding: "10px",
-    borderRadius: "8px",
-    background: "#000",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-  },
-};
