@@ -1,6 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cars } from "./data/cars";
 import { useTheme } from "./hooks/useTheme";
+import { PlayerNameModal } from "./components/PlayerNameModal";
+import { LeaderboardModal } from "./components/LeaderboardModal";
+import {
+  getPlayerName,
+  savePlayerName,
+  addLeaderboardEntry,
+} from "./utils/leaderboard";
 import "./App.css";
 
 /* =======================
@@ -96,6 +103,29 @@ function App() {
   const [selectedCar, setSelectedCar] = useState(null);
   const [guesses, setGuesses] = useState([]);
   const [hasWon, setHasWon] = useState(false);
+  const [hasLost, setHasLost] = useState(false);
+  
+  // Player and Leaderboard state
+  const [playerName, setPlayerName] = useState(() => getPlayerName());
+  const [showNameModal, setShowNameModal] = useState(() => !getPlayerName());
+  const [showLeaderboardModal, setShowLeaderboardModal] = useState(false);
+  
+  const MAX_ATTEMPTS = 10;
+
+  // Save to leaderboard when player wins or loses
+  useEffect(() => {
+    if (hasWon && playerName && guesses.length > 0) {
+      const carGuessed = getCarLabel(answerCar);
+      addLeaderboardEntry(playerName, guesses.length, "win", carGuessed);
+    }
+  }, [hasWon, playerName, guesses.length, answerCar]);
+  
+  useEffect(() => {
+    if (hasLost && playerName && guesses.length > 0) {
+      const carGuessed = getCarLabel(answerCar);
+      addLeaderboardEntry(playerName, guesses.length, "loss", carGuessed);
+    }
+  }, [hasLost, playerName, guesses.length, answerCar]);
 
   const normalizedSearch = normalizeText(searchTerm);
   const searchTokens = normalizedSearch.split(" ").filter(Boolean);
@@ -122,12 +152,15 @@ function App() {
   }
 
   function handleConfirm() {
-    if (!previewCar || hasWon) return;
+    if (!previewCar || hasWon || hasLost) return;
 
-    setGuesses((prev) => [previewCar, ...prev]);
+    const newGuesses = [previewCar, ...guesses];
+    setGuesses(newGuesses);
 
     if (previewCar.id === answerCar.id) {
       setHasWon(true);
+    } else if (newGuesses.length >= MAX_ATTEMPTS) {
+      setHasLost(true);
     }
 
     setSearchTerm("");
@@ -138,8 +171,20 @@ function App() {
     setAnswerCar(getRandomCar());
     setGuesses([]);
     setHasWon(false);
+    setHasLost(false);
     setSearchTerm("");
     setSelectedCar(null);
+  }
+
+  function handleSavePlayerName(name) {
+    savePlayerName(name);
+    setPlayerName(name);
+    setShowNameModal(false);
+    
+    // Reset game when changing player
+    if (guesses.length > 0 || hasWon) {
+      resetGame();
+    }
   }
 
   return (
@@ -165,32 +210,80 @@ function App() {
               <p className="subtitle">Adivinhe o carro pelas características</p>
             </div>
           </div>
-          <button
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label="Alternar tema"
-          >
-            {theme === "light" ? (
+          
+          {!hasWon && !hasLost && (
+            <div className="attempts-counter">
+              <span className="counter-label">Tentativas</span>
+              <span className="counter-value">
+                {guesses.length}/{MAX_ATTEMPTS}
+              </span>
+            </div>
+          )}
+          
+          <div className="header-actions">
+            {playerName && (
+              <button
+                className="player-badge"
+                onClick={() => setShowNameModal(true)}
+                aria-label="Trocar jogador"
+                title={`Jogador: ${playerName}`}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2" />
+                </svg>
+                <span className="player-name-text">{playerName}</span>
+              </button>
+            )}
+            <button
+              className="theme-toggle"
+              onClick={() => setShowLeaderboardModal(true)}
+              aria-label="Ver placar"
+              title="Ver placar"
+            >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path
-                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                  fill="currentColor"
+                  d="M9 2v4M15 2v4M9 14h6M9 18h6M6 10h12M5 22h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
-            ) : (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="5" fill="currentColor" />
-                <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            )}
-          </button>
+            </button>
+            <button
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label="Alternar tema"
+            >
+              {theme === "light" ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                    fill="currentColor"
+                  />
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="5" fill="currentColor" />
+                  <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -198,7 +291,7 @@ function App() {
       <main className="main">
         <div className="container">
           {/* GUESSES */}
-          {guesses.length === 0 && !hasWon && (
+          {guesses.length === 0 && !hasWon && !hasLost && (
             <div className="empty-state">
               <div className="empty-icon">🚗</div>
               <h3>Comece a jogar!</h3>
@@ -266,11 +359,35 @@ function App() {
               </button>
             </div>
           )}
+          
+          {/* LOSS */}
+          {hasLost && (
+            <div className="loss-card">
+              <div className="loss-icon">😅</div>
+              <h2>Que pena!</h2>
+              <p>
+                Você atingiu o limite de{" "}
+                <strong>{MAX_ATTEMPTS} tentativas</strong>
+              </p>
+              <div className="loss-car">
+                <span className="loss-label">O carro era:</span>
+                <strong>
+                  {answerCar.brand} {answerCar.model}
+                </strong>
+                <span className="loss-meta">
+                  {getCarLabel(answerCar)}
+                </span>
+              </div>
+              <button className="button-primary" onClick={resetGame}>
+                Tentar novamente
+              </button>
+            </div>
+          )}
         </div>
       </main>
 
       {/* BOTTOM BAR */}
-      {!hasWon && (
+      {!hasWon && !hasLost && (
         <div className="bottom-bar">
           <div className="container">
             {/* SEARCH */}
@@ -384,6 +501,22 @@ function App() {
             </button>
           </div>
         </div>
+      )}
+
+      {/* MODALS */}
+      {showNameModal && (
+        <PlayerNameModal
+          onSave={handleSavePlayerName}
+          onClose={() => setShowNameModal(false)}
+          currentPlayerName={playerName}
+        />
+      )}
+
+      {showLeaderboardModal && (
+        <LeaderboardModal
+          onClose={() => setShowLeaderboardModal(false)}
+          currentPlayerName={playerName}
+        />
       )}
     </div>
   );

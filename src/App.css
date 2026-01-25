@@ -42,6 +42,76 @@
   flex: 1;
 }
 
+.attempts-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: var(--neutral-light);
+  border-radius: var(--radius-md);
+  min-width: 80px;
+}
+
+.counter-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+
+.counter-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.player-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 12px;
+  background: var(--success-light);
+  border: 1.5px solid var(--success);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition);
+  max-width: 150px;
+}
+
+.player-badge:hover {
+  background: var(--success-bg);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 166, 153, 0.15);
+}
+
+.player-badge:active {
+  transform: translateY(0);
+}
+
+.player-badge svg {
+  flex-shrink: 0;
+  color: var(--success);
+}
+
+.player-name-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .logo {
   flex-shrink: 0;
 }
@@ -325,6 +395,65 @@
 }
 
 /* =======================
+   LOSS CARD
+======================= */
+.loss-card {
+  background: linear-gradient(135deg, var(--warning-bg) 0%, var(--bg-tertiary) 100%);
+  border: 2px solid var(--warning);
+  border-radius: var(--radius-xl);
+  padding: 40px 24px;
+  text-align: center;
+  animation: victoryPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.loss-icon {
+  font-size: 72px;
+  margin-bottom: 16px;
+}
+
+.loss-card h2 {
+  font-size: 28px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.loss-card p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.loss-car {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.loss-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.loss-car strong {
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.loss-meta {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* =======================
    BOTTOM BAR
 ======================= */
 .bottom-bar {
@@ -563,6 +692,19 @@
 
   .subtitle {
     font-size: 12px;
+  }
+  
+  .attempts-counter {
+    padding: 6px 12px;
+    min-width: 70px;
+  }
+  
+  .counter-label {
+    font-size: 10px;
+  }
+  
+  .counter-value {
+    font-size: 16px;
   }
 
   .main {
