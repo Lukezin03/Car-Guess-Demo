@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-strada-g2-2012-adventure-1.6-16v",
+    "brand": "Fiat",
+    "model": "Strada",
+    "trim": "Adventure",
+    "generationOrChassis": "G2",
+    "bodyStyle": "pickup",
+    "year": 2012,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 2
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mercedes-e250-2014",
+    "brand": "Mercedes",
+    "model": "E250",
+    "trim": "",
+    "generationOrChassis": "W212",
+    "bodyStyle": "sedan",
+    "year": 2014,
+    "engine": {
+      "displacement": 2,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "auto",
+    "category": "luxo",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

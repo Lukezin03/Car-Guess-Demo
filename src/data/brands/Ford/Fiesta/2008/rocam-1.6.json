@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ford-fiesta-g3-2008-rocam-1.6-sedan",
+    "brand": "Ford",
+    "model": "Fiesta",
+    "trim": "Rocam",
+    "generationOrChassis": "G3",
+    "bodyStyle": "sedan",
+    "year": 2008,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

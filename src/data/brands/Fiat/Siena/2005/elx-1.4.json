@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-siena-g2-2005-elx-1.4",
+    "brand": "Fiat",
+    "model": "Siena",
+    "trim": "ELX",
+    "generationOrChassis": "G2",
+    "bodyStyle": "sedan",
+    "year": 2005,
+    "engine": {
+      "displacement": 1.4,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

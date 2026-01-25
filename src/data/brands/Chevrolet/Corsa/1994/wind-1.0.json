@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-corsa-g1-1994-wind-1.0",
+    "brand": "Chevrolet",
+    "model": "Corsa",
+    "trim": "Wind",
+    "generationOrChassis": "G1",
+    "bodyStyle": "hatch",
+    "year": 1994,
+    "engine": {
+      "displacement": 1,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "USA",
+    "doors": 2
+  }
+]

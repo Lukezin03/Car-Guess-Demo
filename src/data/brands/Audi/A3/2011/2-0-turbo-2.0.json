@@ -1,0 +1,23 @@
+[
+  {
+    "id": "audi-a3-8p-2011-2.0-turbo-dct",
+    "brand": "Audi",
+    "model": "A3",
+    "trim": "2.0 Turbo",
+    "generationOrChassis": "8P",
+    "bodyStyle": "hatch",
+    "year": 2011,
+    "engine": {
+      "displacement": 2.0,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo"
+    },
+    "fuel": "gasolina",
+    "traction": "fwd",
+    "transmission": "dct",
+    "category": "premium",
+    "brandOriginCountry": "Germany",
+    "doors": 2
+  }
+]

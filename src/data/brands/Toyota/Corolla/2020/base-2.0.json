@@ -1,0 +1,23 @@
+[
+  {
+    "id": "toyota-corolla-2020",
+    "brand": "Toyota",
+    "model": "Corolla",
+    "trim": "",
+    "generationOrChassis": "E210",
+    "bodyStyle": "sedan",
+    "year": 2020,
+    "engine": {
+      "displacement": 2,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "cvt",
+    "category": "medio",
+    "brandOriginCountry": "Japan",
+    "doors": 4
+  }
+]

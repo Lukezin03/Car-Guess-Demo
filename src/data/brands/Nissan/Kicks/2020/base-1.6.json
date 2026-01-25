@@ -1,0 +1,23 @@
+[
+  {
+    "id": "nissan-kicks-2020",
+    "brand": "Nissan",
+    "model": "Kicks",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "suv",
+    "year": 2020,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "cvt",
+    "category": "popular",
+    "brandOriginCountry": "Japan",
+    "doors": 4
+  }
+]

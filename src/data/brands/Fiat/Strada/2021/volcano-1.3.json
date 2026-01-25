@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-strada-g3-2021-volcano-1.3",
+    "brand": "Fiat",
+    "model": "Strada",
+    "trim": "Volcano",
+    "generationOrChassis": "G3",
+    "bodyStyle": "pickup",
+    "year": 2021,
+    "engine": {
+      "displacement": 1.3,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-strada-g2-2017-hard-working-1.4",
+    "brand": "Fiat",
+    "model": "Strada",
+    "trim": "Hard Working",
+    "generationOrChassis": "G2",
+    "bodyStyle": "pickup",
+    "year": 2017,
+    "engine": {
+      "displacement": 1.4,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 2
+  }
+]

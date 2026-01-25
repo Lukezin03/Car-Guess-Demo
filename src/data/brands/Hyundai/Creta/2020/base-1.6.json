@@ -1,0 +1,23 @@
+[
+  {
+    "id": "hyundai-creta-2020",
+    "brand": "Hyundai",
+    "model": "Creta",
+    "trim": "",
+    "generationOrChassis": "1a geracao",
+    "bodyStyle": "suv",
+    "year": 2020,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "cvt",
+    "category": "medio",
+    "brandOriginCountry": "South Korea",
+    "doors": 4
+  }
+]

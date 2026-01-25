@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fiat-palio-g4-2012-attractive-1.4",
+    "brand": "Fiat",
+    "model": "Palio",
+    "trim": "Attractive",
+    "generationOrChassis": "G4",
+    "bodyStyle": "hatch",
+    "year": 2012,
+    "engine": {
+      "displacement": 1.4,
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 4
+  }
+]

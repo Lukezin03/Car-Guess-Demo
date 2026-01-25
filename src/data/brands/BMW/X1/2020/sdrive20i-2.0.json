@@ -1,0 +1,23 @@
+[
+  {
+    "id": "bmw-x1-f48-2020",
+    "brand": "BMW",
+    "model": "X1",
+    "trim": "sDrive20i",
+    "generationOrChassis": "F48",
+    "bodyStyle": "suv",
+    "year": 2020,
+    "engine": {
+      "displacement": 2,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "auto",
+    "category": "premium",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "hyundai-hb20s-2019",
+    "brand": "Hyundai",
+    "model": "HB20S",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "sedan",
+    "year": 2019,
+    "engine": {
+      "displacement": 1.6,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "auto",
+    "category": "popular",
+    "brandOriginCountry": "South Korea",
+    "doors": 4
+  }
+]

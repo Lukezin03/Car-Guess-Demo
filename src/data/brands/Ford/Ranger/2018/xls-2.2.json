@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ford-ranger-2018-22-4x4",
+    "brand": "Ford",
+    "model": "Ranger",
+    "trim": "XLS",
+    "generationOrChassis": "T6",
+    "bodyStyle": "pickup",
+    "year": 2018,
+    "engine": {
+      "displacement": 2.2,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo"
+    },
+    "fuel": "diesel",
+    "traction": "awd",
+    "transmission": "auto",
+    "category": "medio",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]
