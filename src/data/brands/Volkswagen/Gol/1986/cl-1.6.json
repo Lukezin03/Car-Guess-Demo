@@ -8,7 +8,7 @@
     "bodyStyle": "hatch",
     "year": 1986,
     "engine": {
-      "displacement": 1.6,
+      "displacement": "1.6",
       "cylinders": 4,
       "valves": 8,
       "aspiration": "aspirado"

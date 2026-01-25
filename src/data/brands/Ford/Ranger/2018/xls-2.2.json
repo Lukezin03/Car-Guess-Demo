@@ -8,7 +8,7 @@
     "bodyStyle": "pickup",
     "year": 2018,
     "engine": {
-      "displacement": 2.2,
+      "displacement": "2.2",
       "cylinders": 4,
       "valves": 16,
       "aspiration": "turbo"

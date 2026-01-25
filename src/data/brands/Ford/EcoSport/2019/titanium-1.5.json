@@ -8,7 +8,7 @@
     "bodyStyle": "suv",
     "year": 2019,
     "engine": {
-      "displacement": 1.5,
+      "displacement": "1.5",
       "cylinders": 3,
       "valves": 12,
       "aspiration": "aspirado"

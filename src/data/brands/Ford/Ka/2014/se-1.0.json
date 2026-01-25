@@ -8,7 +8,7 @@
     "bodyStyle": "hatch",
     "year": 2014,
     "engine": {
-      "displacement": 1,
+      "displacement": "1.0",
       "cylinders": 4,
       "valves": 8,
       "aspiration": "aspirado"

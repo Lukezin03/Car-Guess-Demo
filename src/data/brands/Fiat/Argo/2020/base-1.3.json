@@ -8,7 +8,7 @@
     "bodyStyle": "hatch",
     "year": 2020,
     "engine": {
-      "displacement": 1.3,
+      "displacement": "1.3",
       "cylinders": 4,
       "valves": 12,
       "aspiration": "aspirado"

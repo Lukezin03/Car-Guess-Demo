@@ -8,7 +8,7 @@
     "bodyStyle": "hatch",
     "year": 2019,
     "engine": {
-      "displacement": 1.5,
+      "displacement": "1.5",
       "cylinders": 4,
       "valves": 16,
       "aspiration": "aspirado"

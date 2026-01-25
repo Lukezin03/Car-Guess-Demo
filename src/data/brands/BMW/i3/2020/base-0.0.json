@@ -3,7 +3,7 @@
     "id": "bmw-i3-i01-2020",
     "brand": "BMW",
     "model": "i3",
-    "trim": "Base",
+    "trim": "BEV Full",
     "generationOrChassis": "I01",
     "bodyStyle": "hatch",
     "year": 2020,
@@ -13,7 +13,7 @@
       "valves": 0,
       "aspiration": "electric"
     },
-    "fuel": "electric",
+    "fuel": "electricidade",
     "traction": "rwd",
     "transmission": "auto",
     "category": "luxo",
