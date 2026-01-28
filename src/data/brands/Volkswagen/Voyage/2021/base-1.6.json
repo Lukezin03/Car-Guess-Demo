@@ -1,0 +1,23 @@
+[
+  {
+    "id": "volkswagen-voyage-2021",
+    "brand": "Volkswagen",
+    "model": "Voyage",
+    "trim": "",
+    "generationOrChassis": "4",
+    "bodyStyle": "sedan",
+    "year": 2021,
+    "engine": {
+      "displacement": "1.6",
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

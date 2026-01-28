@@ -1,14 +1,24 @@
-{
-  "Marca": "Bentley",
-  "Tipo": "suv",
-  "Portas": 4,
-  "Motor": "4.0",
-  "Ano": 2020,
-  "Válvulas": 32,
-  "Aspiração": "Turbo",
-  "Combustível": "Gasolina",
-  "Tração": "Integral",
-  "Câmbio": "Automatico",
-  "Categoria": "luxo",
-  "Código do motor": "V8T"
-}
+[
+  {
+    "id": "bentley-bentayga-2020-4.0-v8t",
+    "brand": "Bentley",
+    "model": "Bentayga",
+    "trim": "V8",
+    "generationOrChassis": "N/A",
+    "bodyStyle": "suv",
+    "year": 2020,
+    "engine": {
+      "displacement": "4.0",
+      "cylinders": 8,
+      "valves": 32,
+      "aspiration": "turbo",
+      "engineCode": "V8T"
+    },
+    "fuel": "gasolina",
+    "traction": "awd",
+    "transmission": "auto",
+    "category": "luxo",
+    "brandOriginCountry": "UK",
+    "doors": 4
+  }
+]

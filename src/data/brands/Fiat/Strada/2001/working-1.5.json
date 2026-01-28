@@ -8,7 +8,7 @@
     "bodyStyle": "pickup",
     "year": 2001,
     "engine": {
-      "displacement": 1.5,
+      "displacement": "1.5",
       "cylinders": 4,
       "valves": 8,
       "aspiration": "aspirado"

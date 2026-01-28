@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chrysler-300c-2010",
+    "brand": "Chrysler",
+    "model": "300C",
+    "trim": "SRT8",
+    "generationOrChassis": "1",
+    "bodyStyle": "sedan",
+    "year": 2010,
+    "engine": {
+      "displacement": "6.1",
+      "cylinders": 8,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "auto",
+    "category": "",
+    "brandOriginCountry": "",
+    "doors": 4
+  }
+]

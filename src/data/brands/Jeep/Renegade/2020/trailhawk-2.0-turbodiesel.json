@@ -1,0 +1,24 @@
+[
+  {
+    "id": "jeep-renegade-trailhawk-2020-2.0-turbodiesel",
+    "brand": "Jeep",
+    "model": "Renegade",
+    "trim": "Trailhawk 2.0 Turbodiesel",
+    "generationOrChassis": "BU",
+    "bodyStyle": "suv",
+    "year": 2020,
+    "engine": {
+      "displacement": 2.0,
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo",
+      "engineCode": "Pratola Serra"
+    },
+    "fuel": "diesel",
+    "traction": "awd",
+    "transmission": "auto",
+    "category": "medio",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

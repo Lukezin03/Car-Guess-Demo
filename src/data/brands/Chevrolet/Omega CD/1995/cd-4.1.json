@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-omega-cd-1995",
+    "brand": "Chevrolet",
+    "model": "Omega CD",
+    "trim": "",
+    "generationOrChassis": "1",
+    "bodyStyle": "sedan",
+    "year": 1995,
+    "engine": {
+      "displacement": "4.1",
+      "cylinders": 6,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

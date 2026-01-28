@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-caravan-diplomata-1985",
+    "brand": "Chevrolet",
+    "model": "Caravan Diplomata",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "pickup",
+    "year": 1985,
+    "engine": {
+      "displacement": "4.1",
+      "cylinders": 6,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "etanol",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "",
+    "brandOriginCountry": "USA",
+    "doors": 2
+  }
+]

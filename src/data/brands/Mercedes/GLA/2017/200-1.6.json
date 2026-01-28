@@ -8,7 +8,7 @@
     "bodyStyle": "suv",
     "year": 2017,
     "engine": {
-      "displacement": 1.6,
+      "displacement": "1.6",
       "cylinders": 4,
       "valves": 16,
       "aspiration": "turbo"

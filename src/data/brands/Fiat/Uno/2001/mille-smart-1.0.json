@@ -1,14 +1,24 @@
-{
-  "Marca": "Fiat",
-  "Tipo": "hatch",
-  "Portas": 2,
-  "Motor": "1.0",
-  "Ano": 2001,
-  "Válvulas": 8,
-  "Aspiração": "Aspirado",
-  "Combustível": "Gasolina",
-  "Tração": "Dianteira",
-  "Câmbio": "Manual",
-  "Categoria": "popular",
-  "Código do motor": "FIRE"
-}
+[
+  {
+    "id": "fiat-uno-mille-smart-2001-1.0-fiasa",
+    "brand": "Fiat",
+    "model": "Uno",
+    "trim": "Mille Smart 1.0",
+    "generationOrChassis": "G1",
+    "bodyStyle": "hatch",
+    "year": 2001,
+    "engine": {
+      "displacement": "1.0",
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado",
+      "engineCode": "Fiasa"
+    },
+    "fuel": "gasolina",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "popular",
+    "brandOriginCountry": "Italy",
+    "doors": 2
+  }
+]

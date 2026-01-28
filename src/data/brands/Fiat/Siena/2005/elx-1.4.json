@@ -8,7 +8,7 @@
     "bodyStyle": "sedan",
     "year": 2005,
     "engine": {
-      "displacement": 1.4,
+      "displacement": "1.4",
       "cylinders": 4,
       "valves": 8,
       "aspiration": "aspirado"

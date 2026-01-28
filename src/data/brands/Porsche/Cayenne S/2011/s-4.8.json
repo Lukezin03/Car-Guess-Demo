@@ -1,0 +1,23 @@
+[
+  {
+    "id": "porsche-cayenne-s-2011",
+    "brand": "Porsche",
+    "model": "Cayenne S",
+    "trim": "",
+    "generationOrChassis": "2",
+    "bodyStyle": "suv",
+    "year": 2011,
+    "engine": {
+      "displacement": "4.8",
+      "cylinders": 8,
+      "valves": 32,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "awd",
+    "transmission": "auto",
+    "category": "",
+    "brandOriginCountry": "",
+    "doors": 4
+  }
+]

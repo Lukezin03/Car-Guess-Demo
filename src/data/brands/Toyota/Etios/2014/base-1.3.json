@@ -1,0 +1,23 @@
+[
+  {
+    "id": "toyota-etios-2014",
+    "brand": "Toyota",
+    "model": "Etios",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "hatch",
+    "year": 2014,
+    "engine": {
+      "displacement": "1.3",
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "",
+    "brandOriginCountry": "Japan",
+    "doors": 4
+  }
+]

@@ -1,14 +1,24 @@
-{
-  "Marca": "BMW",
-  "Tipo": "sedan",
-  "Portas": 4,
-  "Motor": "2.0",
-  "Ano": 2016,
-  "Válvulas": 16,
-  "Aspiração": "Turbo",
-  "Combustível": "Gasolina",
-  "Tração": "Traseira",
-  "Câmbio": "Automatico",
-  "Categoria": "medio",
-  "Código do motor": "N20B20"
-}
+[
+  {
+    "id": "bmw-320i-gt-f34-2016-2.0-turbo",
+    "brand": "BMW",
+    "model": "320i GT",
+    "trim": "Sport",
+    "generationOrChassis": "F34",
+    "bodyStyle": "sedan",
+    "year": 2016,
+    "engine": {
+      "displacement": "2.0",
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo",
+      "engineCode": "N20B20"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "auto",
+    "category": "medio",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]
