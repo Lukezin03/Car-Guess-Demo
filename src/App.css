@@ -755,8 +755,9 @@
   }
 
   .header-actions {
-    width: 100%;
+    width: auto;
     justify-content: flex-end;
+    margin-left: auto;
   }
 
   .title {
