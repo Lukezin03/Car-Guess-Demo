@@ -1,0 +1,23 @@
+[
+  {
+    "id": "volkswagen-voyage-comfortline-2017",
+    "brand": "Volkswagen",
+    "model": "Voyage Comfortline",
+    "trim": "",
+    "generationOrChassis": "3",
+    "bodyStyle": "sedan",
+    "year": 2017,
+    "engine": {
+      "displacement": "1.6",
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]

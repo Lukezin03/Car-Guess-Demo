@@ -1,0 +1,23 @@
+[
+  {
+    "id": "toyota-etios-sedan-x-plus-2020",
+    "brand": "Toyota",
+    "model": "Etios Sedan X-Plus",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "sedan",
+    "year": 2020,
+    "engine": {
+      "displacement": "1.5",
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "",
+    "brandOriginCountry": "Japan",
+    "doors": 4
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-opala-cupe-ss-1976",
+    "brand": "Chevrolet",
+    "model": "Opala Cupê SS",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "coupe",
+    "year": 1976,
+    "engine": {
+      "displacement": "4.1",
+      "cylinders": 6,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "",
+    "brandOriginCountry": "USA",
+    "doors": 2
+  }
+]

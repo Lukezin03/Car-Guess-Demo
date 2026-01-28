@@ -1,0 +1,23 @@
+[
+  {
+    "id": "toyota-etios-xs-2015",
+    "brand": "Toyota",
+    "model": "Etios XS",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "hatch",
+    "year": 2015,
+    "engine": {
+      "displacement": "1.5",
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "flex",
+    "traction": "fwd",
+    "transmission": "manual",
+    "category": "",
+    "brandOriginCountry": "Japan",
+    "doors": 4
+  }
+]

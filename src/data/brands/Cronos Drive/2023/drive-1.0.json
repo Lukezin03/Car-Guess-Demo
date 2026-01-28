@@ -1,23 +1,23 @@
 [
   {
-    "id": "hyundai-hb20-2019",
-    "brand": "Hyundai",
-    "model": "HB20",
+    "id": "fiat-cronos-drive-2023",
+    "brand": "Fiat",
+    "model": "Cronos Drive",
     "trim": "",
     "generationOrChassis": "",
-    "bodyStyle": "hatch",
-    "year": 2019,
+    "bodyStyle": "sedan",
+    "year": 2023,
     "engine": {
       "displacement": "1.0",
       "cylinders": 3,
-      "valves": 12,
+      "valves": 6,
       "aspiration": "aspirado"
     },
     "fuel": "flex",
     "traction": "fwd",
     "transmission": "manual",
-    "category": "popular",
-    "brandOriginCountry": "South Korea",
+    "category": "",
+    "brandOriginCountry": "Italy",
     "doors": 4
   }
 ]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-opala-comodoro-1988",
+    "brand": "Chevrolet",
+    "model": "Opala Comodoro",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "sedan",
+    "year": 1988,
+    "engine": {
+      "displacement": "2.5",
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "",
+    "brandOriginCountry": "USA",
+    "doors": 4
+  }
+]

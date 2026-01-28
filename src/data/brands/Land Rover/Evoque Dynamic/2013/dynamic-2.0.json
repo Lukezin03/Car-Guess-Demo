@@ -1,0 +1,23 @@
+[
+  {
+    "id": "land-rover-evoque-dynamic-2013",
+    "brand": "Land Rover",
+    "model": "Evoque Dynamic",
+    "trim": "",
+    "generationOrChassis": "1",
+    "bodyStyle": "suv",
+    "year": 2013,
+    "engine": {
+      "displacement": "2.0",
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo"
+    },
+    "fuel": "gasolina",
+    "traction": "awd",
+    "transmission": "auto",
+    "category": "",
+    "brandOriginCountry": "",
+    "doors": 4
+  }
+]
