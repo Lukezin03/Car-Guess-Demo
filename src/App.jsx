@@ -119,6 +119,12 @@ function App() {
       addLeaderboardEntry(playerName, guesses.length, "win", carGuessed);
     }
   }, [hasWon, playerName, guesses.length, answerCar]);
+
+  useEffect(() => {
+    if (hasWon) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [hasWon]);
   
   useEffect(() => {
     if (hasLost && playerName && guesses.length > 0) {
@@ -189,6 +195,21 @@ function App() {
 
   return (
     <div className="app">
+      {hasWon && (
+        <div className="confetti-overlay" aria-hidden="true">
+          {Array.from({ length: 18 }).map((_, index) => (
+            <span
+              key={index}
+              className="confetti-piece"
+              style={{
+                "--left": `${4 + (index % 9) * 11}%`,
+                "--delay": `${index * 0.08}s`,
+                "--duration": `${2.2 + (index % 4) * 0.35}s`,
+              }}
+            />
+          ))}
+        </div>
+      )}
       {/* HEADER */}
       <header className="header">
         <div className="header-content">
