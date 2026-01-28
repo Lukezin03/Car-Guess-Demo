@@ -397,13 +397,21 @@
   color: var(--text-secondary);
 }
 
-.confetti {
+.confetti,
+.confetti-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
+.confetti-overlay {
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+}
+
 .confetti-piece {
+  display: block;
   position: absolute;
   top: -12px;
   left: var(--left);
@@ -413,7 +421,7 @@
   background: var(--accent);
   opacity: 0.9;
   transform: rotate(12deg);
-  animation: confettiFall var(--duration) linear infinite;
+  animation: confettiFall var(--duration) linear both;
   animation-delay: var(--delay);
 }
 
