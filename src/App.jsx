@@ -290,6 +290,44 @@ function App() {
       {/* MAIN CONTENT */}
       <main className="main">
         <div className="container">
+          {/* VICTORY */}
+          {hasWon && (
+            <div className="victory-card">
+              <div className="confetti" aria-hidden="true">
+                {Array.from({ length: 12 }).map((_, index) => (
+                  <span
+                    key={index}
+                    className="confetti-piece"
+                    style={{
+                      "--left": `${8 + (index % 6) * 16}%`,
+                      "--delay": `${index * 0.12}s`,
+                      "--duration": `${2.6 + (index % 4) * 0.4}s`,
+                    }}
+                  />
+                ))}
+              </div>
+              <div className="victory-icon">🎉</div>
+              <h2>Parabéns!</h2>
+              <p>
+                Você acertou em{" "}
+                <strong>
+                  {guesses.length} {guesses.length === 1 ? "tentativa" : "tentativas"}
+                </strong>
+              </p>
+              <div className="victory-car">
+                <strong>
+                  {answerCar.brand} {answerCar.model}
+                </strong>
+                <span className="victory-meta">
+                  {getCarLabel(answerCar)}
+                </span>
+              </div>
+              <button className="button-primary" onClick={resetGame}>
+                Jogar novamente
+              </button>
+            </div>
+          )}
+
           {/* GUESSES */}
           {guesses.length === 0 && !hasWon && !hasLost && (
             <div className="empty-state">
@@ -334,31 +372,6 @@ function App() {
               </div>
             </div>
           ))}
-
-          {/* VICTORY */}
-          {hasWon && (
-            <div className="victory-card">
-              <div className="victory-icon">🎉</div>
-              <h2>Parabéns!</h2>
-              <p>
-                Você acertou em{" "}
-                <strong>
-                  {guesses.length} {guesses.length === 1 ? "tentativa" : "tentativas"}
-                </strong>
-              </p>
-              <div className="victory-car">
-                <strong>
-                  {answerCar.brand} {answerCar.model}
-                </strong>
-                <span className="victory-meta">
-                  {getCarLabel(answerCar)}
-                </span>
-              </div>
-              <button className="button-primary" onClick={resetGame}>
-                Jogar novamente
-              </button>
-            </div>
-          )}
           
           {/* LOSS */}
           {hasLost && (
