@@ -138,11 +138,20 @@ function App() {
   const filteredCars =
     searchTokens.length === 0
       ? []
-      : cars.filter((car) =>
-          searchTokens.every((token) =>
-            isTokenMatch(token, buildSearchIndex(car))
-          )
-        );
+      : cars
+          .map((car) => {
+            const searchIndex = buildSearchIndex(car);
+            const score = getSearchMatchScore(searchTokens, searchIndex);
+            return score === null ? null : { car, score, searchIndex };
+          })
+          .filter(Boolean)
+          .sort((a, b) => {
+            if (a.score !== b.score) {
+              return a.score - b.score;
+            }
+            return a.searchIndex.localeCompare(b.searchIndex, "pt-BR");
+          })
+          .map(({ car }) => car);
 
   const previewCar = selectedCar;
   const showResults = searchTokens.length > 0 && !selectedCar;
@@ -197,14 +206,15 @@ function App() {
     <div className="app">
       {hasWon && (
         <div className="confetti-overlay" aria-hidden="true">
-          {Array.from({ length: 18 }).map((_, index) => (
+          {Array.from({ length: 48 }).map((_, index) => (
             <span
               key={index}
               className="confetti-piece"
               style={{
-                "--left": `${4 + (index % 9) * 11}%`,
-                "--delay": `${index * 0.08}s`,
-                "--duration": `${2.2 + (index % 4) * 0.35}s`,
+                "--left": `${2 + (index % 12) * 8}%`,
+                "--delay": `${index * 0.05}s`,
+                "--duration": `${2.4 + (index % 6) * 0.35}s`,
+                "--x": `${(index % 6) * 6 - 15}px`,
               }}
             />
           ))}
@@ -602,6 +612,22 @@ function isTokenMatch(token, searchIndex) {
   if (searchIndex.includes(token)) return true;
   const words = searchIndex.split(" ");
   return words.some((word) => levenshteinDistance(word, token) <= 1);
+}
+
+function getSearchMatchScore(tokens, searchIndex) {
+  let score = 0;
+  for (const token of tokens) {
+    if (searchIndex.includes(token)) {
+      continue;
+    }
+    const words = searchIndex.split(" ");
+    const hasFuzzyMatch = words.some(
+      (word) => levenshteinDistance(word, token) <= 1
+    );
+    if (!hasFuzzyMatch) return null;
+    score += 1;
+  }
+  return score;
 }
 
 function levenshteinDistance(a, b) {
