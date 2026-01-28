@@ -406,22 +406,25 @@
 
 .confetti-overlay {
   position: fixed;
-  z-index: 60;
+  z-index: 200;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .confetti-piece {
   display: block;
   position: absolute;
-  top: -12px;
+  top: -12vh;
   left: var(--left);
   width: 8px;
   height: 14px;
   border-radius: 2px;
   background: var(--accent);
   opacity: 0.9;
-  transform: rotate(12deg);
-  animation: confettiFall var(--duration) linear both;
+  transform: translate3d(var(--x, 0), -8vh, 0) rotate(12deg);
+  animation: confettiFall var(--duration) ease-in both;
   animation-delay: var(--delay);
 }
 
@@ -439,14 +442,14 @@
 
 @keyframes confettiFall {
   0% {
-    transform: translateY(-10%) rotate(0deg);
+    transform: translate3d(var(--x, 0), -10vh, 0) rotate(0deg);
     opacity: 0;
   }
   10% {
     opacity: 1;
   }
   100% {
-    transform: translateY(115%) rotate(360deg);
+    transform: translate3d(var(--x, 0), 110vh, 0) rotate(360deg);
     opacity: 0;
   }
 }
@@ -752,8 +755,9 @@
   }
 
   .header-actions {
-    width: 100%;
+    width: auto;
     justify-content: flex-end;
+    margin-left: auto;
   }
 
   .title {
