@@ -1,22 +1,22 @@
 [
   {
-    "id": "fiat-cronos-2021",
+    "id": "fiat-cronos-drive-2023",
     "brand": "Fiat",
-    "model": "Cronos",
+    "model": "Cronos Drive",
     "trim": "",
     "generationOrChassis": "",
     "bodyStyle": "sedan",
-    "year": 2021,
+    "year": 2023,
     "engine": {
-      "displacement": "1.3",
-      "cylinders": 4,
-      "valves": 8,
+      "displacement": "1.0",
+      "cylinders": 3,
+      "valves": 6,
       "aspiration": "aspirado"
     },
     "fuel": "flex",
     "traction": "fwd",
     "transmission": "manual",
-    "category": "",
+    "category": "popular",
     "brandOriginCountry": "Italy",
     "doors": 4
   }
