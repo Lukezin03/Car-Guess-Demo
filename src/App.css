@@ -115,6 +115,20 @@
 
 .logo {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  overflow: visible;
+}
+
+.logo img {
+  display: block;
+  width: auto;
+  height: 112px;
+  max-width: min(620px, 100%);
+  object-fit: contain;
+  transform: scale(1.08);
+  transform-origin: left center;
 }
 
 .header-text {
@@ -122,14 +136,6 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
-}
-
-.title {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: var(--text-primary);
-  margin: 0;
 }
 
 .subtitle {
@@ -190,9 +196,12 @@
 }
 
 .empty-icon {
-  font-size: 64px;
+  width: min(150px, 38vw);
+  height: auto;
   margin-bottom: 16px;
-  opacity: 0.5;
+  opacity: 1;
+  transform: scale(0.88);
+  transform-origin: center;
 }
 
 .empty-state h3 {
@@ -760,8 +769,8 @@
     margin-left: auto;
   }
 
-  .title {
-    font-size: 18px;
+  .logo img {
+    height: 84px;
   }
 
   .subtitle {
