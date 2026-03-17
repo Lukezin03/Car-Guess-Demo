@@ -10,6 +10,9 @@ import {
 } from "./utils/leaderboard";
 import "./App.css";
 
+const BRAND_ICON_SRC = "/carguess-icon.svg";
+const BRAND_WORDMARK_SRC = "/carguess-wordmark.svg";
+
 /* =======================
    COMPARAÇÃO DO JOGO
 ======================= */
@@ -225,19 +228,10 @@ function App() {
         <div className="header-content">
           <div className="header-left">
             <div className="logo">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <rect width="32" height="32" rx="8" fill="var(--accent)" />
-                <path
-                  d="M8 16L14 10L18 14L24 8"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <img src={BRAND_ICON_SRC} alt="Logo CarGuess" />
             </div>
             <div className="header-text">
-              <h1 className="title">CarGuess</h1>
+              <img className="title-mark" src={BRAND_WORDMARK_SRC} alt="CarGuess" />
               <p className="subtitle">Adivinhe o carro pelas características</p>
             </div>
           </div>
@@ -362,7 +356,11 @@ function App() {
           {/* GUESSES */}
           {guesses.length === 0 && !hasWon && !hasLost && (
             <div className="empty-state">
-              <div className="empty-icon">🚗</div>
+              <img
+                className="empty-icon"
+                src={BRAND_ICON_SRC}
+                alt="Logo do turbo com lupa"
+              />
               <h3>Comece a jogar!</h3>
               <p>Busque um carro abaixo e faça sua primeira tentativa</p>
             </div>
