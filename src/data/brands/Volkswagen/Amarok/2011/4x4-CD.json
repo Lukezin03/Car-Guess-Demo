@@ -1,0 +1,23 @@
+[
+  {
+    "id": "volkswagen-amarok-2h-2011-2.0-4x4-cd",
+    "brand": "Volkswagen",
+    "model": "Amarok",
+    "trim": "4x4 CD",
+    "generationOrChassis": "2H",
+    "bodyStyle": "pickup",
+    "year": 2011,
+    "engine": {
+      "displacement": "2.0",
+      "cylinders": 4,
+      "valves": 16,
+      "aspiration": "turbo"
+    },
+    "fuel": "diesel",
+    "traction": "awd",
+    "transmission": "manual",
+    "category": "medio",
+    "brandOriginCountry": "Germany",
+    "doors": 4
+  }
+]
