@@ -50,6 +50,7 @@
   border-bottom: 1px solid var(--border-color);
   transition: var(--transition);
   background: var(--bg-tertiary);
+  min-width: 0;
 }
 
 .leaderboard-item:last-child {
@@ -122,6 +123,7 @@
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.2px;
+  overflow-wrap: anywhere;
 }
 
 .item-badge {
@@ -141,14 +143,14 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  min-width: 0;
 }
 
 .item-car {
   font-size: 13px;
   color: var(--text-secondary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .item-meta {
@@ -269,20 +271,21 @@
   }
 
   .leaderboard-item {
-    padding: 14px 20px;
+    align-items: flex-start;
+    padding: 14px 16px;
     gap: 12px;
   }
 
   .item-position {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     font-size: 20px;
   }
 
   .position-1 .item-position,
   .position-2 .item-position,
   .position-3 .item-position {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .item-name {
@@ -294,6 +297,7 @@
   }
 
   .item-stats {
+    align-items: flex-start;
     gap: 4px;
   }
 

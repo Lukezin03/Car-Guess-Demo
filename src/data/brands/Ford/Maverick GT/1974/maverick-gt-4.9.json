@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ford-maverick-gt-1974",
+    "brand": "Ford",
+    "model": "Maverick GT",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "coupe",
+    "year": 1974,
+    "engine": {
+      "displacement": "4.9",
+      "cylinders": 8,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "clássico",
+    "brandOriginCountry": "USA",
+    "doors": 2
+  }
+]

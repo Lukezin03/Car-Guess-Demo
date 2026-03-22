@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mazda-787b-1991",
+    "brand": "Mazda",
+    "model": "787B",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "coupe",
+    "year": 1991,
+    "engine": {
+      "displacement": "2.6",
+      "cylinders": 4,
+      "valves": 0,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "legendary",
+    "brandOriginCountry": "Japan",
+    "doors": 2
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "porsche-917k-1970",
+    "brand": "Porsche",
+    "model": "917K",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "coupe",
+    "year": 1970,
+    "engine": {
+      "displacement": "4.5",
+      "cylinders": 12,
+      "valves": 24,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "legendary",
+    "brandOriginCountry": "Germany",
+    "doors": 2
+  }
+]

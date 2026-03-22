@@ -1,0 +1,23 @@
+[
+  {
+    "id": "volkswagen-fusca-1970",
+    "brand": "Volkswagen",
+    "model": "Fusca",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "coupe",
+    "year": 1970,
+    "engine": {
+      "displacement": "1.6",
+      "cylinders": 4,
+      "valves": 8,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "clássico",
+    "brandOriginCountry": "Germany",
+    "doors": 2
+  }
+]
