@@ -171,6 +171,7 @@ function App() {
   const isLegendsMode = gameMode === GAME_MODES.LENDAS_DO_ASFALTO;
   const availableCars = getCarsForGameMode(gameMode);
   const gameModeDetails = GAME_MODE_DETAILS[gameMode];
+  const shouldShowModeBanner = guesses.length === 0 && !hasWon && !hasLost;
 
   // Save to leaderboard when player wins or loses
   useEffect(() => {
@@ -274,6 +275,7 @@ function App() {
     }
 
     setSearchTerm("");
+    setSelectedBrandFilter("");
     setSelectedCar(null);
   }
 
@@ -398,37 +400,48 @@ function App() {
               <p className="subtitle">{gameModeDetails.headline}</p>
             </div>
           </div>
-          
+
           {!hasWon && !hasLost && (
-            <div className="attempts-counter">
+            <div className="attempts-counter attempts-counter-desktop">
               <span className="counter-label">Tentativas</span>
               <span className="counter-value">
                 {guesses.length}/{MAX_ATTEMPTS}
               </span>
             </div>
           )}
-          
+
           <div className="header-actions">
-            {playerName && (
-              <button
-                className="player-badge"
-                onClick={() => setShowNameModal(true)}
-                aria-label="Trocar jogador"
-                title={`Jogador: ${playerName}`}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2" />
-                </svg>
-                <span className="player-name-text">{playerName}</span>
-              </button>
-            )}
+            <div className="player-meta">
+              {playerName && (
+                <button
+                  className="player-badge"
+                  onClick={() => setShowNameModal(true)}
+                  aria-label="Trocar jogador"
+                  title={`Jogador: ${playerName}`}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2" />
+                  </svg>
+                  <span className="player-name-text">{playerName}</span>
+                </button>
+              )}
+
+              {!hasWon && !hasLost && (
+                <div className="attempts-counter attempts-counter-mobile">
+                  <span className="counter-label">Tentativas</span>
+                  <span className="counter-value">
+                    {guesses.length}/{MAX_ATTEMPTS}
+                  </span>
+                </div>
+              )}
+            </div>
             <button
               className="theme-toggle"
               onClick={() => setShowLeaderboardModal(true)}
@@ -478,21 +491,23 @@ function App() {
       {/* MAIN CONTENT */}
       <main className="main">
         <div className="container">
-          <section
-            className={`mode-banner ${isLegendsMode ? "mode-banner-legends" : "mode-banner-standard"}`}
-          >
-            <div className="mode-banner-copy">
-              <span className="mode-banner-kicker">Modo ativo</span>
-              <h2>{gameModeDetails.label}</h2>
-              <p>{gameModeDetails.description}</p>
-            </div>
-            <div className="mode-banner-stats">
-              <span>{availableCars.length} carros disponiveis</span>
-              <span>
-                {gameModeDetails.helperLabel}: {gameModeDetails.helperValue}
-              </span>
-            </div>
-          </section>
+          {shouldShowModeBanner && (
+            <section
+              className={`mode-banner ${isLegendsMode ? "mode-banner-legends" : "mode-banner-standard"}`}
+            >
+              <div className="mode-banner-copy">
+                <span className="mode-banner-kicker">Modo ativo</span>
+                <h2>{gameModeDetails.label}</h2>
+                <p>{gameModeDetails.description}</p>
+              </div>
+              <div className="mode-banner-stats">
+                <span>{availableCars.length} carros disponiveis</span>
+                <span>
+                  {gameModeDetails.helperLabel}: {gameModeDetails.helperValue}
+                </span>
+              </div>
+            </section>
+          )}
 
           {/* VICTORY */}
           {hasWon && (
