@@ -1,0 +1,23 @@
+[
+  {
+    "id": "jaguar-d-type-1955",
+    "brand": "Jaguar",
+    "model": "D-Type",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "roadster",
+    "year": 1955,
+    "engine": {
+      "displacement": "3.4",
+      "cylinders": 6,
+      "valves": 12,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "legendary",
+    "brandOriginCountry": "UK",
+    "doors": 2
+  }
+]

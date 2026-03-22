@@ -1,0 +1,23 @@
+[
+  {
+    "id": "dodge-charger-rt-1969",
+    "brand": "Dodge",
+    "model": "Charger R/T",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "coupe",
+    "year": 1969,
+    "engine": {
+      "displacement": "7.0",
+      "cylinders": 8,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "clássico",
+    "brandOriginCountry": "USA",
+    "doors": 2
+  }
+]

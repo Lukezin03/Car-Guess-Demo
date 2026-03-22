@@ -1,0 +1,23 @@
+[
+  {
+    "id": "chevrolet-chevelle-ss-1970",
+    "brand": "Chevrolet",
+    "model": "Chevelle SS",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "coupe",
+    "year": 1970,
+    "engine": {
+      "displacement": "7.4",
+      "cylinders": 8,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "clássico",
+    "brandOriginCountry": "USA",
+    "doors": 2
+  }
+]

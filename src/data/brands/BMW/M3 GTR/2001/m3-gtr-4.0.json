@@ -1,0 +1,23 @@
+[
+  {
+    "id": "bmw-m3-gtr-2001",
+    "brand": "BMW",
+    "model": "M3 GTR",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "coupe",
+    "year": 2001,
+    "engine": {
+      "displacement": "4.0",
+      "cylinders": 8,
+      "valves": 32,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "legendary",
+    "brandOriginCountry": "Germany",
+    "doors": 2
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ford-gt40-1966",
+    "brand": "Ford",
+    "model": "GT40",
+    "trim": "",
+    "generationOrChassis": "",
+    "bodyStyle": "coupe",
+    "year": 1966,
+    "engine": {
+      "displacement": "7.0",
+      "cylinders": 8,
+      "valves": 16,
+      "aspiration": "aspirado"
+    },
+    "fuel": "gasolina",
+    "traction": "rwd",
+    "transmission": "manual",
+    "category": "legendary",
+    "brandOriginCountry": "USA",
+    "doors": 2
+  }
+]
