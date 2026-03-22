@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { cars } from "./data/cars";
 import { useTheme } from "./hooks/useTheme";
+import { supabase, isSupabaseConfigured } from "./lib/supabase";
+import { getProfile, createProfile, updateProfile } from "./lib/profile";
+import { AuthModal } from "./components/AuthModal";
+import { ProfileSetupModal } from "./components/ProfileSetupModal";
 import { PlayerNameModal } from "./components/PlayerNameModal";
 import { LeaderboardModal } from "./components/LeaderboardModal";
 import {
@@ -101,12 +105,14 @@ const GAME_MODES = {
 };
 
 const CARRO_CERTO_CARS = cars.filter(
-  (car) => normalizeText(car.category) !== "legendary"
+  (car) => normalizeText(car.category) !== "legendary",
 );
 
 const LENDAS_DO_ASFALTO_CARS = cars.filter((car) => {
   const normalizedCategory = normalizeText(car.category);
-  return normalizedCategory === "classico" || normalizedCategory === "legendary";
+  return (
+    normalizedCategory === "classico" || normalizedCategory === "legendary"
+  );
 });
 
 const GAME_MODE_DETAILS = {
@@ -153,7 +159,7 @@ function App() {
   const [gameMode, setGameMode] = useState(GAME_MODES.CARRO_CERTO);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [answerCar, setAnswerCar] = useState(() =>
-    getRandomCar(getCarsForGameMode(GAME_MODES.CARRO_CERTO))
+    getRandomCar(getCarsForGameMode(GAME_MODES.CARRO_CERTO)),
   );
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedBrandFilter, setSelectedBrandFilter] = useState("");
@@ -161,38 +167,93 @@ function App() {
   const [guesses, setGuesses] = useState([]);
   const [hasWon, setHasWon] = useState(false);
   const [hasLost, setHasLost] = useState(false);
-  
+
   // Player and Leaderboard state
   const [playerName, setPlayerName] = useState(() => getPlayerName());
-  const [showNameModal, setShowNameModal] = useState(() => !getPlayerName());
+  const [showNameModal, setShowNameModal] = useState(false);
   const [showLeaderboardModal, setShowLeaderboardModal] = useState(false);
-  
+  const [session, setSession] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+  const [authError, setAuthError] = useState("");
+  const [profile, setProfile] = useState(null);
+  const [profileLoading, setProfileLoading] = useState(true);
+  const [savingProfile, setSavingProfile] = useState(false);
+  const [profileError, setProfileError] = useState("");
+
   const MAX_ATTEMPTS = 10;
   const isLegendsMode = gameMode === GAME_MODES.LENDAS_DO_ASFALTO;
   const availableCars = getCarsForGameMode(gameMode);
   const gameModeDetails = GAME_MODE_DETAILS[gameMode];
   const shouldShowModeBanner = guesses.length === 0 && !hasWon && !hasLost;
+  const currentPlayerName = profile?.display_name || playerName;
+
+  useEffect(() => {
+    if (!isSupabaseConfigured || !supabase) {
+      setAuthLoading(false);
+      return undefined;
+    }
+
+    let isMounted = true;
+
+    async function loadSession() {
+      try {
+        const { data, error } = await supabase.auth.getSession();
+
+        if (error) {
+          throw error;
+        }
+
+        if (!isMounted) return;
+
+        setSession(data.session);
+        setAuthError("");
+      } catch (error) {
+        if (!isMounted) return;
+        setAuthError(getAuthErrorMessage(error));
+      } finally {
+        if (isMounted) {
+          setAuthLoading(false);
+        }
+      }
+    }
+
+    loadSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+      if (!isMounted) return;
+      setSession(nextSession);
+      setAuthError("");
+      setAuthLoading(false);
+    });
+
+    return () => {
+      isMounted = false;
+      subscription.unsubscribe();
+    };
+  }, []);
 
   // Save to leaderboard when player wins or loses
   useEffect(() => {
-    if (hasWon && playerName && guesses.length > 0) {
+    if (hasWon && currentPlayerName && guesses.length > 0) {
       const carGuessed = getCarLabel(answerCar);
-      addLeaderboardEntry(playerName, guesses.length, "win", carGuessed);
+      addLeaderboardEntry(currentPlayerName, guesses.length, "win", carGuessed);
     }
-  }, [hasWon, playerName, guesses.length, answerCar]);
+  }, [hasWon, currentPlayerName, guesses.length, answerCar]);
 
   useEffect(() => {
     if (hasWon) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [hasWon]);
-  
+
   useEffect(() => {
-    if (hasLost && playerName && guesses.length > 0) {
+    if (hasLost && currentPlayerName && guesses.length > 0) {
       const carGuessed = getCarLabel(answerCar);
-      addLeaderboardEntry(playerName, guesses.length, "loss", carGuessed);
+      addLeaderboardEntry(currentPlayerName, guesses.length, "loss", carGuessed);
     }
-  }, [hasLost, playerName, guesses.length, answerCar]);
+  }, [hasLost, currentPlayerName, guesses.length, answerCar]);
 
   useEffect(() => {
     if (!isMenuOpen) return undefined;
@@ -207,8 +268,57 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadProfile() {
+      if (!session?.user?.id) {
+        if (!isMounted) return;
+        setProfile(null);
+        setProfileError("");
+        setProfileLoading(false);
+        return;
+      }
+
+      if (!isMounted) return;
+      setProfileLoading(true);
+      setProfileError("");
+
+      const { data, error } = await getProfile(session.user.id);
+
+      if (!isMounted) return;
+
+      if (error) {
+        setProfile(null);
+        setProfileError(getProfileErrorMessage(error));
+        setProfileLoading(false);
+        return;
+      }
+
+      if (data) {
+        setProfile(data);
+        setProfileError("");
+
+        if (data.display_name) {
+          savePlayerName(data.display_name);
+          setPlayerName(data.display_name);
+        }
+      } else {
+        setProfile(null);
+      }
+
+      setProfileLoading(false);
+    }
+
+    loadProfile();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [session]);
+
   const brandOptions = Array.from(
-    new Set(availableCars.map((car) => car.brand))
+    new Set(availableCars.map((car) => car.brand)),
   ).sort((a, b) => a.localeCompare(b, "pt-BR"));
   const normalizedSearch = normalizeText(searchTerm);
   const searchTokens = normalizedSearch.split(" ").filter(Boolean);
@@ -218,7 +328,7 @@ function App() {
   const filteredCars =
     searchTokens.length === 0
       ? [...searchPool].sort((a, b) =>
-          getCarLabel(a).localeCompare(getCarLabel(b), "pt-BR")
+          getCarLabel(a).localeCompare(getCarLabel(b), "pt-BR"),
         )
       : searchPool
           .map((car) => {
@@ -242,7 +352,7 @@ function App() {
   function handleSearchChange(nextValue) {
     const normalizedValue = normalizeText(nextValue);
     const exactMatch = searchPool.find(
-      (car) => buildSearchIndex(car) === normalizedValue
+      (car) => buildSearchIndex(car) === normalizedValue,
     );
 
     setSearchTerm(nextValue);
@@ -301,15 +411,124 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  function handleSavePlayerName(name) {
-    savePlayerName(name);
-    setPlayerName(name);
+  async function handleSavePlayerName(name) {
+    if (session?.user?.id && profile) {
+      setSavingProfile(true);
+      setProfileError("");
+
+      const { data, error } = await updateProfile({
+        id: session.user.id,
+        display_name: name,
+        username: profile.username ?? null,
+      });
+
+      if (error) {
+        console.error("Erro ao atualizar perfil:", error.message);
+        setProfileError("Não foi possível atualizar seu perfil agora.");
+        setSavingProfile(false);
+        return;
+      }
+
+      setProfile(data);
+      savePlayerName(data.display_name);
+      setPlayerName(data.display_name);
+      setSavingProfile(false);
+    } else {
+      savePlayerName(name);
+      setPlayerName(name);
+      setProfileError("");
+    }
+
     setShowNameModal(false);
-    
+
     // Reset game when changing player
     if (guesses.length > 0 || hasWon) {
       resetGame();
     }
+  }
+
+  async function handleCreateProfile(displayName) {
+    if (!session?.user?.id) return;
+
+    setSavingProfile(true);
+    setProfileError("");
+
+    const { data, error } = await createProfile({
+      id: session.user.id,
+      display_name: displayName,
+    });
+
+    if (error) {
+      console.error("Erro ao criar perfil:", error.message);
+      setProfileError(getProfileErrorMessage(error));
+      setSavingProfile(false);
+      return;
+    }
+
+    setProfile(data);
+    savePlayerName(data.display_name);
+    setPlayerName(data.display_name);
+    setSavingProfile(false);
+  }
+
+  if (authLoading) {
+    return (
+      <div className="app auth-shell">
+        <div className="auth-status-card">
+          <img
+            className="auth-status-logo"
+            src={HEADER_LOGO_SRC}
+            alt="Logo Car Guess"
+          />
+          <span className="auth-status-kicker">Acesso seguro</span>
+          <h1 className="auth-status-title">Validando sua sessão</h1>
+          <p className="auth-status-copy">
+            Estamos conferindo seu acesso para liberar a próxima rodada.
+          </p>
+          <span className="auth-status-bar" aria-hidden="true" />
+        </div>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return (
+      <div className="app auth-shell">
+        <AuthModal authError={authError} />
+      </div>
+    );
+  }
+
+  if (profileLoading) {
+    return (
+      <div className="app auth-shell">
+        <div className="auth-status-card">
+          <img
+            className="auth-status-logo"
+            src={HEADER_LOGO_SRC}
+            alt="Logo Car Guess"
+          />
+          <span className="auth-status-kicker">Perfil do piloto</span>
+          <h1 className="auth-status-title">Carregando seu perfil</h1>
+          <p className="auth-status-copy">
+            Estamos buscando o nome que vai aparecer no jogo e no ranking.
+          </p>
+          <span className="auth-status-bar" aria-hidden="true" />
+        </div>
+      </div>
+    );
+  }
+
+  if (!profile) {
+    return (
+      <div className="app auth-shell">
+        <ProfileSetupModal
+          onSave={handleCreateProfile}
+          loading={savingProfile}
+          errorMessage={profileError}
+        />
+      </div>
+    );
   }
 
   return (
@@ -334,7 +553,9 @@ function App() {
         <button
           className="menu-toggle"
           type="button"
-          aria-label={isMenuOpen ? "Fechar menu de modos" : "Abrir menu de modos"}
+          aria-label={
+            isMenuOpen ? "Fechar menu de modos" : "Abrir menu de modos"
+          }
           aria-expanded={isMenuOpen}
           aria-controls="game-mode-menu"
           onClick={() => setIsMenuOpen((current) => !current)}
@@ -355,7 +576,9 @@ function App() {
           <div className="game-mode-menu-header">
             <span className="game-mode-menu-kicker">Navegacao dinamica</span>
             <h2>Escolha o modo</h2>
-            <p>Troque a rotação de carros e a interface sem recarregar a partida.</p>
+            <p>
+              Troque a rotação de carros e a interface sem recarregar a partida.
+            </p>
           </div>
 
           <div className="game-mode-options">
@@ -388,7 +611,7 @@ function App() {
         </aside>
       </div>
 
-      {/* HEADER */}
+  {/* HEADER */}
       <header className="header">
         <div className="header-content">
           <div className="header-left">
@@ -412,12 +635,12 @@ function App() {
 
           <div className="header-actions">
             <div className="player-meta">
-              {playerName && (
+              {currentPlayerName && (
                 <button
                   className="player-badge"
                   onClick={() => setShowNameModal(true)}
-                  aria-label="Trocar jogador"
-                  title={`Jogador: ${playerName}`}
+                  aria-label="Editar perfil"
+                  title={`Perfil: ${currentPlayerName}`}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <path
@@ -427,9 +650,15 @@ function App() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
-                    <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2" />
+                    <circle
+                      cx="12"
+                      cy="7"
+                      r="4"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    />
                   </svg>
-                  <span className="player-name-text">{playerName}</span>
+                  <span className="player-name-text">{currentPlayerName}</span>
                 </button>
               )}
 
@@ -473,14 +702,78 @@ function App() {
               ) : (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="5" fill="currentColor" />
-                  <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line
+                    x1="12"
+                    y1="1"
+                    x2="12"
+                    y2="3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <line
+                    x1="12"
+                    y1="21"
+                    x2="12"
+                    y2="23"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <line
+                    x1="4.22"
+                    y1="4.22"
+                    x2="5.64"
+                    y2="5.64"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <line
+                    x1="18.36"
+                    y1="18.36"
+                    x2="19.78"
+                    y2="19.78"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="12"
+                    x2="3"
+                    y2="12"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <line
+                    x1="21"
+                    y1="12"
+                    x2="23"
+                    y2="12"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <line
+                    x1="4.22"
+                    y1="19.78"
+                    x2="5.64"
+                    y2="18.36"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <line
+                    x1="18.36"
+                    y1="5.64"
+                    x2="19.78"
+                    y2="4.22"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
                 </svg>
               )}
             </button>
@@ -530,16 +823,15 @@ function App() {
               <p>
                 Você acertou em{" "}
                 <strong>
-                  {guesses.length} {guesses.length === 1 ? "tentativa" : "tentativas"}
+                  {guesses.length}{" "}
+                  {guesses.length === 1 ? "tentativa" : "tentativas"}
                 </strong>
               </p>
               <div className="victory-car">
                 <strong>
                   {answerCar.brand} {answerCar.model}
                 </strong>
-                <span className="victory-meta">
-                  {getCarLabel(answerCar)}
-                </span>
+                <span className="victory-meta">{getCarLabel(answerCar)}</span>
               </div>
               <button className="button-primary" onClick={resetGame}>
                 Jogar novamente
@@ -574,15 +866,12 @@ function App() {
                   const result = compareAttribute(
                     attr.getValue(car),
                     attr.getValue(answerCar),
-                    attr.type
+                    attr.type,
                   );
                   const displayValue = attr.getValue(car);
 
                   return (
-                    <div
-                      key={attr.key}
-                      className={`attribute-cell ${result}`}
-                    >
+                    <div key={attr.key} className={`attribute-cell ${result}`}>
                       <span className="attribute-label">{attr.label}</span>
                       <span className="attribute-value">
                         {displayValue}
@@ -595,7 +884,7 @@ function App() {
               </div>
             </div>
           ))}
-          
+
           {/* LOSS */}
           {hasLost && (
             <div className="loss-card">
@@ -610,9 +899,7 @@ function App() {
                 <strong>
                   {answerCar.brand} {answerCar.model}
                 </strong>
-                <span className="loss-meta">
-                  {getCarLabel(answerCar)}
-                </span>
+                <span className="loss-meta">{getCarLabel(answerCar)}</span>
               </div>
               <button className="button-primary" onClick={resetGame}>
                 Tentar novamente
@@ -671,7 +958,12 @@ function App() {
                       }}
                       aria-label="Limpar busca"
                     >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
                         <path
                           d="M18 6L6 18M6 6l12 12"
                           stroke="currentColor"
@@ -721,7 +1013,7 @@ function App() {
                         className="search-result-item"
                         onClick={() => {
                           setSelectedBrandFilter(
-                            isLegendsMode ? "" : car.brand
+                            isLegendsMode ? "" : car.brand,
                           );
                           setSelectedCar(car);
                           setSearchTerm(getCarLabel(car));
@@ -776,14 +1068,15 @@ function App() {
         <PlayerNameModal
           onSave={handleSavePlayerName}
           onClose={() => setShowNameModal(false)}
-          currentPlayerName={playerName}
+          currentPlayerName={currentPlayerName}
+          loading={savingProfile}
         />
       )}
 
       {showLeaderboardModal && (
         <LeaderboardModal
           onClose={() => setShowLeaderboardModal(false)}
-          currentPlayerName={playerName}
+          currentPlayerName={currentPlayerName}
         />
       )}
     </div>
@@ -817,7 +1110,7 @@ function buildSearchIndex(car) {
       car.category,
     ]
       .filter(Boolean)
-      .join(" ")
+      .join(" "),
   );
 }
 
@@ -840,12 +1133,28 @@ function getSearchMatchScore(tokens, searchIndex) {
     }
     const words = searchIndex.split(" ");
     const hasFuzzyMatch = words.some(
-      (word) => levenshteinDistance(word, token) <= 1
+      (word) => levenshteinDistance(word, token) <= 1,
     );
     if (!hasFuzzyMatch) return null;
     score += 1;
   }
   return score;
+}
+
+function getAuthErrorMessage(error) {
+  if (error instanceof Error && error.message) {
+    return `Não foi possível validar sua sessão agora. ${error.message}`;
+  }
+
+  return "Não foi possível validar sua sessão agora. Tente novamente em instantes.";
+}
+
+function getProfileErrorMessage(error) {
+  if (error instanceof Error && error.message) {
+    return `Não foi possível processar seu perfil agora. ${error.message}`;
+  }
+
+  return "Não foi possível processar seu perfil agora. Tente novamente em instantes.";
 }
 
 function levenshteinDistance(a, b) {
@@ -854,7 +1163,7 @@ function levenshteinDistance(a, b) {
   if (!b) return a.length;
 
   const matrix = Array.from({ length: a.length + 1 }, () =>
-    Array.from({ length: b.length + 1 }, () => 0)
+    Array.from({ length: b.length + 1 }, () => 0),
   );
 
   for (let i = 0; i <= a.length; i += 1) {
@@ -871,7 +1180,7 @@ function levenshteinDistance(a, b) {
       matrix[i][j] = Math.min(
         matrix[i - 1][j] + 1,
         matrix[i][j - 1] + 1,
-        matrix[i - 1][j - 1] + cost
+        matrix[i - 1][j - 1] + cost,
       );
     }
   }

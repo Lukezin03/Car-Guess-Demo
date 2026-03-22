@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { getKnownPlayers } from "../utils/leaderboard";
+import "./Modal.css";
 import "./PlayerNameModal.css";
 
-export function PlayerNameModal({ onSave, onClose, currentPlayerName }) {
+export function PlayerNameModal({
+  onSave,
+  onClose,
+  currentPlayerName,
+  loading = false,
+}) {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
-  const knownPlayers = getKnownPlayers().filter(p => p !== currentPlayerName);
+  const knownPlayers = getKnownPlayers().filter((p) => p !== currentPlayerName);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -32,15 +38,18 @@ export function PlayerNameModal({ onSave, onClose, currentPlayerName }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal-content player-name-modal"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="modal-header">
           <div className="modal-icon">👋</div>
           <h2 className="modal-title">
-            {currentPlayerName ? "Trocar Jogador" : "Bem-vindo ao CarGuess!"}
+            {currentPlayerName ? "Editar perfil" : "Bem-vindo ao CarGuess!"}
           </h2>
           <p className="modal-subtitle">
             {currentPlayerName
-              ? "Selecione um jogador ou digite um novo nome"
+              ? "Selecione um nome conhecido ou defina um novo nome público"
               : "Digite seu nome para começar a jogar e competir no placar"}
           </p>
         </div>
@@ -56,6 +65,7 @@ export function PlayerNameModal({ onSave, onClose, currentPlayerName }) {
                     type="button"
                     className="player-button"
                     onClick={() => onSave(player)}
+                    disabled={loading}
                   >
                     <span className="player-icon">👤</span>
                     <span className="player-name">{player}</span>
@@ -89,8 +99,12 @@ export function PlayerNameModal({ onSave, onClose, currentPlayerName }) {
           </div>
 
           <div className="modal-actions">
-            <button type="submit" className="button-primary">
-              {currentPlayerName ? "Trocar jogador" : "Começar a jogar"}
+            <button type="submit" className="button-primary" disabled={loading}>
+              {loading
+                ? "Salvando..."
+                : currentPlayerName
+                  ? "Salvar perfil"
+                  : "Começar a jogar"}
             </button>
           </div>
         </form>

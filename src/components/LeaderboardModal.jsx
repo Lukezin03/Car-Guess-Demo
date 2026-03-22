@@ -1,4 +1,5 @@
 import { getLeaderboard, formatDate } from "../utils/leaderboard";
+import "./Modal.css";
 import "./LeaderboardModal.css";
 
 export function LeaderboardModal({ onClose, currentPlayerName }) {
