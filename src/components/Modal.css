@@ -37,8 +37,9 @@
   box-shadow: var(--shadow-lg);
   max-width: 440px;
   width: min(100%, 440px);
-  max-height: 90vh;
+  max-height: min(92vh, 760px);
   overflow-y: auto;
+  overflow-x: hidden;
   animation: modalSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

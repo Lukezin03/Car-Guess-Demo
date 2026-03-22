@@ -338,9 +338,9 @@
   width: min(100%, 680px);
   margin: 0 auto;
   padding: 16px 92px 16px 20px;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
 }
 
@@ -438,16 +438,16 @@
   display: flex;
   align-items: center;
   min-width: 0;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .logo img {
   display: block;
   width: auto;
-  height: 112px;
-  max-width: min(620px, 100%);
+  height: 92px;
+  max-width: min(360px, 100%);
   object-fit: contain;
-  transform: scale(1.08);
+  transform: scale(1.02);
   transform-origin: left center;
 }
 
@@ -456,6 +456,7 @@
   flex-direction: column;
   gap: 6px;
   min-width: 0;
+  max-width: 240px;
 }
 
 .mode-chip {
@@ -474,9 +475,11 @@
   font-size: 13px;
   color: var(--text-secondary);
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+  line-height: 1.35;
+  text-wrap: balance;
 }
 
 .theme-toggle {
@@ -525,9 +528,9 @@
   position: relative;
   overflow: hidden;
   border-radius: 28px;
-  padding: 24px;
+  padding: 26px;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.1);
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -544,15 +547,32 @@
   filter: blur(6px);
 }
 
+.mode-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.22), transparent 42%),
+    repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.06) 0,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
 .mode-banner-standard {
   background:
-    linear-gradient(135deg, rgba(255, 56, 92, 0.12), rgba(0, 166, 153, 0.1)),
+    linear-gradient(135deg, rgba(255, 56, 92, 0.16), rgba(0, 166, 153, 0.12)),
     var(--bg-tertiary);
 }
 
 .mode-banner-legends {
   background:
-    linear-gradient(135deg, rgba(255, 180, 0, 0.18), rgba(255, 56, 92, 0.12)),
+    linear-gradient(135deg, rgba(255, 180, 0, 0.22), rgba(255, 56, 92, 0.14)),
     var(--bg-tertiary);
 }
 
@@ -565,11 +585,18 @@
 }
 
 .mode-banner-kicker {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .mode-banner-copy h2 {
@@ -598,7 +625,7 @@
 .mode-banner-stats span {
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.58);
+  background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.24);
   color: var(--text-primary);
   font-size: 13px;
@@ -615,8 +642,38 @@
 ======================= */
 .empty-state {
   text-align: center;
-  padding: 64px 24px;
+  padding: 56px 28px;
   color: var(--text-secondary);
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  background:
+    radial-gradient(circle at top center, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0) 62%),
+    var(--bg-tertiary);
+  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.empty-state::before {
+  content: "";
+  position: absolute;
+  inset: auto -80px -120px auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 56, 92, 0.08);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.app[data-mode="lendas-do-asfalto"] .empty-state {
+  background:
+    radial-gradient(circle at top center, rgba(255, 236, 179, 0.38), rgba(255, 255, 255, 0) 60%),
+    var(--bg-tertiary);
+}
+
+.app[data-mode="lendas-do-asfalto"] .empty-state::before {
+  background: rgba(255, 180, 0, 0.1);
 }
 
 .empty-icon {
@@ -624,20 +681,26 @@
   height: auto;
   margin-bottom: 16px;
   opacity: 1;
-  transform: scale(0.88);
+  transform: scale(0.92);
   transform-origin: center;
+  position: relative;
+  z-index: 1;
 }
 
 .empty-state h3 {
-  font-size: 20px;
+  font-size: 22px;
   color: var(--text-primary);
   margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .empty-state p {
   font-size: 15px;
-  max-width: 280px;
+  max-width: 340px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 /* =======================
@@ -818,6 +881,13 @@
   font-size: 16px;
   color: var(--text-secondary);
   margin-bottom: 24px;
+}
+
+.game-sync-error {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--accent);
 }
 
 .victory-car {
@@ -1268,6 +1338,7 @@
   }
 
   .header-content {
+    display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 12px;
@@ -1314,6 +1385,7 @@
 
   .header-text {
     padding-top: 4px;
+    max-width: none;
   }
 
   .subtitle {
@@ -1370,6 +1442,11 @@
 
   .mode-banner-copy p {
     font-size: 14px;
+  }
+
+  .empty-state {
+    padding: 44px 20px;
+    border-radius: 24px;
   }
 
   .search-controls {

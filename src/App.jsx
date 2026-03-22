@@ -2,16 +2,19 @@ import { useState, useEffect } from "react";
 import { cars } from "./data/cars";
 import { useTheme } from "./hooks/useTheme";
 import { supabase, isSupabaseConfigured } from "./lib/supabase";
+import {
+  clearLastAuthMethod,
+  getLastAuthMethod,
+  AUTH_METHODS,
+} from "./lib/authFlow";
 import { getProfile, createProfile, updateProfile } from "./lib/profile";
+import { createGame, getWeeklyLeaderboard } from "./lib/games";
 import { AuthModal } from "./components/AuthModal";
+import { PasswordSetupModal } from "./components/PasswordSetupModal";
 import { ProfileSetupModal } from "./components/ProfileSetupModal";
 import { PlayerNameModal } from "./components/PlayerNameModal";
 import { LeaderboardModal } from "./components/LeaderboardModal";
-import {
-  getPlayerName,
-  savePlayerName,
-  addLeaderboardEntry,
-} from "./utils/leaderboard";
+import { getPlayerName, savePlayerName } from "./utils/leaderboard";
 import "./App.css";
 
 const HEADER_LOGO_SRC = "/logo-com-letras.png";
@@ -170,7 +173,7 @@ function App() {
 
   // Player and Leaderboard state
   const [playerName, setPlayerName] = useState(() => getPlayerName());
-  const [showNameModal, setShowNameModal] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
   const [showLeaderboardModal, setShowLeaderboardModal] = useState(false);
   const [session, setSession] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
@@ -179,13 +182,25 @@ function App() {
   const [profileLoading, setProfileLoading] = useState(true);
   const [savingProfile, setSavingProfile] = useState(false);
   const [profileError, setProfileError] = useState("");
+  const [showPasswordSetupModal, setShowPasswordSetupModal] = useState(false);
+  const [passwordSetupLoading, setPasswordSetupLoading] = useState(false);
+  const [passwordSetupError, setPasswordSetupError] = useState("");
+  const [logoutLoading, setLogoutLoading] = useState(false);
+  const [leaderboardEntries, setLeaderboardEntries] = useState([]);
+  const [leaderboardLoading, setLeaderboardLoading] = useState(false);
+  const [leaderboardError, setLeaderboardError] = useState("");
+  const [leaderboardWeekLabel, setLeaderboardWeekLabel] = useState("");
+  const [gameSyncError, setGameSyncError] = useState("");
+  const [roundId, setRoundId] = useState(() => createRoundId());
+  const [savingRoundId, setSavingRoundId] = useState(null);
+  const [savedRoundId, setSavedRoundId] = useState(null);
 
   const MAX_ATTEMPTS = 10;
   const isLegendsMode = gameMode === GAME_MODES.LENDAS_DO_ASFALTO;
   const availableCars = getCarsForGameMode(gameMode);
   const gameModeDetails = GAME_MODE_DETAILS[gameMode];
   const shouldShowModeBanner = guesses.length === 0 && !hasWon && !hasLost;
-  const currentPlayerName = profile?.display_name || playerName;
+  const currentPlayerName = profile?.display_name || playerName || "";
 
   useEffect(() => {
     if (!isSupabaseConfigured || !supabase) {
@@ -194,6 +209,39 @@ function App() {
     }
 
     let isMounted = true;
+
+    function syncAuthState(nextSession, authEvent = "INITIAL_SESSION") {
+      setSession(nextSession);
+      setAuthError("");
+      setAuthLoading(false);
+
+      if (!nextSession) {
+        setProfile(null);
+        setProfileError("");
+        setProfileLoading(false);
+        setShowProfileModal(false);
+        setShowLeaderboardModal(false);
+        setLeaderboardEntries([]);
+        setLeaderboardError("");
+        setLeaderboardWeekLabel("");
+        setGameSyncError("");
+        setRoundId(createRoundId());
+        setSavingRoundId(null);
+        setSavedRoundId(null);
+        setShowPasswordSetupModal(false);
+        setPasswordSetupError("");
+        setPasswordSetupLoading(false);
+        setLogoutLoading(false);
+        if (authEvent === "SIGNED_OUT") {
+          clearLastAuthMethod();
+        }
+        return;
+      }
+
+      setShowPasswordSetupModal(
+        shouldPromptPasswordSetup(nextSession, authEvent),
+      );
+    }
 
     async function loadSession() {
       try {
@@ -205,8 +253,7 @@ function App() {
 
         if (!isMounted) return;
 
-        setSession(data.session);
-        setAuthError("");
+        syncAuthState(data.session, "INITIAL_SESSION");
       } catch (error) {
         if (!isMounted) return;
         setAuthError(getAuthErrorMessage(error));
@@ -221,11 +268,9 @@ function App() {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+    } = supabase.auth.onAuthStateChange((authEvent, nextSession) => {
       if (!isMounted) return;
-      setSession(nextSession);
-      setAuthError("");
-      setAuthLoading(false);
+      syncAuthState(nextSession, authEvent);
     });
 
     return () => {
@@ -234,13 +279,58 @@ function App() {
     };
   }, []);
 
-  // Save to leaderboard when player wins or loses
   useEffect(() => {
-    if (hasWon && currentPlayerName && guesses.length > 0) {
-      const carGuessed = getCarLabel(answerCar);
-      addLeaderboardEntry(currentPlayerName, guesses.length, "win", carGuessed);
+    const result = hasWon ? "win" : hasLost ? "loss" : null;
+
+    if (!result || !session?.user?.id || !answerCar || guesses.length === 0) {
+      return undefined;
     }
-  }, [hasWon, currentPlayerName, guesses.length, answerCar]);
+
+    if (savingRoundId === roundId || savedRoundId === roundId) {
+      return undefined;
+    }
+
+    let isMounted = true;
+
+    async function syncCompletedGame() {
+      setSavingRoundId(roundId);
+      setGameSyncError("");
+
+      const { error } = await createGame({
+        user_id: session.user.id,
+        answer_car_id: answerCar.id,
+        attempts: guesses.length,
+        result,
+      });
+
+      if (!isMounted) return;
+
+      if (error) {
+        console.error("Erro ao salvar partida:", error.message);
+        setGameSyncError(getGameSyncErrorMessage(error));
+        setSavingRoundId(null);
+        return;
+      }
+
+      setSavedRoundId(roundId);
+      setSavingRoundId(null);
+    }
+
+    syncCompletedGame();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [
+    answerCar,
+    guesses.length,
+    hasLost,
+    hasWon,
+    roundId,
+    savedRoundId,
+    savingRoundId,
+    session?.user?.id,
+  ]);
 
   useEffect(() => {
     if (hasWon) {
@@ -249,11 +339,40 @@ function App() {
   }, [hasWon]);
 
   useEffect(() => {
-    if (hasLost && currentPlayerName && guesses.length > 0) {
-      const carGuessed = getCarLabel(answerCar);
-      addLeaderboardEntry(currentPlayerName, guesses.length, "loss", carGuessed);
+    if (!showLeaderboardModal || !session?.user?.id) {
+      return undefined;
     }
-  }, [hasLost, currentPlayerName, guesses.length, answerCar]);
+
+    let isMounted = true;
+
+    async function loadLeaderboard() {
+      setLeaderboardLoading(true);
+      setLeaderboardError("");
+
+      const { data, error, weekLabel } = await getWeeklyLeaderboard();
+
+      if (!isMounted) return;
+
+      setLeaderboardWeekLabel(weekLabel);
+
+      if (error) {
+        console.error("Erro ao carregar leaderboard:", error.message);
+        setLeaderboardEntries([]);
+        setLeaderboardError(getLeaderboardErrorMessage(error));
+        setLeaderboardLoading(false);
+        return;
+      }
+
+      setLeaderboardEntries(data);
+      setLeaderboardLoading(false);
+    }
+
+    loadLeaderboard();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [showLeaderboardModal, session?.user?.id, savedRoundId]);
 
   useEffect(() => {
     if (!isMenuOpen) return undefined;
@@ -397,6 +516,10 @@ function App() {
     setSelectedBrandFilter("");
     setSearchTerm("");
     setSelectedCar(null);
+    setGameSyncError("");
+    setRoundId(createRoundId());
+    setSavingRoundId(null);
+    setSavedRoundId(null);
   }
 
   function handleGameModeChange(nextMode) {
@@ -409,42 +532,6 @@ function App() {
     resetGame(nextMode);
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  async function handleSavePlayerName(name) {
-    if (session?.user?.id && profile) {
-      setSavingProfile(true);
-      setProfileError("");
-
-      const { data, error } = await updateProfile({
-        id: session.user.id,
-        display_name: name,
-        username: profile.username ?? null,
-      });
-
-      if (error) {
-        console.error("Erro ao atualizar perfil:", error.message);
-        setProfileError("Não foi possível atualizar seu perfil agora.");
-        setSavingProfile(false);
-        return;
-      }
-
-      setProfile(data);
-      savePlayerName(data.display_name);
-      setPlayerName(data.display_name);
-      setSavingProfile(false);
-    } else {
-      savePlayerName(name);
-      setPlayerName(name);
-      setProfileError("");
-    }
-
-    setShowNameModal(false);
-
-    // Reset game when changing player
-    if (guesses.length > 0 || hasWon) {
-      resetGame();
-    }
   }
 
   async function handleCreateProfile(displayName) {
@@ -471,6 +558,79 @@ function App() {
     setSavingProfile(false);
   }
 
+  async function handleUpdateProfileName(displayName) {
+    if (!session?.user?.id || !profile) return;
+
+    setSavingProfile(true);
+    setProfileError("");
+
+    const { data, error } = await updateProfile({
+      id: session.user.id,
+      display_name: displayName,
+      username: profile.username ?? null,
+    });
+
+    if (error) {
+      console.error("Erro ao atualizar perfil:", error.message);
+      setProfileError(getProfileErrorMessage(error));
+      setSavingProfile(false);
+      return;
+    }
+
+    setProfile(data);
+    savePlayerName(data.display_name);
+    setPlayerName(data.display_name);
+    setSavingProfile(false);
+    setShowProfileModal(false);
+  }
+
+  async function handleSetPassword(password) {
+    if (!supabase || !session?.user) return;
+
+    setPasswordSetupLoading(true);
+    setPasswordSetupError("");
+
+    const currentMetadata = session.user.user_metadata ?? {};
+    const { data, error } = await supabase.auth.updateUser({
+      password,
+      data: {
+        ...currentMetadata,
+        has_password: true,
+      },
+    });
+
+    if (error) {
+      console.error("Erro ao salvar senha:", error.message);
+      setPasswordSetupError(getPasswordSetupErrorMessage(error));
+      setPasswordSetupLoading(false);
+      return;
+    }
+
+    clearLastAuthMethod();
+    setShowPasswordSetupModal(false);
+    setPasswordSetupError("");
+    setPasswordSetupLoading(false);
+    setSession((currentSession) => {
+      if (!currentSession || !data.user) return currentSession;
+      return {
+        ...currentSession,
+        user: data.user,
+      };
+    });
+  }
+
+  async function handleLogout() {
+    setLogoutLoading(true);
+    clearLastAuthMethod();
+
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.error("Erro ao sair:", error.message);
+      setLogoutLoading(false);
+    }
+  }
+
   if (authLoading) {
     return (
       <div className="app auth-shell">
@@ -495,6 +655,19 @@ function App() {
     return (
       <div className="app auth-shell">
         <AuthModal authError={authError} />
+      </div>
+    );
+  }
+
+  if (showPasswordSetupModal) {
+    return (
+      <div className="app auth-shell">
+        <PasswordSetupModal
+          email={session.user.email || ""}
+          onSave={handleSetPassword}
+          loading={passwordSetupLoading}
+          errorMessage={passwordSetupError}
+        />
       </div>
     );
   }
@@ -611,7 +784,7 @@ function App() {
         </aside>
       </div>
 
-  {/* HEADER */}
+      {/* HEADER */}
       <header className="header">
         <div className="header-content">
           <div className="header-left">
@@ -638,8 +811,11 @@ function App() {
               {currentPlayerName && (
                 <button
                   className="player-badge"
-                  onClick={() => setShowNameModal(true)}
-                  aria-label="Editar perfil"
+                  onClick={() => {
+                    setProfileError("");
+                    setShowProfileModal(true);
+                  }}
+                  aria-label="Abrir perfil"
                   title={`Perfil: ${currentPlayerName}`}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -836,6 +1012,7 @@ function App() {
               <button className="button-primary" onClick={resetGame}>
                 Jogar novamente
               </button>
+              {gameSyncError && <p className="game-sync-error">{gameSyncError}</p>}
             </div>
           )}
 
@@ -904,6 +1081,7 @@ function App() {
               <button className="button-primary" onClick={resetGame}>
                 Tentar novamente
               </button>
+              {gameSyncError && <p className="game-sync-error">{gameSyncError}</p>}
             </div>
           )}
         </div>
@@ -1064,19 +1242,30 @@ function App() {
       )}
 
       {/* MODALS */}
-      {showNameModal && (
+      {showProfileModal && (
         <PlayerNameModal
-          onSave={handleSavePlayerName}
-          onClose={() => setShowNameModal(false)}
+          onSave={handleUpdateProfileName}
+          onClose={() => {
+            setProfileError("");
+            setShowProfileModal(false);
+          }}
+          onLogout={handleLogout}
           currentPlayerName={currentPlayerName}
+          email={session?.user?.email || ""}
           loading={savingProfile}
+          errorMessage={profileError}
+          logoutLoading={logoutLoading}
         />
       )}
 
       {showLeaderboardModal && (
         <LeaderboardModal
           onClose={() => setShowLeaderboardModal(false)}
-          currentPlayerName={currentPlayerName}
+          currentUserId={session?.user?.id || ""}
+          entries={leaderboardEntries}
+          loading={leaderboardLoading}
+          errorMessage={leaderboardError || gameSyncError}
+          weekLabel={leaderboardWeekLabel}
         />
       )}
     </div>
@@ -1155,6 +1344,67 @@ function getProfileErrorMessage(error) {
   }
 
   return "Não foi possível processar seu perfil agora. Tente novamente em instantes.";
+}
+
+function getPasswordSetupErrorMessage(error) {
+  if (error instanceof Error && error.message) {
+    return `Não foi possível salvar sua senha agora. ${error.message}`;
+  }
+
+  return "Não foi possível salvar sua senha agora. Tente novamente em instantes.";
+}
+
+function getGameSyncErrorMessage(error) {
+  if (error instanceof Error && error.message) {
+    return `Nao foi possivel sincronizar esta partida. ${error.message}`;
+  }
+
+  return "Nao foi possivel sincronizar esta partida agora. Tente novamente na proxima rodada.";
+}
+
+function getLeaderboardErrorMessage(error) {
+  if (error instanceof Error && error.message) {
+    return `Nao foi possivel carregar o placar semanal. ${error.message}`;
+  }
+
+  return "Nao foi possivel carregar o placar semanal agora.";
+}
+
+function shouldPromptPasswordSetup(session, authEvent) {
+  if (!session?.user) return false;
+  if (session.user.user_metadata?.has_password) return false;
+
+  const lastAuthMethod = getLastAuthMethod();
+
+  if (lastAuthMethod === AUTH_METHODS.PASSWORD) {
+    return false;
+  }
+
+  if (lastAuthMethod === AUTH_METHODS.MAGIC_LINK) {
+    return true;
+  }
+
+  return authEvent === "SIGNED_IN" && looksLikeAuthCallback();
+}
+
+function looksLikeAuthCallback() {
+  if (typeof window === "undefined") return false;
+
+  const currentUrl = new URL(window.location.href);
+  const callbackMarkers = ["access_token", "refresh_token", "token_hash"];
+  const hashPayload = currentUrl.hash.replace(/^#/, "");
+  const hashParams = new URLSearchParams(hashPayload);
+
+  return (
+    currentUrl.searchParams.has("code") ||
+    currentUrl.searchParams.has("token_hash") ||
+    currentUrl.searchParams.has("type") ||
+    callbackMarkers.some((marker) => hashParams.has(marker))
+  );
+}
+
+function createRoundId() {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
 function levenshteinDistance(a, b) {

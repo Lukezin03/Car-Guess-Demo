@@ -169,6 +169,13 @@
   gap: 6px;
 }
 
+.score-badge {
+  min-width: 82px;
+  background: rgba(255, 56, 92, 0.12);
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .stat-badge {
   display: inline-flex;
   align-items: center;

@@ -1,40 +1,65 @@
-import { getLeaderboard, formatDate } from "../utils/leaderboard";
+import { formatDate } from "../utils/leaderboard";
 import "./Modal.css";
 import "./LeaderboardModal.css";
 
-export function LeaderboardModal({ onClose, currentPlayerName }) {
-  const leaderboard = getLeaderboard();
-  const hasEntries = leaderboard.length > 0;
+export function LeaderboardModal({
+  onClose,
+  currentUserId,
+  entries = [],
+  loading = false,
+  errorMessage = "",
+  weekLabel = "",
+}) {
+  const hasEntries = entries.length > 0;
+  const subtitle = errorMessage
+    ? "O ranking nao conseguiu carregar."
+    : loading
+      ? "Buscando os pilotos mais fortes da semana."
+      : weekLabel
+        ? `Semana atual: ${weekLabel}`
+        : "Placar semanal do Car Guess";
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content leaderboard-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div className="modal-icon">🏆</div>
-          <h2 className="modal-title">Placar</h2>
-          <p className="modal-subtitle">
-            {hasEntries
-              ? `Top ${leaderboard.length} melhores desempenhos`
-              : "Nenhuma partida registrada ainda"}
-          </p>
+          <h2 className="modal-title">Placar Semanal</h2>
+          <p className="modal-subtitle">{subtitle}</p>
         </div>
 
         <div className="leaderboard-content">
-          {!hasEntries ? (
+          {errorMessage ? (
+            <div className="leaderboard-empty">
+              <div className="empty-icon">⚠️</div>
+              <p>{errorMessage}</p>
+            </div>
+          ) : loading ? (
+            <div className="leaderboard-empty">
+              <div className="empty-icon">⏳</div>
+              <p>Carregando ranking...</p>
+            </div>
+          ) : !hasEntries ? (
             <div className="leaderboard-empty">
               <div className="empty-icon">🎮</div>
-              <p>Seja o primeiro a aparecer no placar!</p>
+              <p>Ninguem pontuou nesta semana ainda.</p>
             </div>
           ) : (
             <div className="leaderboard-list">
-              {leaderboard.map((entry, index) => {
-                const isCurrentPlayer = entry.playerName === currentPlayerName;
+              {entries.map((entry, index) => {
+                const isCurrentPlayer = entry.userId === currentUserId;
                 const position = index + 1;
                 const positionClass = position <= 3 ? `position-${position}` : "";
+                const bestAttemptsLabel = entry.bestAttempts
+                  ? `${entry.bestAttempts} tent.`
+                  : "sem vitoria";
+                const avgAttemptsLabel = entry.avgAttempts
+                  ? `${entry.avgAttempts} tent.`
+                  : "sem media";
 
                 return (
                   <div
-                    key={entry.id}
+                    key={entry.userId}
                     className={`leaderboard-item ${isCurrentPlayer ? "is-current" : ""} ${positionClass}`}
                   >
                     <div className="item-position">
@@ -46,26 +71,29 @@ export function LeaderboardModal({ onClose, currentPlayerName }) {
 
                     <div className="item-details">
                       <div className="item-header">
-                        <span className="item-name">{entry.playerName}</span>
+                        <span className="item-name">{entry.displayName}</span>
                         {isCurrentPlayer && <span className="item-badge">Você</span>}
                       </div>
                       <div className="item-info">
-                        <span className="item-car">{entry.carGuessed}</span>
+                        <span className="item-car">
+                          {entry.wins} vitorias · {entry.gamesPlayed} partidas
+                        </span>
                       </div>
                       <div className="item-meta">
-                        <span>{formatDate(entry.timestamp)}</span>
+                        <span>
+                          Melhor: {bestAttemptsLabel} · Media: {avgAttemptsLabel} ·
+                          Ultima: {formatDate(entry.lastGameAt)}
+                        </span>
                       </div>
                     </div>
 
                     <div className="item-stats">
-                      <div className="stat-badge">
-                        {entry.attempts} {entry.attempts === 1 ? "tent." : "tent."}
+                      <div className="stat-badge score-badge">
+                        {entry.totalPoints} pts
                       </div>
-                      {entry.result === "win" ? (
-                        <div className="result-badge result-win">Vitória</div>
-                      ) : (
-                        <div className="result-badge result-loss">Derrota</div>
-                      )}
+                      <div className="result-badge result-win">
+                        {entry.wins} {entry.wins === 1 ? "vitoria" : "vitorias"}
+                      </div>
                     </div>
                   </div>
                 );

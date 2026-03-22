@@ -1,20 +1,22 @@
 import { useState } from "react";
-import { getKnownPlayers } from "../utils/leaderboard";
 import "./Modal.css";
 import "./PlayerNameModal.css";
 
 export function PlayerNameModal({
   onSave,
   onClose,
+  onLogout,
   currentPlayerName,
+  email = "",
   loading = false,
+  errorMessage = "",
+  logoutLoading = false,
 }) {
-  const [name, setName] = useState("");
+  const [name, setName] = useState(currentPlayerName || "");
   const [error, setError] = useState("");
-  const knownPlayers = getKnownPlayers().filter((p) => p !== currentPlayerName);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
 
     const trimmedName = name.trim();
 
@@ -40,47 +42,29 @@ export function PlayerNameModal({
     <div className="modal-overlay" onClick={onClose}>
       <div
         className="modal-content player-name-modal"
-        onClick={(e) => e.stopPropagation()}
+        onClick={(event) => event.stopPropagation()}
       >
         <div className="modal-header">
-          <div className="modal-icon">👋</div>
-          <h2 className="modal-title">
-            {currentPlayerName ? "Editar perfil" : "Bem-vindo ao CarGuess!"}
-          </h2>
+          <div className="modal-icon">👤</div>
+          <h2 className="modal-title">Seu perfil</h2>
           <p className="modal-subtitle">
-            {currentPlayerName
-              ? "Selecione um nome conhecido ou defina um novo nome público"
-              : "Digite seu nome para começar a jogar e competir no placar"}
+            Esse email tem um único perfil no jogo. Você pode editar apenas o
+            seu nome público.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="modal-form">
-          {knownPlayers.length > 0 && (
-            <div className="known-players">
-              <label className="form-label">Jogadores conhecidos</label>
-              <div className="players-grid">
-                {knownPlayers.map((player) => (
-                  <button
-                    key={player}
-                    type="button"
-                    className="player-button"
-                    onClick={() => onSave(player)}
-                    disabled={loading}
-                  >
-                    <span className="player-icon">👤</span>
-                    <span className="player-name">{player}</span>
-                  </button>
-                ))}
-              </div>
-              <div className="divider">
-                <span>ou</span>
-              </div>
+          <div className="profile-summary">
+            <div className="profile-current-name">
+              <span className="profile-summary-label">Nome atual</span>
+              <strong>{currentPlayerName || "Sem nome definido"}</strong>
             </div>
-          )}
+            {email && <div className="profile-email-chip">{email}</div>}
+          </div>
 
-          <div className="form-group">
+          <div className="form-group profile-name-group">
             <label htmlFor="player-name" className="form-label">
-              {knownPlayers.length > 0 ? "Novo jogador" : "Seu nome"}
+              Alterar nome público
             </label>
             <input
               id="player-name"
@@ -92,19 +76,25 @@ export function PlayerNameModal({
                 setError("");
               }}
               placeholder="Digite seu nome..."
-              autoFocus={knownPlayers.length === 0}
+              autoFocus
               maxLength={20}
             />
-            {error && <span className="form-error">{error}</span>}
+            {(error || errorMessage) && (
+              <span className="form-error">{error || errorMessage}</span>
+            )}
           </div>
 
-          <div className="modal-actions">
+          <div className="modal-actions profile-modal-actions">
             <button type="submit" className="button-primary" disabled={loading}>
-              {loading
-                ? "Salvando..."
-                : currentPlayerName
-                  ? "Salvar perfil"
-                  : "Começar a jogar"}
+              {loading ? "Salvando..." : "Salvar nome"}
+            </button>
+            <button
+              type="button"
+              className="profile-logout-button"
+              onClick={onLogout}
+              disabled={logoutLoading}
+            >
+              {logoutLoading ? "Saindo..." : "Sair da conta"}
             </button>
           </div>
         </form>
