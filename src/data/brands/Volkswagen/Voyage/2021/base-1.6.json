@@ -1,23 +1,55 @@
-[
-  {
-    "id": "volkswagen-voyage-2021",
-    "brand": "Volkswagen",
-    "model": "Voyage",
-    "trim": "",
-    "generationOrChassis": "4",
-    "bodyStyle": "sedan",
-    "year": 2021,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "volkswagen-voyage-2021",
+  "brand": "Volkswagen",
+  "model": "Voyage",
+  "trim": null,
+  "year": 2021,
+  "structure": {
+    "generation": "4",
+    "platform": null,
+    "chassisCode": "4"
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Germany",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

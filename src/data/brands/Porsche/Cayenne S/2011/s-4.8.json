@@ -1,23 +1,55 @@
-[
-  {
-    "id": "porsche-cayenne-s-2011",
-    "brand": "Porsche",
-    "model": "Cayenne S",
-    "trim": "",
-    "generationOrChassis": "2",
-    "bodyStyle": "suv",
-    "year": 2011,
-    "engine": {
-      "displacement": "4.8",
-      "cylinders": 8,
-      "valves": 32,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "awd",
-    "transmission": "auto",
+{
+  "id": "porsche-cayenne-s-2011",
+  "brand": "Porsche",
+  "model": "Cayenne S",
+  "trim": null,
+  "year": 2011,
+  "structure": {
+    "generation": "2",
+    "platform": null,
+    "chassisCode": "2"
+  },
+  "body": {
+    "style": "suv",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 4.8,
+    "cylinders": 8,
+    "valves": 32,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "awd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": null,
+    "production_country": null
+  },
+  "classification": {
     "category": "luxo",
-    "brandOriginCountry": "",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

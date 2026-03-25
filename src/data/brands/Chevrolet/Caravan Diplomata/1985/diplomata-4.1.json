@@ -1,23 +1,55 @@
-[
-  {
-    "id": "chevrolet-caravan-diplomata-1985",
-    "brand": "Chevrolet",
-    "model": "Caravan Diplomata",
-    "trim": "",
-    "generationOrChassis": "",
-    "bodyStyle": "pickup",
-    "year": 1985,
-    "engine": {
-      "displacement": "4.1",
-      "cylinders": 6,
-      "valves": 12,
-      "aspiration": "aspirado"
-    },
-    "fuel": "etanol",
-    "traction": "rwd",
-    "transmission": "manual",
+{
+  "id": "chevrolet-caravan-diplomata-1985",
+  "brand": "Chevrolet",
+  "model": "Caravan Diplomata",
+  "trim": null,
+  "year": 1985,
+  "structure": {
+    "generation": null,
+    "platform": null,
+    "chassisCode": null
+  },
+  "body": {
+    "style": "pickup",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 4.1,
+    "cylinders": 6,
+    "valves": 12,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "etanol",
+  "origin": {
+    "brand_country": "USA",
+    "production_country": null
+  },
+  "classification": {
     "category": "clássico",
-    "brandOriginCountry": "USA",
-    "doors": 2
+    "rarity": null,
+    "isLegend": true,
+    "isClassic": true
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

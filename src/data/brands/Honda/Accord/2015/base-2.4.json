@@ -1,23 +1,55 @@
-[
-  {
-    "id": "honda-accord-2015",
-    "brand": "Honda",
-    "model": "Accord",
-    "trim": "",
-    "generationOrChassis": "9a geracao",
-    "bodyStyle": "sedan",
-    "year": 2015,
-    "engine": {
-      "displacement": "2.4",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "auto",
+{
+  "id": "honda-accord-2015",
+  "brand": "Honda",
+  "model": "Accord",
+  "trim": null,
+  "year": 2015,
+  "structure": {
+    "generation": "9a geracao",
+    "platform": null,
+    "chassisCode": "9a geracao"
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 2.4,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Japan",
+    "production_country": null
+  },
+  "classification": {
     "category": "luxo",
-    "brandOriginCountry": "Japan",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

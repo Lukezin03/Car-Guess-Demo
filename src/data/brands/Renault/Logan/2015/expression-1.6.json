@@ -1,23 +1,55 @@
-[
-  {
-    "id": "renault-logan-g1-2015-expression-1.6-8v",
-    "brand": "Renault",
-    "model": "Logan",
-    "trim": "Expression",
-    "generationOrChassis": "G1",
-    "bodyStyle": "sedan",
-    "year": 2015,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "renault-logan-g1-2015-expression-1.6-8v",
+  "brand": "Renault",
+  "model": "Logan",
+  "trim": "Expression",
+  "year": 2015,
+  "structure": {
+    "generation": "G1",
+    "platform": null,
+    "chassisCode": "G1"
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "France",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "France",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

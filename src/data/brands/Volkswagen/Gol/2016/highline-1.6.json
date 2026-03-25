@@ -1,23 +1,55 @@
-[
-  {
-    "id": "volkswagen-gol-g6-2016-highline-1.6",
-    "brand": "Volkswagen",
-    "model": "Gol",
-    "trim": "Highline",
-    "generationOrChassis": "G6",
-    "bodyStyle": "hatch",
-    "year": 2016,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "volkswagen-gol-g6-2016-highline-1.6",
+  "brand": "Volkswagen",
+  "model": "Gol",
+  "trim": "Highline",
+  "year": 2016,
+  "structure": {
+    "generation": "G6",
+    "platform": null,
+    "chassisCode": "G6"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Germany",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

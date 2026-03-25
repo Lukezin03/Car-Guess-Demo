@@ -1,23 +1,55 @@
-[
-  {
-    "id": "vw-golf-tsi-2018",
-    "brand": "Volkswagen",
-    "model": "Golf",
-    "trim": "TSI",
-    "generationOrChassis": "Mk7",
-    "bodyStyle": "hatch",
-    "year": 2018,
-    "engine": {
-      "displacement": "1.4",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "turbo"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "auto",
+{
+  "id": "vw-golf-tsi-2018",
+  "brand": "Volkswagen",
+  "model": "Golf",
+  "trim": "TSI",
+  "year": 2018,
+  "structure": {
+    "generation": "Mk7",
+    "platform": null,
+    "chassisCode": "Mk7"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.4,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "turbo",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Germany",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

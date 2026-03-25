@@ -1,23 +1,55 @@
-[
-  {
-    "id": "toyota-etios-2014",
-    "brand": "Toyota",
-    "model": "Etios",
-    "trim": "",
-    "generationOrChassis": "",
-    "bodyStyle": "hatch",
-    "year": 2014,
-    "engine": {
-      "displacement": "1.3",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "toyota-etios-2014",
+  "brand": "Toyota",
+  "model": "Etios",
+  "trim": null,
+  "year": 2014,
+  "structure": {
+    "generation": null,
+    "platform": null,
+    "chassisCode": null
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.3,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Japan",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Japan",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

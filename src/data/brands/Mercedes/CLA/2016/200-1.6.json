@@ -1,23 +1,55 @@
-[
-  {
-    "id": "mercedes-cla200-2016",
-    "brand": "Mercedes",
-    "model": "CLA",
-    "trim": "200",
-    "generationOrChassis": "C117",
-    "bodyStyle": "sedan",
-    "year": 2016,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "turbo"
-    },
-    "fuel": "gasolina",
-    "traction": "fwd",
-    "transmission": "auto",
+{
+  "id": "mercedes-cla200-2016",
+  "brand": "Mercedes",
+  "model": "CLA",
+  "trim": "200",
+  "year": 2016,
+  "structure": {
+    "generation": "C117",
+    "platform": null,
+    "chassisCode": "C117"
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "turbo",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "luxo",
-    "brandOriginCountry": "Germany",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

@@ -1,23 +1,55 @@
-[
-  {
-    "id": "toyota-corolla-2008",
-    "brand": "Toyota",
-    "model": "Corolla",
-    "trim": "",
-    "generationOrChassis": "E120",
-    "bodyStyle": "sedan",
-    "year": 2008,
-    "engine": {
-      "displacement": "1.8",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "fwd",
-    "transmission": "auto",
+{
+  "id": "toyota-corolla-2008",
+  "brand": "Toyota",
+  "model": "Corolla",
+  "trim": null,
+  "year": 2008,
+  "structure": {
+    "generation": "E120",
+    "platform": null,
+    "chassisCode": "E120"
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.8,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "Japan",
+    "production_country": null
+  },
+  "classification": {
     "category": "medio",
-    "brandOriginCountry": "Japan",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

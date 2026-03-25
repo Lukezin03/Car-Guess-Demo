@@ -1,23 +1,55 @@
-[
-  {
-    "id": "renault-captur-g1-2020-zen-1.6-16v",
-    "brand": "Renault",
-    "model": "Captur",
-    "trim": "Zen",
-    "generationOrChassis": "G1",
-    "bodyStyle": "suv",
-    "year": 2020,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "cvt",
+{
+  "id": "renault-captur-g1-2020-zen-1.6-16v",
+  "brand": "Renault",
+  "model": "Captur",
+  "trim": "Zen",
+  "year": 2020,
+  "structure": {
+    "generation": "G1",
+    "platform": null,
+    "chassisCode": "G1"
+  },
+  "body": {
+    "style": "suv",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "cvt",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "France",
+    "production_country": null
+  },
+  "classification": {
     "category": "medio",
-    "brandOriginCountry": "France",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

@@ -1,23 +1,55 @@
-[
-  {
-    "id": "dodge-charger-rt-1969",
-    "brand": "Dodge",
-    "model": "Charger R/T",
-    "trim": "",
-    "generationOrChassis": "",
-    "bodyStyle": "coupe",
-    "year": 1969,
-    "engine": {
-      "displacement": "7.0",
-      "cylinders": 8,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "rwd",
-    "transmission": "manual",
+{
+  "id": "dodge-charger-rt-1969",
+  "brand": "Dodge",
+  "model": "Charger R/T",
+  "trim": null,
+  "year": 1969,
+  "structure": {
+    "generation": null,
+    "platform": null,
+    "chassisCode": null
+  },
+  "body": {
+    "style": "coupe",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 7,
+    "cylinders": 8,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "USA",
+    "production_country": null
+  },
+  "classification": {
     "category": "clássico",
-    "brandOriginCountry": "USA",
-    "doors": 2
+    "rarity": null,
+    "isLegend": true,
+    "isClassic": true
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

@@ -1,23 +1,55 @@
-[
-  {
-    "id": "fiat-cronos-drive-2023",
-    "brand": "Fiat",
-    "model": "Cronos Drive",
-    "trim": "",
-    "generationOrChassis": "",
-    "bodyStyle": "sedan",
-    "year": 2023,
-    "engine": {
-      "displacement": "1.0",
-      "cylinders": 3,
-      "valves": 6,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "fiat-cronos-drive-2023",
+  "brand": "Fiat",
+  "model": "Cronos Drive",
+  "trim": null,
+  "year": 2023,
+  "structure": {
+    "generation": null,
+    "platform": null,
+    "chassisCode": null
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1,
+    "cylinders": 3,
+    "valves": 6,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Italy",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Italy",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

@@ -1,23 +1,55 @@
-[
-  {
-    "id": "fiat-strada-g2-2017-hard-working-1.4",
-    "brand": "Fiat",
-    "model": "Strada",
-    "trim": "Hard Working",
-    "generationOrChassis": "G2",
-    "bodyStyle": "pickup",
-    "year": 2017,
-    "engine": {
-      "displacement": "1.4",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "fiat-strada-g2-2017-hard-working-1.4",
+  "brand": "Fiat",
+  "model": "Strada",
+  "trim": "Hard Working",
+  "year": 2017,
+  "structure": {
+    "generation": "G2",
+    "platform": null,
+    "chassisCode": "G2"
+  },
+  "body": {
+    "style": "pickup",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.4,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Italy",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Italy",
-    "doors": 2
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

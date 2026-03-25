@@ -1,23 +1,55 @@
-[
-  {
-    "id": "chevrolet-chevelle-ss-1970",
-    "brand": "Chevrolet",
-    "model": "Chevelle SS",
-    "trim": "",
-    "generationOrChassis": "",
-    "bodyStyle": "coupe",
-    "year": 1970,
-    "engine": {
-      "displacement": "7.4",
-      "cylinders": 8,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "rwd",
-    "transmission": "manual",
+{
+  "id": "chevrolet-chevelle-ss-1970",
+  "brand": "Chevrolet",
+  "model": "Chevelle SS",
+  "trim": null,
+  "year": 1970,
+  "structure": {
+    "generation": null,
+    "platform": null,
+    "chassisCode": null
+  },
+  "body": {
+    "style": "coupe",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 7.4,
+    "cylinders": 8,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "USA",
+    "production_country": null
+  },
+  "classification": {
     "category": "clássico",
-    "brandOriginCountry": "USA",
-    "doors": 2
+    "rarity": null,
+    "isLegend": true,
+    "isClassic": true
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

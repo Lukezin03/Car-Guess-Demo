@@ -1,23 +1,55 @@
-[
-  {
-    "id": "honda-hr-v-2018",
-    "brand": "Honda",
-    "model": "HR-V",
-    "trim": "",
-    "generationOrChassis": "1a geracao",
-    "bodyStyle": "suv",
-    "year": 2018,
-    "engine": {
-      "displacement": "1.8",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "cvt",
+{
+  "id": "honda-hr-v-2018",
+  "brand": "Honda",
+  "model": "HR-V",
+  "trim": null,
+  "year": 2018,
+  "structure": {
+    "generation": "1a geracao",
+    "platform": null,
+    "chassisCode": "1a geracao"
+  },
+  "body": {
+    "style": "suv",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.8,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "cvt",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Japan",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Japan",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

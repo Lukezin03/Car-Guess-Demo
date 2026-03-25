@@ -1,23 +1,55 @@
-[
-  {
-    "id": "volkswagen-gol-g1-1986-cl-1.6",
-    "brand": "Volkswagen",
-    "model": "Gol",
-    "trim": "CL",
-    "generationOrChassis": "G1",
-    "bodyStyle": "hatch",
-    "year": 1986,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "volkswagen-gol-g1-1986-cl-1.6",
+  "brand": "Volkswagen",
+  "model": "Gol",
+  "trim": "CL",
+  "year": 1986,
+  "structure": {
+    "generation": "G1",
+    "platform": null,
+    "chassisCode": "G1"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Germany",
-    "doors": 2
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

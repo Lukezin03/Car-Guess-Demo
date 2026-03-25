@@ -1,23 +1,55 @@
-[
-  {
-    "id": "mercedes-c180-2014",
-    "brand": "Mercedes",
-    "model": "C180",
-    "trim": "",
-    "generationOrChassis": "W204",
-    "bodyStyle": "sedan",
-    "year": 2014,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "turbo"
-    },
-    "fuel": "gasolina",
-    "traction": "rwd",
-    "transmission": "auto",
+{
+  "id": "mercedes-c180-2014",
+  "brand": "Mercedes",
+  "model": "C180",
+  "trim": null,
+  "year": 2014,
+  "structure": {
+    "generation": "W204",
+    "platform": null,
+    "chassisCode": "W204"
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "turbo",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "luxo",
-    "brandOriginCountry": "Germany",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

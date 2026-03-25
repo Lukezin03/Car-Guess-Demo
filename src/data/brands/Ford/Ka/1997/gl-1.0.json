@@ -1,23 +1,55 @@
-[
-  {
-    "id": "ford-ka-g1-1997-gl-1.0",
-    "brand": "Ford",
-    "model": "Ka",
-    "trim": "GL",
-    "generationOrChassis": "G1",
-    "bodyStyle": "hatch",
-    "year": 1997,
-    "engine": {
-      "displacement": "1.0",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "ford-ka-g1-1997-gl-1.0",
+  "brand": "Ford",
+  "model": "Ka",
+  "trim": "GL",
+  "year": 1997,
+  "structure": {
+    "generation": "G1",
+    "platform": null,
+    "chassisCode": "G1"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "USA",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "USA",
-    "doors": 2
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

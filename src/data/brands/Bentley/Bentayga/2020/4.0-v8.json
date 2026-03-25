@@ -1,24 +1,55 @@
-[
-  {
-    "id": "bentley-bentayga-2020-4.0-v8t",
-    "brand": "Bentley",
-    "model": "Bentayga",
-    "trim": "V8",
-    "generationOrChassis": "N/A",
-    "bodyStyle": "suv",
-    "year": 2020,
-    "engine": {
-      "displacement": "4.0",
-      "cylinders": 8,
-      "valves": 32,
-      "aspiration": "turbo",
-      "engineCode": "V8T"
-    },
-    "fuel": "gasolina",
-    "traction": "awd",
-    "transmission": "auto",
+{
+  "id": "bentley-bentayga-2020-4.0-v8t",
+  "brand": "Bentley",
+  "model": "Bentayga",
+  "trim": "V8",
+  "year": 2020,
+  "structure": {
+    "generation": "N/A",
+    "platform": null,
+    "chassisCode": "N/A"
+  },
+  "body": {
+    "style": "suv",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": "V8T",
+    "displacement": 4,
+    "cylinders": 8,
+    "valves": 32,
+    "aspiration": "turbo",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "awd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "UK",
+    "production_country": null
+  },
+  "classification": {
     "category": "luxo",
-    "brandOriginCountry": "UK",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

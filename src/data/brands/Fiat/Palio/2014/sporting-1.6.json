@@ -1,23 +1,55 @@
-[
-  {
-    "id": "fiat-palio-g4-2014-sporting-1.6",
-    "brand": "Fiat",
-    "model": "Palio",
-    "trim": "Sporting",
-    "generationOrChassis": "G4",
-    "bodyStyle": "hatch",
-    "year": 2014,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "fiat-palio-g4-2014-sporting-1.6",
+  "brand": "Fiat",
+  "model": "Palio",
+  "trim": "Sporting",
+  "year": 2014,
+  "structure": {
+    "generation": "G4",
+    "platform": null,
+    "chassisCode": "G4"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Italy",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Italy",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

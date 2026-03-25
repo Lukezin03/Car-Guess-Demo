@@ -1,23 +1,55 @@
-[
-  {
-    "id": "ford-ranger-2018-22-4x4",
-    "brand": "Ford",
-    "model": "Ranger",
-    "trim": "XLS",
-    "generationOrChassis": "T6",
-    "bodyStyle": "pickup",
-    "year": 2018,
-    "engine": {
-      "displacement": "2.2",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "turbo"
-    },
-    "fuel": "diesel",
-    "traction": "awd",
-    "transmission": "auto",
+{
+  "id": "ford-ranger-2018-22-4x4",
+  "brand": "Ford",
+  "model": "Ranger",
+  "trim": "XLS",
+  "year": 2018,
+  "structure": {
+    "generation": "T6",
+    "platform": null,
+    "chassisCode": "T6"
+  },
+  "body": {
+    "style": "pickup",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 2.2,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "turbo",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "awd"
+  },
+  "fuel": "diesel",
+  "origin": {
+    "brand_country": "USA",
+    "production_country": null
+  },
+  "classification": {
     "category": "medio",
-    "brandOriginCountry": "USA",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

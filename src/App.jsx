@@ -107,27 +107,23 @@ const GAME_MODES = {
   LENDAS_DO_ASFALTO: "lendas-do-asfalto",
 };
 
-const CARRO_CERTO_CARS = cars.filter(
-  (car) => normalizeText(car.category) !== "legendary",
-);
+function isLegendsCar(car) {
+  return car.isLegend === true || car.isClassic === true;
+}
 
-const LENDAS_DO_ASFALTO_CARS = cars.filter((car) => {
-  const normalizedCategory = normalizeText(car.category);
-  return (
-    normalizedCategory === "classico" || normalizedCategory === "legendary"
-  );
-});
+const CARRO_CERTO_CARS = cars.filter((car) => !isLegendsCar(car));
+
+const LENDAS_DO_ASFALTO_CARS = cars.filter(isLegendsCar);
 
 const GAME_MODE_DETAILS = {
   [GAME_MODES.CARRO_CERTO]: {
     label: "Carro Certo",
     headline: "Modo base do Car Guess",
-    description:
-      "Jogue com a base principal do site. Veiculos legendary ficam ocultos automaticamente.",
+    description: "Aqui e jogo limpo. Nada de lendas, so carros reais do dia a dia.",
     emptyTitle: "Comece a jogar!",
     emptyDescription: "Busque um carro abaixo e faça sua primeira tentativa.",
-    helperLabel: "Lendarios ocultos",
-    helperValue: "Categoria legendary fora da rotação",
+    helperLabel: "Rotacao base",
+    helperValue: "Lendas e classicos ficam fora da rodada",
     searchPlaceholder: "Busque por marca, modelo ou ano...",
     noResultsLabel: "Nenhum carro encontrado",
   },
@@ -135,12 +131,12 @@ const GAME_MODE_DETAILS = {
     label: "Lendas do Asfalto",
     headline: "Desafio avancado",
     description:
-      "Somente carros classicos ou legendary. Sem filtro por marca para deixar a leitura mais crua.",
+      "Icones, classicos e maquinas lendarias. So entra quem fez historia no asfalto.",
     emptyTitle: "Entre nas lendas!",
     emptyDescription:
-      "Aqui so aparecem classicos e lendarios. Digite com precisao para encontrar sua aposta.",
-    helperLabel: "Filtro desativado",
-    helperValue: "Sem refinamento por marca neste modo",
+      "Aqui so aparecem carros marcados como lenda ou classico. Digite com precisao para encontrar sua aposta.",
+    helperLabel: "Sem filtro",
+    helperValue: "So o melhor do asfalto. Voce consegue adivinhar?",
     searchPlaceholder: "Busque uma lenda por marca, modelo ou ano...",
     noResultsLabel: "Nenhuma lenda encontrada",
   },
@@ -1277,8 +1273,26 @@ export default App;
 /* =======================
    UTILITY FUNCTIONS
 ======================= */
+function getCarBaseLabel(car) {
+  const labelParts = [
+    car.brand,
+    car.model,
+    car.generationOrChassis,
+    car.trim,
+  ].filter(Boolean);
+
+  const baseLabel = labelParts.join(" ");
+  return car.year ? `${baseLabel} (${car.year})` : baseLabel;
+}
+
+const CAR_BASE_LABEL_COUNTS = cars.reduce((counts, car) => {
+  const label = getCarBaseLabel(car);
+  counts.set(label, (counts.get(label) || 0) + 1);
+  return counts;
+}, new Map());
+
 function normalizeText(value) {
-  return value
+  return String(value ?? "")
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -1304,14 +1318,21 @@ function buildSearchIndex(car) {
 }
 
 function getCarLabel(car) {
-  const labelParts = [
-    car.brand,
-    car.model,
-    car.generationOrChassis,
-    car.trim,
+  const baseLabel = getCarBaseLabel(car);
+
+  if ((CAR_BASE_LABEL_COUNTS.get(baseLabel) || 0) <= 1) {
+    return baseLabel;
+  }
+
+  const variantParts = [
+    car.transmission,
+    car.bodyStyle,
+    car.traction,
+    car.engine?.displacement != null ? `${car.engine.displacement}` : null,
   ].filter(Boolean);
-  const baseLabel = labelParts.join(" ");
-  return car.year ? `${baseLabel} (${car.year})` : baseLabel;
+
+  const variantLabel = variantParts.join(" · ");
+  return variantLabel ? `${baseLabel} · ${variantLabel}` : `${baseLabel} · ${car.id}`;
 }
 
 function getSearchMatchScore(tokens, searchIndex) {

@@ -1,23 +1,55 @@
-[
-  {
-    "id": "chevrolet-celta-g2-2015-advantage-1.0",
-    "brand": "Chevrolet",
-    "model": "Celta",
-    "trim": "Advantage",
-    "generationOrChassis": "G2",
-    "bodyStyle": "hatch",
-    "year": 2015,
-    "engine": {
-      "displacement": "1.0",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "chevrolet-celta-g2-2015-advantage-1.0",
+  "brand": "Chevrolet",
+  "model": "Celta",
+  "trim": "Advantage",
+  "year": 2015,
+  "structure": {
+    "generation": "G2",
+    "platform": null,
+    "chassisCode": "G2"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "USA",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "USA",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

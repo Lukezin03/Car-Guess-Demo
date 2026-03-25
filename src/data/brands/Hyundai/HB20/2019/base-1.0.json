@@ -1,23 +1,55 @@
-[
-  {
-    "id": "hyundai-hb20-2019",
-    "brand": "Hyundai",
-    "model": "HB20",
-    "trim": "",
-    "generationOrChassis": "",
-    "bodyStyle": "hatch",
-    "year": 2019,
-    "engine": {
-      "displacement": "1.0",
-      "cylinders": 3,
-      "valves": 12,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "hyundai-hb20-2019",
+  "brand": "Hyundai",
+  "model": "HB20",
+  "trim": null,
+  "year": 2019,
+  "structure": {
+    "generation": null,
+    "platform": null,
+    "chassisCode": null
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1,
+    "cylinders": 3,
+    "valves": 12,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "South Korea",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "South Korea",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

@@ -1,23 +1,55 @@
-[
-  {
-    "id": "bmw-m3-g80-2020",
-    "brand": "BMW",
-    "model": "M3",
-    "trim": "Competition",
-    "generationOrChassis": "G80",
-    "bodyStyle": "sedan",
-    "year": 2020,
-    "engine": {
-      "displacement": "3.0",
-      "cylinders": 6,
-      "valves": 24,
-      "aspiration": "turbo"
-    },
-    "fuel": "gasolina",
-    "traction": "rwd",
-    "transmission": "auto",
+{
+  "id": "bmw-m3-g80-2020",
+  "brand": "BMW",
+  "model": "M3",
+  "trim": "Competition",
+  "year": 2020,
+  "structure": {
+    "generation": "G80",
+    "platform": null,
+    "chassisCode": "G80"
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 3,
+    "cylinders": 6,
+    "valves": 24,
+    "aspiration": "turbo",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "esportivo",
-    "brandOriginCountry": "Germany",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

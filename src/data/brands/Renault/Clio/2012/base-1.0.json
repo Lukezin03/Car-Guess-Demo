@@ -1,23 +1,55 @@
-[
-  {
-    "id": "renault-clio-2012",
-    "brand": "Renault",
-    "model": "Clio",
-    "trim": "",
-    "generationOrChassis": "X85",
-    "bodyStyle": "hatch",
-    "year": 2012,
-    "engine": {
-      "displacement": "1.0",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "renault-clio-2012",
+  "brand": "Renault",
+  "model": "Clio",
+  "trim": null,
+  "year": 2012,
+  "structure": {
+    "generation": "X85",
+    "platform": null,
+    "chassisCode": "X85"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "France",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "France",
-    "doors": 2
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

@@ -1,23 +1,55 @@
-[
-  {
-    "id": "bmw-i3-i01-2020",
-    "brand": "BMW",
-    "model": "i3",
-    "trim": "BEV Full",
-    "generationOrChassis": "I01",
-    "bodyStyle": "hatch",
-    "year": 2020,
-    "engine": {
-      "displacement": 0,
-      "cylinders": 0,
-      "valves": 0,
-      "aspiration": "electric"
-    },
-    "fuel": "electricidade",
-    "traction": "rwd",
-    "transmission": "auto",
+{
+  "id": "bmw-i3-i01-2020",
+  "brand": "BMW",
+  "model": "i3",
+  "trim": "BEV Full",
+  "year": 2020,
+  "structure": {
+    "generation": "I01",
+    "platform": null,
+    "chassisCode": "I01"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 0,
+    "cylinders": 0,
+    "valves": 0,
+    "aspiration": "electric",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "electricidade",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "luxo",
-    "brandOriginCountry": "Germany",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

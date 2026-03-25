@@ -1,23 +1,55 @@
-[
-  {
-    "id": "renault-sandero-g2-2016-stepway-1.6-16v",
-    "brand": "Renault",
-    "model": "Sandero",
-    "trim": "Stepway",
-    "generationOrChassis": "G2",
-    "bodyStyle": "hatch",
-    "year": 2016,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "renault-sandero-g2-2016-stepway-1.6-16v",
+  "brand": "Renault",
+  "model": "Sandero",
+  "trim": "Stepway",
+  "year": 2016,
+  "structure": {
+    "generation": "G2",
+    "platform": null,
+    "chassisCode": "G2"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "France",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "France",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

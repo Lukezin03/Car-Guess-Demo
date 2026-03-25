@@ -1,23 +1,55 @@
-[
-  {
-    "id": "chevrolet-opala-cupe-ss-1976",
-    "brand": "Chevrolet",
-    "model": "Opala Cupê SS",
-    "trim": "",
-    "generationOrChassis": "",
-    "bodyStyle": "coupe",
-    "year": 1976,
-    "engine": {
-      "displacement": "4.1",
-      "cylinders": 6,
-      "valves": 12,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "rwd",
-    "transmission": "manual",
+{
+  "id": "chevrolet-opala-cupe-ss-1976",
+  "brand": "Chevrolet",
+  "model": "Opala Cupê SS",
+  "trim": null,
+  "year": 1976,
+  "structure": {
+    "generation": null,
+    "platform": null,
+    "chassisCode": null
+  },
+  "body": {
+    "style": "coupe",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 4.1,
+    "cylinders": 6,
+    "valves": 12,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "USA",
+    "production_country": null
+  },
+  "classification": {
     "category": "clássico",
-    "brandOriginCountry": "USA",
-    "doors": 2
+    "rarity": null,
+    "isLegend": true,
+    "isClassic": true
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

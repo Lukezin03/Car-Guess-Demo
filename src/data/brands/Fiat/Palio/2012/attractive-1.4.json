@@ -1,23 +1,55 @@
-[
-  {
-    "id": "fiat-palio-g4-2012-attractive-1.4",
-    "brand": "Fiat",
-    "model": "Palio",
-    "trim": "Attractive",
-    "generationOrChassis": "G4",
-    "bodyStyle": "hatch",
-    "year": 2012,
-    "engine": {
-      "displacement": "1.4",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "fiat-palio-g4-2012-attractive-1.4",
+  "brand": "Fiat",
+  "model": "Palio",
+  "trim": "Attractive",
+  "year": 2012,
+  "structure": {
+    "generation": "G4",
+    "platform": null,
+    "chassisCode": "G4"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.4,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Italy",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Italy",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

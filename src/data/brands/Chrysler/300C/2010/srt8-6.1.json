@@ -1,23 +1,55 @@
-[
-  {
-    "id": "chrysler-300c-2010",
-    "brand": "Chrysler",
-    "model": "300C",
-    "trim": "SRT8",
-    "generationOrChassis": "1",
-    "bodyStyle": "sedan",
-    "year": 2010,
-    "engine": {
-      "displacement": "6.1",
-      "cylinders": 8,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "rwd",
-    "transmission": "auto",
+{
+  "id": "chrysler-300c-2010",
+  "brand": "Chrysler",
+  "model": "300C",
+  "trim": "SRT8",
+  "year": 2010,
+  "structure": {
+    "generation": "1",
+    "platform": null,
+    "chassisCode": "1"
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 6.1,
+    "cylinders": 8,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": null,
+    "production_country": null
+  },
+  "classification": {
     "category": "luxo",
-    "brandOriginCountry": "",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

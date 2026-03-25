@@ -1,23 +1,55 @@
-[
-  {
-    "id": "ford-escort-xr3-1984",
-    "brand": "Ford",
-    "model": "Escort XR3",
-    "trim": "",
-    "generationOrChassis": "",
-    "bodyStyle": "hatchback",
-    "year": 1984,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "ford-escort-xr3-1984",
+  "brand": "Ford",
+  "model": "Escort XR3",
+  "trim": null,
+  "year": 1984,
+  "structure": {
+    "generation": null,
+    "platform": null,
+    "chassisCode": null
+  },
+  "body": {
+    "style": "hatchback",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "USA",
+    "production_country": null
+  },
+  "classification": {
     "category": "clássico",
-    "brandOriginCountry": "USA",
-    "doors": 2
+    "rarity": null,
+    "isLegend": true,
+    "isClassic": true
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

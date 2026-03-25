@@ -1,23 +1,55 @@
-[
-  {
-    "id": "volkswagen-gol-g2-1996-1000-1.0",
-    "brand": "Volkswagen",
-    "model": "Gol",
-    "trim": "1000",
-    "generationOrChassis": "G2",
-    "bodyStyle": "hatch",
-    "year": 1996,
-    "engine": {
-      "displacement": "1.0",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "volkswagen-gol-g2-1996-1000-1.0",
+  "brand": "Volkswagen",
+  "model": "Gol",
+  "trim": "1000",
+  "year": 1996,
+  "structure": {
+    "generation": "G2",
+    "platform": null,
+    "chassisCode": "G2"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Germany",
-    "doors": 2
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

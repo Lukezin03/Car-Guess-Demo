@@ -1,23 +1,55 @@
-[
-  {
-    "id": "porsche-911-2026",
-    "brand": "Porsche",
-    "model": "911",
-    "trim": "",
-    "generationOrChassis": "8",
-    "bodyStyle": "coupe",
-    "year": 2026,
-    "engine": {
-      "displacement": "3.6",
-      "cylinders": 6,
-      "valves": 24,
-      "aspiration": "turbo"
-    },
-    "fuel": "gasolina",
-    "traction": "awd",
-    "transmission": "auto",
+{
+  "id": "porsche-911-2026",
+  "brand": "Porsche",
+  "model": "911",
+  "trim": null,
+  "year": 2026,
+  "structure": {
+    "generation": "8",
+    "platform": null,
+    "chassisCode": "8"
+  },
+  "body": {
+    "style": "coupe",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 3.6,
+    "cylinders": 6,
+    "valves": 24,
+    "aspiration": "turbo",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "awd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": null,
+    "production_country": null
+  },
+  "classification": {
     "category": "esportivo",
-    "brandOriginCountry": "",
-    "doors": 2
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

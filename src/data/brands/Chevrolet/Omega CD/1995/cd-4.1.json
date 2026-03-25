@@ -1,23 +1,55 @@
-[
-  {
-    "id": "chevrolet-omega-cd-1995",
-    "brand": "Chevrolet",
-    "model": "Omega CD",
-    "trim": "",
-    "generationOrChassis": "1",
-    "bodyStyle": "sedan",
-    "year": 1995,
-    "engine": {
-      "displacement": "4.1",
-      "cylinders": 6,
-      "valves": 12,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "rwd",
-    "transmission": "manual",
+{
+  "id": "chevrolet-omega-cd-1995",
+  "brand": "Chevrolet",
+  "model": "Omega CD",
+  "trim": null,
+  "year": 1995,
+  "structure": {
+    "generation": "1",
+    "platform": null,
+    "chassisCode": "1"
+  },
+  "body": {
+    "style": "sedan",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 4.1,
+    "cylinders": 6,
+    "valves": 12,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "USA",
+    "production_country": null
+  },
+  "classification": {
     "category": "clássico",
-    "brandOriginCountry": "USA",
-    "doors": 4
+    "rarity": null,
+    "isLegend": true,
+    "isClassic": true
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

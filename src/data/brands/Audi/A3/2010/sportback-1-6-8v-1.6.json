@@ -1,23 +1,55 @@
-[
-  {
-    "id": "audi-a3-8p-2010-sportback-1.6-8v",
-    "brand": "Audi",
-    "model": "A3",
-    "trim": "Sportback 1.6 8V",
-    "generationOrChassis": "8P",
-    "bodyStyle": "hatch",
-    "year": 2010,
-    "engine": {
-      "displacement": "1.6",
-      "cylinders": 4,
-      "valves": 8,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "audi-a3-8p-2010-sportback-1.6-8v",
+  "brand": "Audi",
+  "model": "A3",
+  "trim": "Sportback 1.6 8V",
+  "year": 2010,
+  "structure": {
+    "generation": "8P",
+    "platform": null,
+    "chassisCode": "8P"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.6,
+    "cylinders": 4,
+    "valves": 8,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "premium",
-    "brandOriginCountry": "Germany",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

@@ -1,23 +1,55 @@
-[
-  {
-    "id": "mazda-787b-1991",
-    "brand": "Mazda",
-    "model": "787B",
-    "trim": "",
-    "generationOrChassis": "",
-    "bodyStyle": "coupe",
-    "year": 1991,
-    "engine": {
-      "displacement": "2.6",
-      "cylinders": 4,
-      "valves": 0,
-      "aspiration": "aspirado"
-    },
-    "fuel": "gasolina",
-    "traction": "rwd",
-    "transmission": "manual",
+{
+  "id": "mazda-787b-1991",
+  "brand": "Mazda",
+  "model": "787B",
+  "trim": null,
+  "year": 1991,
+  "structure": {
+    "generation": null,
+    "platform": null,
+    "chassisCode": null
+  },
+  "body": {
+    "style": "coupe",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 2.6,
+    "cylinders": 4,
+    "valves": 0,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "Japan",
+    "production_country": null
+  },
+  "classification": {
     "category": "legendary",
-    "brandOriginCountry": "Japan",
-    "doors": 2
+    "rarity": null,
+    "isLegend": true,
+    "isClassic": true
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

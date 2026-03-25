@@ -1,23 +1,55 @@
-[
-  {
-    "id": "hyundai-tucson-2015",
-    "brand": "Hyundai",
-    "model": "Tucson",
-    "trim": "",
-    "generationOrChassis": "JM",
-    "bodyStyle": "suv",
-    "year": 2015,
-    "engine": {
-      "displacement": "2",
-      "cylinders": 4,
-      "valves": 16,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "auto",
+{
+  "id": "hyundai-tucson-2015",
+  "brand": "Hyundai",
+  "model": "Tucson",
+  "trim": null,
+  "year": 2015,
+  "structure": {
+    "generation": "JM",
+    "platform": null,
+    "chassisCode": "JM"
+  },
+  "body": {
+    "style": "suv",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 2,
+    "cylinders": 4,
+    "valves": 16,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "South Korea",
+    "production_country": null
+  },
+  "classification": {
     "category": "medio",
-    "brandOriginCountry": "South Korea",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

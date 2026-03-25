@@ -1,23 +1,55 @@
-[
-  {
-    "id": "fiat-argo-g1-2020-1.3",
-    "brand": "Fiat",
-    "model": "Argo",
-    "trim": "Base",
-    "generationOrChassis": "G1",
-    "bodyStyle": "hatch",
-    "year": 2020,
-    "engine": {
-      "displacement": "1.3",
-      "cylinders": 4,
-      "valves": 12,
-      "aspiration": "aspirado"
-    },
-    "fuel": "flex",
-    "traction": "fwd",
-    "transmission": "manual",
+{
+  "id": "fiat-argo-g1-2020-1.3",
+  "brand": "Fiat",
+  "model": "Argo",
+  "trim": "Base",
+  "year": 2020,
+  "structure": {
+    "generation": "G1",
+    "platform": null,
+    "chassisCode": "G1"
+  },
+  "body": {
+    "style": "hatch",
+    "doors": 4,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 1.3,
+    "cylinders": 4,
+    "valves": 12,
+    "aspiration": "aspirado",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "manual",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "fwd"
+  },
+  "fuel": "flex",
+  "origin": {
+    "brand_country": "Italy",
+    "production_country": null
+  },
+  "classification": {
     "category": "popular",
-    "brandOriginCountry": "Italy",
-    "doors": 4
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}

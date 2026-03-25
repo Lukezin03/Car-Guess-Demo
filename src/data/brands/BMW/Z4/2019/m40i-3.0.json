@@ -1,23 +1,55 @@
-[
-  {
-    "id": "bmw-z4-g29-2019",
-    "brand": "BMW",
-    "model": "Z4",
-    "trim": "M40i",
-    "generationOrChassis": "G29",
-    "bodyStyle": "coupe",
-    "year": 2019,
-    "engine": {
-      "displacement": "3.0",
-      "cylinders": 6,
-      "valves": 24,
-      "aspiration": "turbo"
-    },
-    "fuel": "gasolina",
-    "traction": "rwd",
-    "transmission": "auto",
+{
+  "id": "bmw-z4-g29-2019",
+  "brand": "BMW",
+  "model": "Z4",
+  "trim": "M40i",
+  "year": 2019,
+  "structure": {
+    "generation": "G29",
+    "platform": null,
+    "chassisCode": "G29"
+  },
+  "body": {
+    "style": "coupe",
+    "doors": 2,
+    "segment": null
+  },
+  "engine": {
+    "code": null,
+    "displacement": 3,
+    "cylinders": 6,
+    "valves": 24,
+    "aspiration": "turbo",
+    "power_hp": null,
+    "torque_nm": null
+  },
+  "transmission": {
+    "type": "auto",
+    "gears": null,
+    "code": null
+  },
+  "drivetrain": {
+    "traction": "rwd"
+  },
+  "fuel": "gasolina",
+  "origin": {
+    "brand_country": "Germany",
+    "production_country": null
+  },
+  "classification": {
     "category": "esportivo",
-    "brandOriginCountry": "Germany",
-    "doors": 2
+    "rarity": null,
+    "isLegend": false,
+    "isClassic": false
+  },
+  "gameData": {
+    "difficulty": null,
+    "whoAmI": [],
+    "riddles": [],
+    "hints": [],
+    "postWin": {
+      "shortStory": null,
+      "curiosities": []
+    }
   }
-]
+}
